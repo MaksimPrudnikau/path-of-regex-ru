@@ -2,11 +2,11 @@
 import { Router } from "@solidjs/router";
 import { FileRoutes } from "@solidjs/start/router";
 import "./app.css";
-import { Header } from "~/components";
+import { RootLayout } from "~/components/RootLayout";
 
 export default function App() {
   return (
-    <Router root={Header}>
+    <Router root={RootLayout}>
       <FileRoutes />
     </Router>
   );
