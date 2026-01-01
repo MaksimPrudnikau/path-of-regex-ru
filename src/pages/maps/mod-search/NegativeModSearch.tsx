@@ -11,11 +11,7 @@ export function NegativeModSearch({ mods }: Props) {
     mods.toSorted((a, b) => b.rank - a.rank),
   );
 
-  console.log(negativeMods().slice(0, 3));
-
   return (
-    <ModSearch mods={negativeMods()} title={"Мне не нужны эти модификаторы"}>
-      asdadadsad
-    </ModSearch>
+    <ModSearch mods={negativeMods()} title={"Мне не нужны эти модификаторы"} />
   );
 }

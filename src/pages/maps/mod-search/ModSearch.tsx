@@ -1,4 +1,4 @@
-import type { ParentProps } from "solid-js";
+import { createMemo, createSignal, type ParentProps, } from "solid-js";
 import type { MapMod } from "~/api";
 import { ModList } from "./ModList";
 import { SearchHeader } from "./SearchHeader";
@@ -10,13 +10,29 @@ type Props = {
 };
 
 export function ModSearch(props: ParentProps<Props>) {
+  const [search, setSearch] = createSignal("");
+
+  const filteredMods = createMemo(() => {
+    const predicate = containsMod(search());
+
+    return props.mods.filter(predicate);
+  });
+
   return (
     <div class={"col gap-3 items-start"}>
       <SearchHeader {...props} />
-      <SearchInput />
-      <ModList mods={props.mods} />
+      <SearchInput setValue={setSearch} value={search()} />
+      <ModList mods={filteredMods()} />
     </div>
   );
 }
 
-export type ModSearchProps = ParentProps<Props>;
+function containsMod(search: string) {
+  return (mod: MapMod) => {
+    if (search.length < 1) {
+      return true;
+    }
+
+    return mod.name.toLowerCase().includes(search);
+  };
+}
