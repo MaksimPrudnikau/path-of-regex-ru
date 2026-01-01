@@ -1,7 +1,7 @@
-import type { RouteDefinition } from "@solidjs/router";
+import { createAsyncStore, type RouteDefinition } from "@solidjs/router";
 import { getMapMods } from "~/api";
 import { ModsSearchTable, RegexArea, RegexHeader } from "~/pages/maps";
-import { MapsContextProvider } from "~/pages/maps/MapsContextProvider";
+import { MapContextProvider } from "~/pages/maps/context/MapsContext";
 
 export const route = {
   preload() {
@@ -10,13 +10,17 @@ export const route = {
 } satisfies RouteDefinition;
 
 export default function Maps() {
+  const mods = createAsyncStore(async () => getMapMods(), {
+    deferStream: true,
+  });
+
   return (
-    <MapsContextProvider>
+    <MapContextProvider>
       <main class="w-full p-4 space-y-2">
         <RegexHeader />
         <RegexArea />
-        <ModsSearchTable />
+        <ModsSearchTable mods={mods() ?? []} />
       </main>
-    </MapsContextProvider>
+    </MapContextProvider>
   );
 }

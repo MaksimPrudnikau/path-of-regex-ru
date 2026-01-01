@@ -1,4 +1,4 @@
-import { createMemo } from "solid-js";
+import { createMemo, createSignal } from "solid-js";
 import type { MapMod } from "~/api";
 import { ModSearch } from "./ModSearch";
 
@@ -7,7 +7,18 @@ type Props = {
 };
 
 export function PositiveModSearch({ mods }: Props) {
-  const sortedMods = createMemo(() => mods.toSorted((a, b) => a.rank - b.rank));
+  const [includeT17] = createSignal(false);
 
-  return <ModSearch mods={sortedMods()} title={"Мне нужны эти модификаторы"} />;
+  const filteredAndSortedMods = createMemo(() =>
+    mods
+      .filter(({ rank }) => (includeT17() ? true : rank < 700))
+      .toSorted((a, b) => a.rank - b.rank),
+  );
+
+  return (
+    <ModSearch
+      mods={filteredAndSortedMods()}
+      title={"Мне нужны эти модификаторы"}
+    />
+  );
 }

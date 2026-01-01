@@ -20,7 +20,7 @@ export function ModSearch(props: ParentProps<Props>) {
 
   return (
     <div class={"col gap-3 items-start"}>
-      <SearchHeader {...props} />
+      <SearchHeader title={props.title}>{props.children}</SearchHeader>
       <SearchInput setValue={setSearch} value={search()} />
       <ModList mods={filteredMods()} />
     </div>

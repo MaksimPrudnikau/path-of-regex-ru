@@ -7,11 +7,9 @@ type Props = {
 };
 
 export function NegativeModSearch({ mods }: Props) {
-  const negativeMods = createMemo(() =>
-    mods.toSorted((a, b) => b.rank - a.rank),
-  );
+  const sortedMods = createMemo(() => mods.toSorted((a, b) => b.rank - a.rank));
 
   return (
-    <ModSearch mods={negativeMods()} title={"Мне не нужны эти модификаторы"} />
+    <ModSearch mods={sortedMods()} title={"Мне не нужны эти модификаторы"} />
   );
 }

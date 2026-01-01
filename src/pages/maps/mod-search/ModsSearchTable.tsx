@@ -1,15 +1,20 @@
 import { createMemo, useContext } from "solid-js";
-import { MapsContext } from "~/pages/maps/MapsContextProvider";
+import type { MapMod } from "~/api";
+import { MapsContext } from "~/pages/maps/context/context";
 import { NegativeModSearch } from "./NegativeModSearch";
 import { PositiveModSearch } from "./PositiveModSearch";
 
-export function ModsSearchTable() {
+type Props = {
+  mods: MapMod[];
+};
+
+export function ModsSearchTable({ mods }: Props) {
   const {
-    store: { maps, includeT17 },
+    store: { includeT17 },
   } = useContext(MapsContext);
 
   const filteredMods = createMemo(() =>
-    maps.filter(({ rank }) => (includeT17 ? true : rank < 700)),
+    mods.filter(({ rank }) => (includeT17 ? true : rank < 700)),
   );
 
   return (
