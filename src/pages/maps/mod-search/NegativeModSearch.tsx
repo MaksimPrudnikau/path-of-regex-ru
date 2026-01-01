@@ -1,7 +1,21 @@
+import { createMemo } from "solid-js";
+import type { MapMod } from "~/api";
 import { ModSearch } from "./ModSearch";
 
-export function NegativeModSearch() {
+type Props = {
+  mods: MapMod[];
+};
+
+export function NegativeModSearch({ mods }: Props) {
+  const negativeMods = createMemo(() =>
+    mods.toSorted((a, b) => b.rank - a.rank),
+  );
+
+  console.log(negativeMods().slice(0, 3));
+
   return (
-    <ModSearch title={"Мне не нужны эти модификаторы"}>asdadadsad</ModSearch>
+    <ModSearch mods={negativeMods()} title={"Мне не нужны эти модификаторы"}>
+      asdadadsad
+    </ModSearch>
   );
 }

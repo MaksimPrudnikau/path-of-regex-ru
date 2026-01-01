@@ -1,0 +1,76 @@
+{
+  "version": "6",
+  "dialect": "sqlite",
+  "id": "6580b780-31f1-4f85-b20c-21d00727d4f6",
+  "prevId": "00000000-0000-0000-0000-000000000000",
+  "tables": {
+    "maps": {
+      "name": "maps",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": true
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "rank": {
+          "name": "rank",
+          "type": "real",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "regex": {
+          "name": "regex",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {
+        "maps_id_unique": {
+          "name": "maps_id_unique",
+          "columns": [
+            "id"
+          ],
+          "isUnique": true
+        },
+        "maps_name_unique": {
+          "name": "maps_name_unique",
+          "columns": [
+            "name"
+          ],
+          "isUnique": true
+        },
+        "maps_regex_unique": {
+          "name": "maps_regex_unique",
+          "columns": [
+            "regex"
+          ],
+          "isUnique": true
+        }
+      },
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    }
+  },
+  "enums": {},
+  "_meta": {
+    "schemas": {},
+    "tables": {},
+    "columns": {}
+  },
+  "internal": {
+    "indexes": {}
+  }
+}

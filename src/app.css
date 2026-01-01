@@ -61,11 +61,11 @@ h2 {
   }
 
   .row {
-    @apply flex gap-1 items-center justify-center
+    @apply flex gap-1
   }
 
   .col {
-    @apply flex flex-col gap-1 items-center justify-center
+    @apply flex flex-col gap-1
   }
 }
 
