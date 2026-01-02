@@ -1,16 +1,8 @@
-import { useContext } from "solid-js";
-import { MapsContext } from "~/pages/maps/context/context";
 import { GeneralMapRequirements } from "./GeneralMapRequirements";
 import { MapRarityFilters } from "./MapRarityFilters";
 import { WithExcludeMapFilter } from "./WithExcludeMapFilter";
 
 export function MapRequirements() {
-  const { store } = useContext(MapsContext);
-
-  const testForm = () => {
-    alert(JSON.stringify(store));
-  };
-
   return (
     <div class={"col gap-8"}>
       <GeneralMapRequirements />
@@ -43,10 +35,6 @@ export function MapRequirements() {
           Т17 карты
         </WithExcludeMapFilter>
       </div>
-
-      <button class={"btn btn-primary"} onClick={testForm} type={"button"}>
-        тест
-      </button>
     </div>
   );
 }

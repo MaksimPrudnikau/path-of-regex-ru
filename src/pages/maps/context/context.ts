@@ -36,6 +36,8 @@ export type MapsStore = {
   includeT17MapsType: IncludeMapType;
   negativeMods: Array<Pick<MapMod, "id" | "regex">>;
   positiveMods: Array<Pick<MapMod, "id" | "regex">>;
+
+  positiveModsType: "any" | "none";
 };
 
 type MapsContext = {
@@ -64,6 +66,7 @@ export const initialMapsContextState = (): MapsStore => ({
   negativeMods: [],
   packSize: {},
   positiveMods: [],
+  positiveModsType: "none",
   quality: {},
   quantity: {},
   rarity: {},
