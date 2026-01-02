@@ -12,15 +12,15 @@ export type ModRange = {
 };
 
 export type MapsStore = {
-  level?: ModRange; // Уровень карты
-  quality?: ModRange; // Качество карты
-  quantity?: ModRange; // Количество предметов
-  rarity?: ModRange; // Редкость предметов
-  packSize?: ModRange; // Размер групп монстров
+  level: ModRange; // Уровень карты
+  quality: ModRange; // Качество карты
+  quantity: ModRange; // Количество предметов
+  rarity: ModRange; // Редкость предметов
+  packSize: ModRange; // Размер групп монстров
 
-  currency?: ModRange;
-  scarab?: ModRange;
-  maps?: ModRange;
+  currency: ModRange;
+  scarab: ModRange;
+  maps: ModRange;
 
   includeNormalMaps?: boolean;
   includeMagicMaps?: boolean;

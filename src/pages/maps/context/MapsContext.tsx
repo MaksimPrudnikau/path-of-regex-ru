@@ -4,9 +4,17 @@ import { IncludeMapType, MapsContext, type MapsStore, } from "~/pages/maps/conte
 
 export function MapContextProvider(props: ParentProps) {
   const [store, updateStore] = createStore<MapsStore>({
+    currency: {},
     includeCorruptedMapsType: IncludeMapType.Include,
     includeMapsType: IncludeMapType.Include,
     includeUnidentifiedMapsType: IncludeMapType.Include,
+    level: {},
+    maps: {},
+    packSize: {},
+    quality: {},
+    quantity: {},
+    rarity: {},
+    scarab: {},
   });
 
   return (
