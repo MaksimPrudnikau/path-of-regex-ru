@@ -32,7 +32,11 @@ export function MapRequirements() {
           Оскверненные карты
         </WithExcludeMapFilter>
 
-        <CheckboxFilter model={"includeT17Mods"}>
+        <CheckboxFilter
+          color={"accent"}
+          model={"includeT17Mods"}
+          textColor={"accent"}
+        >
           Модификаторы Т17 карт
         </CheckboxFilter>
       </div>

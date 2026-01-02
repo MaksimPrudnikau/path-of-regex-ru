@@ -19,14 +19,14 @@ export function ExcludeFilter({ model }: Props) {
         checked={isChecked()}
         class="checkbox rounded-md"
         classList={{
-          "checkbox-primary": isChecked(),
+          "checkbox-secondary": isChecked(),
         }}
         onChange={() =>
           update(isChecked() ? IncludeMapType.Include : IncludeMapType.Exclude)
         }
         type="checkbox"
       />
-      <span>Исключить</span>
+      <span class={"text-secondary"}>Исключить</span>
     </div>
   );
 }
