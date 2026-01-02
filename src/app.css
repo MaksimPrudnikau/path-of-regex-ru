@@ -37,6 +37,7 @@
   --border: 1px;
   --depth: 0;
   --noise: 0;
+  --color-white: #ffffff;
 }
 
 body {

@@ -14,11 +14,23 @@ export function MapRarityFilters() {
 
   return (
     <WithExclude isChecked={isAnyChecked} model={"includeMapsType"}>
-      <CheckboxFilter model={"includeNormalMaps"}>Обычные карты</CheckboxFilter>
-      <CheckboxFilter model={"includeMagicMaps"}>
+      <CheckboxFilter color={"bg-white text-black"} model={"includeNormalMaps"}>
+        Обычные карты
+      </CheckboxFilter>
+      <CheckboxFilter
+        color={"bg-blue-600 text-white"}
+        model={"includeMagicMaps"}
+        textColor={"text-blue-400"}
+      >
         Магические карты
       </CheckboxFilter>
-      <CheckboxFilter model={"includeRareMaps"}>Редкие карты</CheckboxFilter>
+      <CheckboxFilter
+        color={"checkbox-warning"}
+        model={"includeRareMaps"}
+        textColor={"text-warning"}
+      >
+        Редкие карты
+      </CheckboxFilter>
     </WithExclude>
   );
 }

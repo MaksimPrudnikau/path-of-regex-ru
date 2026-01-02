@@ -6,22 +6,23 @@ import { MapRequirements } from "~/pages/maps/map-requirements/MapRequirements";
 
 export const route = {
   preload() {
-    void getMapMods();
+    getMapMods();
   },
 } satisfies RouteDefinition;
 
 export default function Maps() {
-  const mods = createAsyncStore(async () => getMapMods(), {
-    deferStream: true,
+  const mods = createAsyncStore(async () => {
+    const mods = await getMapMods();
+    return mods ?? [];
   });
 
   return (
     <MapContextProvider>
-      <main class="w-full p-4 space-y-2">
+      <main class="w-full p-4 space-y-4">
         <RegexHeader />
         <RegexArea />
         <MapRequirements />
-        <ModsSearchTable mods={mods() ?? []} />
+        <ModsSearchTable mods={mods} />
       </main>
     </MapContextProvider>
   );

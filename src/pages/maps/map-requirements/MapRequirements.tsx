@@ -1,6 +1,5 @@
 import { useContext } from "solid-js";
 import { MapsContext } from "~/pages/maps/context/context";
-import { CheckboxFilter } from "./CheckboxFilter";
 import { GeneralMapRequirements } from "./GeneralMapRequirements";
 import { MapRarityFilters } from "./MapRarityFilters";
 import { WithExcludeMapFilter } from "./WithExcludeMapFilter";
@@ -13,12 +12,13 @@ export function MapRequirements() {
   };
 
   return (
-    <div class={"col gap-3"}>
+    <div class={"col gap-8"}>
       <GeneralMapRequirements />
       <div class={"col gap-3"}>
         <MapRarityFilters />
 
         <WithExcludeMapFilter
+          color={"checkbox-neutral"}
           model={"includeUnidentifiedMaps"}
           typeModel={"includeUnidentifiedMapsType"}
         >
@@ -26,19 +26,22 @@ export function MapRequirements() {
         </WithExcludeMapFilter>
 
         <WithExcludeMapFilter
+          color={"bg-red-500/50"}
           model={"includeCorruptedMaps"}
+          textColor={"text-red-500/80"}
           typeModel={"includeCorruptedMapsType"}
         >
           Оскверненные карты
         </WithExcludeMapFilter>
 
-        <CheckboxFilter
-          color={"accent"}
-          model={"includeT17Mods"}
-          textColor={"accent"}
+        <WithExcludeMapFilter
+          color={"checkbox-accent"}
+          model={"includeT17Maps"}
+          textColor={"text-accent"}
+          typeModel={"includeT17MapsType"}
         >
-          Модификаторы Т17 карт
-        </CheckboxFilter>
+          Т17 карты
+        </WithExcludeMapFilter>
       </div>
 
       <button class={"btn btn-primary"} onClick={testForm} type={"button"}>

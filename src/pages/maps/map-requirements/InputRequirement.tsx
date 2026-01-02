@@ -16,8 +16,8 @@ export function InputRequirement({ model, children }: ParentProps<Props>) {
 
   return (
     <div class={"grid grid-cols-2 items-center gap-3"}>
-      <span>{children}</span>
-      <div class={"row gap-2"}>
+      <span class={"w-fit"}>{children}</span>
+      <div class={"row gap-2 w-fit"}>
         <NumberInput
           updateStore={(value) => update(value, "min")}
           value={() => store[model].min}

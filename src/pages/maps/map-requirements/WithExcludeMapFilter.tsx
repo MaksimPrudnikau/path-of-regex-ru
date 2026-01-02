@@ -7,18 +7,24 @@ import { WithExclude } from "./WithExclude";
 type Props = {
   model: KeyOfType<MapsStore, boolean | undefined>;
   typeModel: KeyOfType<MapsStore, IncludeMapType>;
+  color?: string;
+  textColor?: string;
 };
 
 export function WithExcludeMapFilter({
   model,
   typeModel,
   children,
+  color,
+  textColor,
 }: ParentProps<Props>) {
   const { store } = useContext(MapsContext);
 
   return (
-    <WithExclude isChecked={() => !!store[model]} model={typeModel}>
-      <CheckboxFilter model={model}>{children}</CheckboxFilter>
+    <WithExclude isChecked={() => store[model]} model={typeModel}>
+      <CheckboxFilter color={color} model={model} textColor={textColor}>
+        {children}
+      </CheckboxFilter>
     </WithExclude>
   );
 }

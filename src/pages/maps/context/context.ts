@@ -26,16 +26,14 @@ export type MapsStore = {
   includeNormalMaps: boolean;
   includeMagicMaps: boolean;
   includeRareMaps: boolean;
-
   includeCorruptedMaps: boolean;
   includeUnidentifiedMaps: boolean;
-
-  includeT17Mods: boolean;
+  includeT17Maps: boolean;
 
   includeMapsType: IncludeMapType;
   includeCorruptedMapsType: IncludeMapType;
   includeUnidentifiedMapsType: IncludeMapType;
-
+  includeT17MapsType: IncludeMapType;
   negativeMods: Array<Pick<MapMod, "id" | "regex">>;
   positiveMods: Array<Pick<MapMod, "id" | "regex">>;
 };
@@ -57,7 +55,8 @@ export const initialMapsContextState = (): MapsStore => ({
   includeMapsType: IncludeMapType.Include,
   includeNormalMaps: false,
   includeRareMaps: false,
-  includeT17Mods: false,
+  includeT17Maps: false,
+  includeT17MapsType: IncludeMapType.Include,
   includeUnidentifiedMaps: false,
   includeUnidentifiedMapsType: IncludeMapType.Include,
   level: {},

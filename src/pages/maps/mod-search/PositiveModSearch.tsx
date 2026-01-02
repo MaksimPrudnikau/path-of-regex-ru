@@ -1,16 +1,16 @@
-import { createMemo, createSignal } from "solid-js";
+import { type Accessor, createMemo, createSignal } from "solid-js";
 import type { MapMod } from "~/api";
 import { ModSearch } from "./ModSearch";
 
 type Props = {
-  mods: MapMod[];
+  mods: Accessor<MapMod[]>;
 };
 
 export function PositiveModSearch({ mods }: Props) {
   const [includeT17] = createSignal(false);
 
   const filteredAndSortedMods = createMemo(() =>
-    mods
+    mods()
       .filter(({ rank }) => (includeT17() ? true : rank < 700))
       .toSorted((a, b) => a.rank - b.rank),
   );
