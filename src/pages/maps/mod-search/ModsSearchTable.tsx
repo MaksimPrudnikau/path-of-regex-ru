@@ -9,12 +9,12 @@ type Props = {
 };
 
 export function ModsSearchTable({ mods }: Props) {
-  const {
-    store: { includeT17Maps },
-  } = useContext(MapsContext);
+  const { store } = useContext(MapsContext);
 
   const filteredMods = createMemo(() =>
-    (mods() ?? []).filter(({ rank }) => (includeT17Maps ? true : rank < 700)),
+    (mods() ?? []).filter(({ rank }) =>
+      store.includeT17Maps ? true : rank < 700,
+    ),
   );
 
   return (
