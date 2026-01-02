@@ -10,6 +10,10 @@ export function NegativeModSearch({ mods }: Props) {
   const sortedMods = createMemo(() => mods.toSorted((a, b) => b.rank - a.rank));
 
   return (
-    <ModSearch mods={sortedMods()} title={"Мне не нужны эти модификаторы"} />
+    <ModSearch
+      model={"negativeMods"}
+      mods={sortedMods()}
+      title={"Мне не нужны эти модификаторы"}
+    />
   );
 }

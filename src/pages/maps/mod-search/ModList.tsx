@@ -1,22 +1,25 @@
-import { createSignal, For } from "solid-js";
+import { For, useContext } from "solid-js";
 import type { MapMod } from "~/api";
+import { MapsContext } from "~/pages/maps/context/context";
 import { Mod } from "~/pages/maps/mod-search/Mod";
 
 type Props = {
   mods: MapMod[];
+  model: "negativeMods" | "positiveMods";
 };
 
 export function ModList(props: Props) {
-  const [selectedMods, setSelectedMods] = createSignal<number[]>([]);
+  const { store, updateStore } = useContext(MapsContext);
 
-  const addOrRemoveMod = (id: number) => {
-    setSelectedMods((prev) => {
-      const index = prev.indexOf(id);
-      if (index > -1) {
-        return prev.toSpliced(index, 1);
-      } else {
-        return [...prev, id];
-      }
+  const selectedMods = () => store[props.model];
+
+  const addOrRemoveMod = (mod: MapMod) => {
+    updateStore(props.model, (prev): Pick<MapMod, "id" | "regex">[] => {
+      const index = prev.findIndex((x) => x.id === mod.id);
+
+      return index > -1
+        ? prev.toSpliced(index, 1)
+        : [...prev, { id: mod.id, regex: mod.regex }];
     });
   };
 
@@ -24,13 +27,16 @@ export function ModList(props: Props) {
     <div class={"col gap-2"}>
       <For each={props.mods}>
         {(mod) => {
-          const isSelected = () => selectedMods().includes(mod.id);
+          const isSelected = () =>
+            selectedMods()
+              .map((x) => x.id)
+              .includes(mod.id);
 
           return (
             <Mod
               isSelected={isSelected}
               mod={mod}
-              onClick={() => addOrRemoveMod(mod.id)}
+              onClick={() => addOrRemoveMod(mod)}
             />
           );
         }}

@@ -3,7 +3,7 @@ import { RegexValue } from "./RegexValue";
 
 export function RegexArea() {
   return (
-    <div class={"bg-base-200 w-full py-2"}>
+    <div class={"p- col gap-3 bg-base-200 w-full p-5 rounded-2xl"}>
       <RegexValue />
       <RegexAreaButtons />
     </div>

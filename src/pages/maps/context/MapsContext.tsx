@@ -1,21 +1,11 @@
 import type { ParentProps } from "solid-js";
 import { createStore } from "solid-js/store";
-import { IncludeMapType, MapsContext, type MapsStore, } from "~/pages/maps/context/context";
+import { initialMapsContextState, MapsContext, type MapsStore, } from "~/pages/maps/context/context";
 
 export function MapContextProvider(props: ParentProps) {
-  const [store, updateStore] = createStore<MapsStore>({
-    currency: {},
-    includeCorruptedMapsType: IncludeMapType.Include,
-    includeMapsType: IncludeMapType.Include,
-    includeUnidentifiedMapsType: IncludeMapType.Include,
-    level: {},
-    maps: {},
-    packSize: {},
-    quality: {},
-    quantity: {},
-    rarity: {},
-    scarab: {},
-  });
+  const [store, updateStore] = createStore<MapsStore>(
+    initialMapsContextState(),
+  );
 
   return (
     <MapsContext.Provider value={{ store, updateStore }}>

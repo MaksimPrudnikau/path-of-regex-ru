@@ -17,6 +17,7 @@ export function PositiveModSearch({ mods }: Props) {
 
   return (
     <ModSearch
+      model={"positiveMods"}
       mods={filteredAndSortedMods()}
       title={"Мне нужны эти модификаторы"}
     />

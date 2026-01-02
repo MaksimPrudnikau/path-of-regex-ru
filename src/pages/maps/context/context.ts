@@ -1,5 +1,6 @@
 import { createContext } from "solid-js";
 import type { SetStoreFunction } from "solid-js/store";
+import type { MapMod } from "~/api";
 
 export enum IncludeMapType {
   Include,
@@ -22,18 +23,21 @@ export type MapsStore = {
   scarab: ModRange;
   maps: ModRange;
 
-  includeNormalMaps?: boolean;
-  includeMagicMaps?: boolean;
-  includeRareMaps?: boolean;
+  includeNormalMaps: boolean;
+  includeMagicMaps: boolean;
+  includeRareMaps: boolean;
 
-  includeCorruptedMaps?: boolean;
-  includeUnidentifiedMaps?: boolean;
+  includeCorruptedMaps: boolean;
+  includeUnidentifiedMaps: boolean;
 
-  includeT17Mods?: boolean;
+  includeT17Mods: boolean;
 
   includeMapsType: IncludeMapType;
   includeCorruptedMapsType: IncludeMapType;
   includeUnidentifiedMapsType: IncludeMapType;
+
+  negativeMods: Array<Pick<MapMod, "id" | "regex">>;
+  positiveMods: Array<Pick<MapMod, "id" | "regex">>;
 };
 
 type MapsContext = {
@@ -44,3 +48,25 @@ type MapsContext = {
 export const MapsContext = createContext<MapsContext>(
   {} as unknown as MapsContext,
 );
+
+export const initialMapsContextState = (): MapsStore => ({
+  currency: {},
+  includeCorruptedMaps: false,
+  includeCorruptedMapsType: IncludeMapType.Include,
+  includeMagicMaps: false,
+  includeMapsType: IncludeMapType.Include,
+  includeNormalMaps: false,
+  includeRareMaps: false,
+  includeT17Mods: false,
+  includeUnidentifiedMaps: false,
+  includeUnidentifiedMapsType: IncludeMapType.Include,
+  level: {},
+  maps: {},
+  negativeMods: [],
+  packSize: {},
+  positiveMods: [],
+  quality: {},
+  quantity: {},
+  rarity: {},
+  scarab: {},
+});
