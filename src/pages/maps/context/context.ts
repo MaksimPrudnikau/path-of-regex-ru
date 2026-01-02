@@ -1,13 +1,46 @@
 import { createContext } from "solid-js";
 import type { SetStoreFunction } from "solid-js/store";
 
-type Store = {
-  includeT17: boolean;
+export enum IncludeMapType {
+  Include,
+  Exclude,
+}
+
+export type ModRange = {
+  min?: number;
+  max?: number;
 };
 
-type Context = {
-  store: Store;
-  updateStore: SetStoreFunction<Store>;
+export type MapsStore = {
+  level?: ModRange; // Уровень карты
+  quality?: ModRange; // Качество карты
+  quantity?: ModRange; // Количество предметов
+  rarity?: ModRange; // Редкость предметов
+  packSize?: ModRange; // Размер групп монстров
+
+  currency?: ModRange;
+  scarab?: ModRange;
+  maps?: ModRange;
+
+  includeNormalMaps?: boolean;
+  includeMagicMaps?: boolean;
+  includeRareMaps?: boolean;
+
+  includeCorruptedMaps?: boolean;
+  includeUnidentifiedMaps?: boolean;
+
+  includeT17Mods?: boolean;
+
+  includeMapsType: IncludeMapType;
+  includeCorruptedMapsType: IncludeMapType;
+  includeUnidentifiedMapsType: IncludeMapType;
 };
 
-export const MapsContext = createContext<Context>({} as unknown as Context);
+type MapsContext = {
+  store: MapsStore;
+  updateStore: SetStoreFunction<MapsStore>;
+};
+
+export const MapsContext = createContext<MapsContext>(
+  {} as unknown as MapsContext,
+);
