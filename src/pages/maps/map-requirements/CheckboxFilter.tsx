@@ -18,7 +18,7 @@ export function CheckboxFilter({ model, children }: ParentProps<Props>) {
       <input
         checked={store[model]}
         class="checkbox rounded-md"
-        classList={{ "checkbox-primary": store[model] }}
+        classList={{ "checkbox-primary": !!store[model] }}
         onChange={handleChange}
         type="checkbox"
       />
