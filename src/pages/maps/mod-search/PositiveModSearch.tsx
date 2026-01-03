@@ -1,4 +1,4 @@
-import { type Accessor, createMemo, createSignal, useContext } from "solid-js";
+import { type Accessor, createMemo, useContext } from "solid-js";
 import type { MapMod } from "~/api";
 import { MapsContext } from "~/pages/maps/context/context";
 import { ModSearch } from "./ModSearch";
@@ -9,12 +9,9 @@ type Props = {
 
 export function PositiveModSearch({ mods }: Props) {
   const { store, updateStore } = useContext(MapsContext);
-  const [includeT17] = createSignal(false);
 
   const filteredAndSortedMods = createMemo(() =>
-    mods()
-      .filter(({ rank }) => (includeT17() ? true : rank < 700))
-      .toSorted((a, b) => a.rank - b.rank),
+    mods().toSorted((a, b) => a.rank - b.rank),
   );
 
   const positiveModsType = () => store.positiveModsType;
