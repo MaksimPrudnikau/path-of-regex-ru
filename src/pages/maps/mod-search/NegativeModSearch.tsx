@@ -14,7 +14,7 @@ export function NegativeModSearch({ mods }: Props) {
   return (
     <ModSearch
       model={"negativeMods"}
-      mods={sortedMods()}
+      mods={sortedMods}
       title={"Мне не нужны эти модификаторы"}
     />
   );
