@@ -7,6 +7,10 @@ export enum IncludeMapType {
   Exclude,
 }
 
+export enum PositiveModsType {
+  Any,
+  None,
+}
 export type ModRange = {
   min?: number;
   max?: number;
@@ -37,7 +41,7 @@ export type MapsStore = {
   negativeMods: Array<Pick<MapMod, "id" | "regex">>;
   positiveMods: Array<Pick<MapMod, "id" | "regex">>;
 
-  positiveModsType: "any" | "none";
+  positiveModsType: PositiveModsType;
 };
 
 type MapsContext = {
@@ -66,7 +70,7 @@ export const initialMapsContextState = (): MapsStore => ({
   negativeMods: [],
   packSize: {},
   positiveMods: [],
-  positiveModsType: "none",
+  positiveModsType: PositiveModsType.Any,
   quality: {},
   quantity: {},
   rarity: {},

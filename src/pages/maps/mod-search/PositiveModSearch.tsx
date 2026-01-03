@@ -1,6 +1,6 @@
 import { type Accessor, createMemo, useContext } from "solid-js";
 import type { MapMod } from "~/api";
-import { MapsContext } from "~/pages/maps/context/context";
+import { MapsContext, PositiveModsType } from "~/pages/maps/context/context";
 import { ModSearch } from "./ModSearch";
 
 type Props = {
@@ -25,21 +25,25 @@ export function PositiveModSearch({ mods }: Props) {
       <div class={"row gap-3 center"}>
         <div class={"row gap-3"}>
           <input
-            checked={positiveModsType() === "none"}
-            class={`checkbox checkbox-primary rounded-md`}
-            onChange={() => updateStore("positiveModsType", "none")}
-            type="checkbox"
+            checked={positiveModsType() === PositiveModsType.Any}
+            class={`radio radio-primary rounded-md`}
+            onChange={() =>
+              updateStore("positiveModsType", PositiveModsType.Any)
+            }
+            type="radio"
           />
-          <span>Все</span>
+          <span>Любой</span>
         </div>
         <div class={"row gap-3"}>
           <input
-            checked={positiveModsType() === "any"}
-            class={`checkbox checkbox-primary rounded-md`}
-            onChange={() => updateStore("positiveModsType", "any")}
-            type="checkbox"
+            checked={positiveModsType() === PositiveModsType.None}
+            class={`radio radio-primary rounded-md`}
+            onChange={() =>
+              updateStore("positiveModsType", PositiveModsType.None)
+            }
+            type="radio"
           />
-          <span>Любой</span>
+          <span>Все</span>
         </div>
       </div>
     </ModSearch>
