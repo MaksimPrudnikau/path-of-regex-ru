@@ -1,5 +1,5 @@
 import { IncludeMapType, type MapsStore, type ModRange, PositiveModsType, } from "~/pages/maps/context/context";
-import { type Config, generateModRangeRegex, } from "./regex-builders/modRange.builder";
+import { type Config, generateModRangeRegex, } from "~/pages/maps/regex-area/regex-builders/modRange.builder";
 
 export const buildRegex = (store: MapsStore): string => {
   const {
@@ -45,13 +45,13 @@ export const buildRegex = (store: MapsStore): string => {
 
   const addIfHas = numberArrayUpdater(resultArray);
 
-  addIfHas(level, "рты", { maxAllowed: 17 });
-  addIfHas(quality, "во", { maxAllowed: 20 });
-  addIfHas(packSize, "ров");
-  addIfHas(rarity, "тов");
-  addIfHas(moreCurrency, "юты");
-  addIfHas(moreMaps, "арт");
-  addIfHas(moreScarab, "арт");
+  addIfHas(level, "рты: {0}$", { maxAllowed: 17 });
+  addIfHas(quality, "во: {0}$", { maxAllowed: 20 });
+  addIfHas(packSize, "ров: \\+{0}%");
+  addIfHas(rarity, "тов: \\+{0}%");
+  addIfHas(moreCurrency, "юты: \\+{0}%");
+  addIfHas(moreMaps, "арт: \\+{0}%");
+  addIfHas(moreScarab, "арт: \\+{0}%");
 
   const includeMapsRegex = [
     [includeNormalMaps, "об"],
@@ -77,18 +77,17 @@ function hasRange(range: ModRange): boolean {
 }
 
 function numberArrayUpdater(array: string[]) {
-  return (range: ModRange, prefix: string, config?: Config) => {
+  return (range: ModRange, format: string, config?: Config) => {
     if (!hasRange(range)) {
       return;
     }
 
     const regex = generateModRangeRegex(range, {
       maxAllowed: config?.maxAllowed,
-      minAllowed: config?.minAllowed ?? 0,
+      minAllowed: config?.minAllowed,
     });
-    const result = `${prefix}: (${regex})$`;
 
-    array.push(result);
+    array.push(stringFormat(format, regex));
   };
 }
 
@@ -100,4 +99,8 @@ function checkboxArrayUpdated(array: string[]) {
 
     array.push(type === IncludeMapType.Exclude ? `!${regex}` : regex);
   };
+}
+
+function stringFormat(str: string, ...args: string[]) {
+  return str.replace(/{(\d+)}/g, (_, index) => args[index] || "");
 }
