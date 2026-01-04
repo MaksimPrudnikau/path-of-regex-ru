@@ -32,9 +32,9 @@ export function PositiveModSearch({ mods }: Props) {
           <input
             checked={positiveModsType() === PositiveModsType.Any}
             class={`radio radio-primary rounded-md`}
-            onChange={() =>
-              updateStore("positiveModsType", PositiveModsType.Any)
-            }
+            onChange={() => {
+              updateStore("positiveModsType", () => PositiveModsType.Any);
+            }}
             type="radio"
           />
           <span>Любой</span>
@@ -43,9 +43,9 @@ export function PositiveModSearch({ mods }: Props) {
           <input
             checked={positiveModsType() === PositiveModsType.None}
             class={`radio radio-primary rounded-md`}
-            onChange={() =>
-              updateStore("positiveModsType", PositiveModsType.None)
-            }
+            onChange={() => {
+              updateStore("positiveModsType", () => PositiveModsType.None);
+            }}
             type="radio"
           />
           <span>Все</span>

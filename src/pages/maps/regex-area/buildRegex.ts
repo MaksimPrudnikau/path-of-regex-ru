@@ -1,4 +1,4 @@
-import { IncludeMapType, type MapsStore, type ModRange, } from "~/pages/maps/context/context";
+import { IncludeMapType, type MapsStore, type ModRange, PositiveModsType, } from "~/pages/maps/context/context";
 import { type Config, generateModRangeRegex, } from "./regex-builders/modRange.builder";
 
 export const buildRegex = (store: MapsStore): string => {
@@ -25,8 +25,12 @@ export const buildRegex = (store: MapsStore): string => {
 
     includeCorruptedMaps,
     includeCorruptedMapsType,
+    positiveModsType,
   } = store;
-  const positive = positiveMods.map((x) => x.regex).join("|");
+  const positive = positiveMods
+    .map((x) => x.regex)
+    .join(positiveModsType === PositiveModsType.Any ? "|" : `" "`);
+
   const negative = negativeMods.map((x) => x.regex).join("|");
 
   const resultArray: string[] = [];
