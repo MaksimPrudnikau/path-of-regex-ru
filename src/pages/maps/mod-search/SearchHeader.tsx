@@ -1,7 +1,7 @@
-import type { ParentProps } from "solid-js";
+import type { JSXElement, ParentProps } from "solid-js";
 
 type Props = {
-  title?: string;
+  title?: string | JSXElement;
 };
 
 export function SearchHeader(props: ParentProps<Props>) {

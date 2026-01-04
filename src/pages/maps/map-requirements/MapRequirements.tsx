@@ -25,15 +25,6 @@ export function MapRequirements() {
         >
           Оскверненные карты
         </WithExcludeMapFilter>
-
-        <WithExcludeMapFilter
-          color={"checkbox-accent"}
-          model={"includeT17Maps"}
-          textColor={"text-accent"}
-          typeModel={"includeT17MapsType"}
-        >
-          Т17 карты
-        </WithExcludeMapFilter>
       </div>
     </div>
   );

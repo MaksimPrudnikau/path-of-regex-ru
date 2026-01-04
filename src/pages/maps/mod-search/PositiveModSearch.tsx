@@ -20,7 +20,12 @@ export function PositiveModSearch({ mods }: Props) {
     <ModSearch
       model={"positiveMods"}
       mods={filteredAndSortedMods}
-      title={"Мне нужны эти модификаторы"}
+      title={
+        <>
+          <span class={"font-bold uppercase text-primary"}>Включить </span>
+          <span>эти модификаторы</span>
+        </>
+      }
     >
       <div class={"row gap-3 center"}>
         <div class={"row gap-3"}>

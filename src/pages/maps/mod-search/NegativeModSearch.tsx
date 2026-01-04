@@ -15,7 +15,12 @@ export function NegativeModSearch({ mods }: Props) {
     <ModSearch
       model={"negativeMods"}
       mods={sortedMods}
-      title={"Мне не нужны эти модификаторы"}
+      title={
+        <>
+          <span class={"font-bold uppercase text-red-500/80"}>исключить </span>
+          <span>эти модификаторы</span>
+        </>
+      }
     />
   );
 }

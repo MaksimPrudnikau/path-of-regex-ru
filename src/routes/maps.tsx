@@ -11,10 +11,9 @@ export const route = {
 } satisfies RouteDefinition;
 
 export default function Maps() {
-  const mods = createAsyncStore(async () => {
-    const mods = await getMapMods();
-    return mods ?? [];
-  });
+  const mods = createAsyncStore(async () => getMapMods());
+
+  const modsAccessor = () => mods() ?? [];
 
   return (
     <MapContextProvider>
@@ -22,7 +21,7 @@ export default function Maps() {
         <RegexHeader />
         <RegexArea />
         <MapRequirements />
-        <ModsSearchTable mods={mods} />
+        <ModsSearchTable mods={modsAccessor} />
       </main>
     </MapContextProvider>
   );

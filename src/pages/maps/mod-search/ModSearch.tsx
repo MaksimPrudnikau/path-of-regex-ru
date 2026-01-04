@@ -1,11 +1,11 @@
-import { type Accessor, createMemo, createSignal, type ParentProps, } from "solid-js";
+import { type Accessor, createMemo, createSignal, type JSXElement, type ParentProps, } from "solid-js";
 import type { MapMod } from "~/api";
 import { ModList } from "./ModList";
 import { SearchHeader } from "./SearchHeader";
 import { SearchInput } from "./SearchInput";
 
 type Props = {
-  title?: string;
+  title?: string | JSXElement;
   mods: Accessor<MapMod[]>;
   model: "negativeMods" | "positiveMods";
 };

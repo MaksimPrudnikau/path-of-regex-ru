@@ -25,9 +25,6 @@ export const buildRegex = (store: MapsStore): string => {
 
     includeCorruptedMaps,
     includeCorruptedMapsType,
-
-    includeT17Maps,
-    includeT17MapsType,
   } = store;
   const positive = positiveMods.map((x) => x.regex).join("|");
   const negative = negativeMods.map((x) => x.regex).join("|");
