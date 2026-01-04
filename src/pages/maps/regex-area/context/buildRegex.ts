@@ -73,8 +73,8 @@ export const buildRegex = (store: MapsStore): string => {
     includeMapsType,
     `ть: ${includeMapsRegexArr.length > 1 ? `(${includeMapsRegex})` : `${includeMapsRegex}`}`,
   );
-  addCheckbox(includeUnidentifiedMaps, includeUnidentifiedMapsType, "ано");
-  addCheckbox(includeCorruptedMaps, includeCorruptedMapsType, "ено");
+  addCheckbox(includeUnidentifiedMaps, includeUnidentifiedMapsType, "неоп");
+  addCheckbox(includeCorruptedMaps, includeCorruptedMapsType, "оскв");
 
   return resultArray.map((reg) => `"${reg}"`).join(" ");
 };
