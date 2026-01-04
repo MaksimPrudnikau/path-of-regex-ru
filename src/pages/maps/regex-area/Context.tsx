@@ -14,6 +14,7 @@ import { buildRegex } from "~/pages/maps/regex-area/buildRegex";
 type Store = {
   copied: Accessor<boolean>;
   autoCopy: Accessor<boolean>;
+  errorMessage: Accessor<string | undefined>;
 };
 
 type Context = {
@@ -27,6 +28,7 @@ export const RegexAreaContext = createContext<Context>(
 
 export function RegexAreaContextProvider(props: ParentProps) {
   const { store: mapsStore } = useContext(MapsContext);
+  const [errorMessage, setErrorMessage] = createSignal<string>();
 
   const [store, updateStore] = createStore({
     autoCopy: false,
@@ -43,8 +45,13 @@ export function RegexAreaContextProvider(props: ParentProps) {
     try {
       const newRegex = buildRegex(mapsStore);
       setPrevRegex(newRegex);
+      setErrorMessage();
       return newRegex;
-    } catch {
+    } catch (e) {
+      if (e instanceof Error) {
+        setErrorMessage(e.message);
+      }
+
       return prevRegex();
     }
   });
@@ -63,6 +70,7 @@ export function RegexAreaContextProvider(props: ParentProps) {
       value={{
         autoCopy: () => store.autoCopy,
         copied: () => store.copied,
+        errorMessage,
         regex,
         updateStore,
       }}

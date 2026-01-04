@@ -10,7 +10,12 @@ export function CopyButton() {
   };
 
   return (
-    <button class={"btn btn-primary"} onClick={copyToClipboard} type={"button"}>
+    <button
+      class={"btn btn-primary"}
+      disabled={!!context.errorMessage()}
+      onClick={copyToClipboard}
+      type={"button"}
+    >
       Скопировать
     </button>
   );
