@@ -1,8 +1,18 @@
 import type { MapsStore, ModRange } from "~/pages/maps/context/context";
-import { type Config, generateModRangeRegex } from "./regex-builders/deepseek";
+import { type Config, generateModRangeRegex } from "./regex-builders/modRange.builder";
 
 export const buildRegex = (store: MapsStore): string => {
-  const { positiveMods, negativeMods, level, quality } = store;
+  const {
+    positiveMods,
+    negativeMods,
+    level,
+    quality,
+    packSize,
+    rarity,
+    moreCurrency,
+    moreMaps,
+    moreScarab,
+  } = store;
   const positive = positiveMods.map((x) => x.regex).join("|");
   const negative = negativeMods.map((x) => x.regex).join("|");
 
@@ -18,8 +28,13 @@ export const buildRegex = (store: MapsStore): string => {
 
   const addIfHas = buildArrayUpdater(resultArray);
 
-  addIfHas(level, "ы: ({0})", { maxAllowed: 17 });
+  addIfHas(level, "рты: ({0})", { maxAllowed: 17 });
   addIfHas(quality, "во: ({0})", { maxAllowed: 20 });
+  addIfHas(packSize, "ров: ({0})");
+  addIfHas(rarity, "тов: ({0})");
+  addIfHas(moreCurrency, "юты: ({0})");
+  addIfHas(moreMaps, "арт: ({0})");
+  addIfHas(moreScarab, "арт: ({0})");
 
   return resultArray.map((reg) => `"${reg}$"`).join(" ");
 };

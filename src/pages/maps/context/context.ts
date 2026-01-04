@@ -23,9 +23,9 @@ export type MapsStore = {
   rarity: ModRange; // Редкость предметов
   packSize: ModRange; // Размер групп монстров
 
-  currency: ModRange;
-  scarab: ModRange;
-  maps: ModRange;
+  moreCurrency: ModRange;
+  moreScarab: ModRange;
+  moreMaps: ModRange;
 
   includeNormalMaps: boolean;
   includeMagicMaps: boolean;
@@ -54,7 +54,6 @@ export const MapsContext = createContext<MapsContext>(
 );
 
 export const initialMapsContextState = (): MapsStore => ({
-  currency: {},
   includeCorruptedMaps: false,
   includeCorruptedMapsType: IncludeMapType.Include,
   includeMagicMaps: false,
@@ -66,7 +65,9 @@ export const initialMapsContextState = (): MapsStore => ({
   includeUnidentifiedMaps: false,
   includeUnidentifiedMapsType: IncludeMapType.Include,
   level: {},
-  maps: {},
+  moreCurrency: {},
+  moreMaps: {},
+  moreScarab: {},
   negativeMods: [],
   packSize: {},
   positiveMods: [],
@@ -74,5 +75,4 @@ export const initialMapsContextState = (): MapsStore => ({
   quality: {},
   quantity: {},
   rarity: {},
-  scarab: {},
 });
