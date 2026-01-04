@@ -1,7 +1,7 @@
 import { createAsyncStore, type RouteDefinition } from "@solidjs/router";
 import { getMapMods } from "~/api";
 import { HeaderWithProfile, ModsSearchTable, RegexArea } from "~/pages/maps";
-import { MapContextProvider } from "~/pages/maps/context/MapsContext";
+import { MapContextProvider } from "~/pages/maps/context";
 import { FilterPanel } from "~/pages/maps/filter-panel/FilterPanel";
 
 export const route = {

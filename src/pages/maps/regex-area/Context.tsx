@@ -1,11 +1,11 @@
 import {
-  type Accessor,
-  createContext,
-  createEffect,
-  createMemo,
-  createSignal,
-  type ParentProps,
-  useContext,
+    type Accessor,
+    createContext,
+    createEffect,
+    createMemo,
+    createSignal,
+    type ParentProps,
+    useContext,
 } from "solid-js";
 import { createStore, type SetStoreFunction } from "solid-js/store";
 import { MapsContext } from "~/pages/maps/context/context";

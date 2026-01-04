@@ -1,6 +1,6 @@
 import { type ParentProps, useContext } from "solid-js";
 import type { KeyOfType } from "~/lib/key-of-type";
-import { type IncludeMapType, MapsContext, type MapsStore, } from "~/pages/maps/context/context";
+import { type IncludeMapType, MapsContext, type MapsStore, } from "~/pages/maps/context";
 import { CheckboxFilter } from "./CheckboxFilter";
 import { ExcludeToggle } from "./ExcludeToggle";
 
