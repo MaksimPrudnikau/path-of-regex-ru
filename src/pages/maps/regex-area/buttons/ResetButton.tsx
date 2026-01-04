@@ -8,7 +8,10 @@ export function ResetButton() {
 
   const resetRegex = () => {
     updateMapsStore(initialMapsContextState());
+
     updateRegexAreaStore("copied", false);
+
+    resetSearchModInputs();
   };
 
   return (
@@ -16,4 +19,14 @@ export function ResetButton() {
       Сбросить
     </button>
   );
+}
+
+function resetSearchModInputs() {
+  document
+    .querySelectorAll<HTMLInputElement>("#search-mod-input")
+    .forEach((input: HTMLInputElement) => {
+      input.value = "";
+      const changeEvent = new Event("input", { bubbles: true, cancelable: true });
+      input.dispatchEvent(changeEvent);
+    });
 }

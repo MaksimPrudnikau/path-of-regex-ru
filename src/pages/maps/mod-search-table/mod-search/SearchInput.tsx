@@ -9,6 +9,7 @@ export function SearchInput(props: Props) {
   return (
     <label class="input">
       <input
+        id={"search-mod-input"}
         onInput={(e) => {
           props.setValue(e.target.value);
         }}
