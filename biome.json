@@ -17,11 +17,13 @@
     }
   },
   "files": {
-    "ignoreUnknown": false
+    "ignoreUnknown": false,
+    "includes": ["**", "!!**/output", "!!**/idea", "!!**/vinxi", "!!**/app.css"]
   },
   "formatter": {
     "enabled": true,
-    "indentStyle": "space"
+    "indentStyle": "space",
+    "lineWidth": 90
   },
   "javascript": {
     "formatter": {

@@ -1,6 +1,6 @@
 import { type ParentProps, useContext } from "solid-js";
 import type { KeyOfType } from "~/lib/key-of-type";
-import { MapsContext, type MapsStore, type ModRange, } from "../../../context/context";
+import { MapsContext, type MapsStore, type ModRange } from "../../../context/context";
 import { NumberInput } from "./NumberInput";
 
 type Props = {
@@ -9,12 +9,7 @@ type Props = {
   max?: number;
 };
 
-export function RangeInput({
-  model,
-  children,
-  min = 0,
-  max,
-}: ParentProps<Props>) {
+export function RangeInput({ model, children, min = 0, max }: ParentProps<Props>) {
   const { updateStore, store } = useContext(MapsContext);
 
   const update = (value: number | undefined, fieldName: keyof ModRange) => {

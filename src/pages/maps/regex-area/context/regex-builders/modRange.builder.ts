@@ -6,10 +6,7 @@ export type Config = {
   maxAllowed?: number;
 };
 
-export function generateModRangeRegex(
-  range: ModRange,
-  config?: Config,
-): string {
+export function generateModRangeRegex(range: ModRange, config?: Config): string {
   let { min, max } = range;
   min ??= 1;
   max ??= 999;

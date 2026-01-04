@@ -1,5 +1,5 @@
 import Database from "better-sqlite3";
-import { type BetterSQLite3Database, drizzle, } from "drizzle-orm/better-sqlite3";
+import { type BetterSQLite3Database, drizzle } from "drizzle-orm/better-sqlite3";
 
 const sqlite = new Database("./drizzle/db.sqlite");
 

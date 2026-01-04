@@ -1,10 +1,10 @@
-import { For, useContext } from "solid-js";
+import { type Accessor, For, useContext } from "solid-js";
 import type { MapMod } from "~/api";
 import { MapsContext } from "~/pages/maps/context/context";
 import { Mod } from "~/pages/maps/mod-search-table/mod-search/Mod";
 
 type Props = {
-  mods: MapMod[];
+  mods: Accessor<MapMod[]>;
   model: "negativeMods" | "positiveMods";
 };
 
@@ -25,7 +25,7 @@ export function ModList(props: Props) {
 
   return (
     <div class={"col gap-2"}>
-      <For each={props.mods}>
+      <For each={props.mods()}>
         {(mod) => {
           const isSelected = () =>
             selectedMods()
@@ -33,11 +33,7 @@ export function ModList(props: Props) {
               .includes(mod.id);
 
           return (
-            <Mod
-              isSelected={isSelected}
-              mod={mod}
-              onClick={() => addOrRemoveMod(mod)}
-            />
+            <Mod isSelected={isSelected} mod={mod} onClick={() => addOrRemoveMod(mod)} />
           );
         }}
       </For>

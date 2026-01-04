@@ -7,10 +7,7 @@ export function MapRarityFilters() {
   const { store } = useContext(MapsContext);
 
   const isAnyChecked = () =>
-    store.includeNormalMaps ||
-    store.includeMagicMaps ||
-    store.includeRareMaps ||
-    false;
+    store.includeNormalMaps || store.includeMagicMaps || store.includeRareMaps || false;
 
   return (
     <ExcludeToggle isChecked={isAnyChecked} model={"includeMapsType"}>

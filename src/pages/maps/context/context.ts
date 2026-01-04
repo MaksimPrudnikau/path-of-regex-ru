@@ -47,9 +47,7 @@ type MapsContext = {
   updateStore: SetStoreFunction<MapsStore>;
 };
 
-export const MapsContext = createContext<MapsContext>(
-  {} as unknown as MapsContext,
-);
+export const MapsContext = createContext<MapsContext>({} as unknown as MapsContext);
 
 export const initialMapsContextState = (): MapsStore => ({
   includeCorruptedMaps: false,

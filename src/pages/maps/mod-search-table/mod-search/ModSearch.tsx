@@ -1,4 +1,10 @@
-import { type Accessor, createMemo, createSignal, type JSXElement, type ParentProps, } from "solid-js";
+import {
+  type Accessor,
+  createMemo,
+  createSignal,
+  type JSXElement,
+  type ParentProps,
+} from "solid-js";
 import type { MapMod } from "~/api";
 import { ModList } from "./ModList";
 import { SearchHeader } from "./SearchHeader";
@@ -22,8 +28,8 @@ export function ModSearch(props: ParentProps<Props>) {
   return (
     <div class={"col gap-3 items-start"}>
       <SearchHeader title={props.title}>{props.children}</SearchHeader>
-      <SearchInput setValue={setSearch} value={search()} />
-      <ModList model={props.model} mods={filteredMods()} />
+      <SearchInput setValue={setSearch} value={search} />
+      <ModList model={props.model} mods={filteredMods} />
     </div>
   );
 }

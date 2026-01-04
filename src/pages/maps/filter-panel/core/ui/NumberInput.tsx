@@ -1,4 +1,4 @@
-import { type Accessor, createEffect, createMemo, type ParentProps, } from "solid-js";
+import { type Accessor, createEffect, createMemo, type ParentProps } from "solid-js";
 
 export function NumberInput({
   value,

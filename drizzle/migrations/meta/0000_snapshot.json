@@ -39,23 +39,17 @@
       "indexes": {
         "maps_id_unique": {
           "name": "maps_id_unique",
-          "columns": [
-            "id"
-          ],
+          "columns": ["id"],
           "isUnique": true
         },
         "maps_name_unique": {
           "name": "maps_name_unique",
-          "columns": [
-            "name"
-          ],
+          "columns": ["name"],
           "isUnique": true
         },
         "maps_regex_unique": {
           "name": "maps_regex_unique",
-          "columns": [
-            "regex"
-          ],
+          "columns": ["regex"],
           "isUnique": true
         }
       },

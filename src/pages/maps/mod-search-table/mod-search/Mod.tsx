@@ -1,3 +1,4 @@
+/** biome-ignore-all assist/source/useSortedKeys: <explanation> Стили отсортированы в нужном порядке */
 import type { Accessor } from "solid-js";
 import type { MapMod } from "~/api";
 
@@ -12,35 +13,22 @@ export function Mod({ mod, onClick, isSelected }: Props) {
     onClick();
   };
 
-  const getRankColor = () => {
-    const rank = mod.rank;
-
-    if (rank === 0) {
-      return "white";
-    } else if (rank <= 50) {
-      return "red-200";
-    } else if (rank <= 150) {
-      return "red-300";
-    } else {
-      return "red-400";
-    }
-  };
-
-  const color = () => {
-    if (mod.rank >= 700) {
-      return isSelected() ? "btn-accent" : "text-accent";
-    }
-
-    const baseColor = getRankColor();
-
-    return isSelected() ? `bg-${baseColor} text-black` : `text-${baseColor}`;
-  };
-
   return (
     <button
-      class={`btn text-start p-2 text-wrap justify-start h-fit ${color()}`}
+      class={`btn text-start p-2 text-wrap justify-start h-fit`}
       classList={{
+        "text-white": mod.rank === 0 && !isSelected(),
+        "text-red-200": mod.rank > 0 && mod.rank <= 50 && !isSelected(),
+        "text-red-300": mod.rank > 50 && mod.rank <= 150 && !isSelected(),
+        "text-red-400": mod.rank > 150 && !isSelected(),
+
+        "text-accent": mod.rank >= 700 && !isSelected(),
         "btn-accent": mod.rank >= 700 && isSelected(),
+
+        // Для selected состояний с низким рангом
+        "bg-red-200 text-black": mod.rank > 0 && mod.rank <= 50 && isSelected(),
+        "bg-red-300 text-black": mod.rank > 50 && mod.rank <= 150 && isSelected(),
+        "bg-red-400 text-black": mod.rank > 150 && isSelected(),
       }}
       onClick={handleClick}
       type="button"

@@ -1,5 +1,10 @@
-import { IncludeMapType, type MapsStore, type ModRange, PositiveModsType, } from "~/pages/maps/context";
-import { type Config, generateModRangeRegex, } from "./regex-builders/modRange.builder";
+import {
+  IncludeMapType,
+  type MapsStore,
+  type ModRange,
+  PositiveModsType,
+} from "~/pages/maps/context";
+import { type Config, generateModRangeRegex } from "./regex-builders/modRange.builder";
 
 export const buildRegex = (store: MapsStore): string => {
   const {
@@ -61,8 +66,7 @@ export const buildRegex = (store: MapsStore): string => {
     .filter((x) => x[0])
     .map(([_, reg]) => reg);
 
-  const includeMaps =
-    includeMapsRegex.length > 0 && includeMapsRegex.length < 3;
+  const includeMaps = includeMapsRegex.length > 0 && includeMapsRegex.length < 3;
 
   const addCheckbox = checkboxArrayUpdated(resultArray);
   addCheckbox(includeMaps, includeMapsType, includeMapsRegex.join("|"));

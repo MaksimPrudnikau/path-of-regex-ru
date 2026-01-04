@@ -1,5 +1,7 @@
+import type { Accessor } from "solid-js";
+
 type Props = {
-  value: string;
+  value: Accessor<string>;
   setValue: (value: string) => void;
 };
 
@@ -13,7 +15,7 @@ export function SearchInput(props: Props) {
         placeholder="Модификатор"
         required
         type="search"
-        value={props.value}
+        value={props.value()}
       />
     </label>
   );

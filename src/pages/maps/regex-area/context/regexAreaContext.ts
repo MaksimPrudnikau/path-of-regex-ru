@@ -12,6 +12,4 @@ export type Context = {
   updateStore: SetStoreFunction<{ copied: boolean; autoCopy: boolean }>;
 } & Store;
 
-export const RegexAreaContext = createContext<Context>(
-  {} as unknown as Context,
-);
+export const RegexAreaContext = createContext<Context>({} as unknown as Context);
