@@ -54,7 +54,7 @@ export const buildRegex = (store: MapsStore): string => {
   addIfHas(packSize, "ров: \\+{0}%");
   addIfHas(moreCurrency, "юты: \\+{0}%");
   addIfHas(moreMaps, "арт: \\+{0}%");
-  addIfHas(moreScarab, "арт: \\+{0}%");
+  addIfHas(moreScarab, "еев: \\+{0}%");
 
   const includeMapsRegexArr = [
     [includeNormalMaps, "о"],
