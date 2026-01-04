@@ -1,9 +1,4 @@
-import {
-  IncludeMapType,
-  type MapsStore,
-  type ModRange,
-  PositiveModsType,
-} from "~/pages/maps/context";
+import { IncludeMapType, type MapsStore, type ModRange, PositiveModsType, } from "~/pages/maps/context";
 import { type Config, generateModRangeRegex } from "./regex-builders/modRange.builder";
 
 export const buildRegex = (store: MapsStore): string => {
@@ -13,6 +8,7 @@ export const buildRegex = (store: MapsStore): string => {
 
     level,
     quality,
+    quantity,
     packSize,
     rarity,
 
@@ -52,8 +48,10 @@ export const buildRegex = (store: MapsStore): string => {
 
   addIfHas(level, "рты: {0}$", { maxAllowed: 17 });
   addIfHas(quality, "во: {0}$", { maxAllowed: 20 });
+
+  addIfHas(quantity, "^Кол.+: \\+{0}%");
+  addIfHas(rarity, "^Ред.+: \\+{0}%");
   addIfHas(packSize, "ров: \\+{0}%");
-  addIfHas(rarity, "тов: \\+{0}%");
   addIfHas(moreCurrency, "юты: \\+{0}%");
   addIfHas(moreMaps, "арт: \\+{0}%");
   addIfHas(moreScarab, "арт: \\+{0}%");
