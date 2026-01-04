@@ -1,6 +1,15 @@
-import { type Accessor, createContext, createEffect, createMemo, type ParentProps, useContext, } from "solid-js";
+import {
+  type Accessor,
+  createContext,
+  createEffect,
+  createMemo,
+  createSignal,
+  type ParentProps,
+  useContext,
+} from "solid-js";
 import { createStore, type SetStoreFunction } from "solid-js/store";
 import { MapsContext } from "~/pages/maps/context/context";
+import { buildRegex } from "~/pages/maps/regex-area/buildRegex";
 
 type Store = {
   copied: Accessor<boolean>;
@@ -24,25 +33,20 @@ export function RegexAreaContextProvider(props: ParentProps) {
     copied: false,
   });
 
-  const regex = createMemo(() => {
+  const [prevRegex, setPrevRegex] = createSignal<string>("");
+
+  const regex = createMemo((): string => {
     if (!store.autoCopy) {
       updateStore("copied", false);
     }
 
-    const positive = mapsStore.positiveMods.map((x) => x.regex).join("|");
-    const negative = mapsStore.negativeMods.map((x) => x.regex).join("|");
-
-    const resultArray: string[] = [];
-
-    if (mapsStore.negativeMods.length > 0) {
-      resultArray.push(`"!${negative}"`);
+    try {
+      const newRegex = buildRegex(mapsStore);
+      setPrevRegex(newRegex);
+      return newRegex;
+    } catch {
+      return prevRegex();
     }
-
-    if (mapsStore.positiveMods.length > 0) {
-      resultArray.push(`"${positive}"`);
-    }
-
-    return resultArray.join(" ");
   });
 
   createEffect(async () => {

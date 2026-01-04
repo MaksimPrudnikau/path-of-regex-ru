@@ -26,6 +26,7 @@ export function InputRequirement({
       <span class={"w-fit"}>{children}</span>
       <div class={"row gap-2 w-fit"}>
         <NumberInput
+          max={max}
           min={min}
           updateStore={(value) => update(value, "min")}
           value={() => store[model].min}
@@ -34,6 +35,7 @@ export function InputRequirement({
         </NumberInput>
         <NumberInput
           max={max}
+          min={min}
           updateStore={(value) => update(value, "max")}
           value={() => store[model].max}
         >

@@ -22,7 +22,7 @@ export function NumberInput({
       class="input w-16 h-8 rounded-sm"
       classList={{ "input-primary": value() !== undefined }}
       max={max}
-      min={min}
+      min={min ?? 0}
       onInput={handleInput}
       placeholder={children?.toString()}
       type="number"
