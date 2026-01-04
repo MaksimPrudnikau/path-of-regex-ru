@@ -1,30 +1,8 @@
-import {
-    type Accessor,
-    createContext,
-    createEffect,
-    createMemo,
-    createSignal,
-    type ParentProps,
-    useContext,
-} from "solid-js";
-import { createStore, type SetStoreFunction } from "solid-js/store";
-import { MapsContext } from "~/pages/maps/context/context";
-import { buildRegex } from "~/pages/maps/regex-area/buildRegex";
-
-type Store = {
-  copied: Accessor<boolean>;
-  autoCopy: Accessor<boolean>;
-  errorMessage: Accessor<string | undefined>;
-};
-
-type Context = {
-  regex: Accessor<string>;
-  updateStore: SetStoreFunction<{ copied: boolean; autoCopy: boolean }>;
-} & Store;
-
-export const RegexAreaContext = createContext<Context>(
-  {} as unknown as Context,
-);
+import { createEffect, createMemo, createSignal, type ParentProps, useContext, } from "solid-js";
+import { createStore } from "solid-js/store";
+import { MapsContext } from "~/pages/maps/context";
+import { buildRegex } from "./buildRegex";
+import { RegexAreaContext } from './regexAreaContext'
 
 export function RegexAreaContextProvider(props: ParentProps) {
   const { store: mapsStore } = useContext(MapsContext);

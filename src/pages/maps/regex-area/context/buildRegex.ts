@@ -1,4 +1,4 @@
-import { IncludeMapType, type MapsStore, type ModRange, PositiveModsType, } from "~/pages/maps/context/context";
+import { IncludeMapType, type MapsStore, type ModRange, PositiveModsType, } from "~/pages/maps/context";
 import { type Config, generateModRangeRegex, } from "./regex-builders/modRange.builder";
 
 export const buildRegex = (store: MapsStore): string => {

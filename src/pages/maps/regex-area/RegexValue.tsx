@@ -1,23 +1,23 @@
 import { Show, useContext } from "solid-js";
-import { RegexAreaContext } from "~/pages/maps/regex-area/Context";
+import { RegexAreaContext } from "~/pages/maps/regex-area/context";
 
 export function RegexValue() {
-  const context = useContext(RegexAreaContext);
+  const { errorMessage, regex, copied } = useContext(RegexAreaContext);
 
   return (
     <div class={"col gap-2"}>
       <h2
         class={"w-full overflow-x-auto wrap-break-word min-h-24"}
         classList={{
-          "text-primary": !context.errorMessage() && context.copied(),
-          "text-red-500": !!context.errorMessage(),
+          "text-primary": !errorMessage() && copied(),
+          "text-red-500": !!errorMessage(),
         }}
       >
-        {context.regex()}
+        {regex()}
       </h2>
-      <div>Длина: {context.regex().length} / 250</div>
-      <Show when={!!context.errorMessage()}>
-        <span class={"italic text-red-500"}>{context.errorMessage()}</span>
+      <div>Длина: {regex().length} / 250</div>
+      <Show when={!!errorMessage()}>
+        <span class={"italic text-red-500"}>{errorMessage()}</span>
       </Show>
     </div>
   );

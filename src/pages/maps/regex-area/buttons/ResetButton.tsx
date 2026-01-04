@@ -1,6 +1,6 @@
 import { useContext } from "solid-js";
 import { initialMapsContextState, MapsContext, } from "~/pages/maps/context";
-import { RegexAreaContext } from "~/pages/maps/regex-area/Context";
+import { RegexAreaContext } from "~/pages/maps/regex-area/context";
 
 export function ResetButton() {
   const { updateStore: updateMapsStore } = useContext(MapsContext);

@@ -1,5 +1,5 @@
-import { RegexAreaContextProvider } from "~/pages/maps/regex-area/Context";
-import { RegexAreaButtons } from "./RegexAreaButtons";
+import { RegexAreaContextProvider } from "~/pages/maps/regex-area/context";
+import { RegexAreaButtons } from "./buttons/RegexAreaButtons";
 import { RegexValue } from "./RegexValue";
 
 export function RegexArea() {

@@ -1,5 +1,5 @@
 import { useContext } from "solid-js";
-import { RegexAreaContext } from "~/pages/maps/regex-area/Context";
+import { RegexAreaContext } from "~/pages/maps/regex-area/context";
 
 export function CopyButton() {
   const context = useContext(RegexAreaContext);
