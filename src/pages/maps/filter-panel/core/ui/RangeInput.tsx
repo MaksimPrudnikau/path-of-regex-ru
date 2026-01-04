@@ -1,6 +1,6 @@
 import { type ParentProps, useContext } from "solid-js";
 import type { KeyOfType } from "~/lib/key-of-type";
-import { MapsContext, type MapsStore, type ModRange } from "../context/context";
+import { MapsContext, type MapsStore, type ModRange, } from "../../../context/context";
 import { NumberInput } from "./NumberInput";
 
 type Props = {
@@ -9,7 +9,7 @@ type Props = {
   max?: number;
 };
 
-export function InputRequirement({
+export function RangeInput({
   model,
   children,
   min = 0,
@@ -22,9 +22,9 @@ export function InputRequirement({
   };
 
   return (
-    <div class={"grid grid-cols-2 items-center gap-3"}>
-      <span class={"w-fit"}>{children}</span>
-      <div class={"row gap-2 w-fit"}>
+    <div class={"row w-full justify-between"}>
+      <span class={"min-w-fit"}>{children}</span>
+      <div class={"row gap-2"}>
         <NumberInput
           max={() => store[model].max}
           min={() => min}

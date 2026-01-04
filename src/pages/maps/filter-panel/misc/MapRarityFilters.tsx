@@ -1,7 +1,7 @@
 import { useContext } from "solid-js";
 import { MapsContext } from "~/pages/maps/context/context";
-import { WithExclude } from "~/pages/maps/map-requirements/WithExclude";
-import { CheckboxFilter } from "./CheckboxFilter";
+import { CheckboxFilter } from "./checkbox/CheckboxFilter";
+import { ExcludeToggle } from "./checkbox/ExcludeToggle";
 
 export function MapRarityFilters() {
   const { store } = useContext(MapsContext);
@@ -13,7 +13,7 @@ export function MapRarityFilters() {
     false;
 
   return (
-    <WithExclude isChecked={isAnyChecked} model={"includeMapsType"}>
+    <ExcludeToggle isChecked={isAnyChecked} model={"includeMapsType"}>
       <CheckboxFilter color={"bg-white text-black"} model={"includeNormalMaps"}>
         Обычные карты
       </CheckboxFilter>
@@ -31,6 +31,6 @@ export function MapRarityFilters() {
       >
         Редкие карты
       </CheckboxFilter>
-    </WithExclude>
+    </ExcludeToggle>
   );
 }

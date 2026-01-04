@@ -7,7 +7,7 @@ type Props = {
   model: KeyOfType<MapsStore, IncludeMapType>;
   isChecked: Accessor<boolean>;
 };
-export function WithExclude({
+export function ExcludeToggle({
   isChecked,
   children,
   model,

@@ -1,8 +1,8 @@
 import { createAsyncStore, type RouteDefinition } from "@solidjs/router";
 import { getMapMods } from "~/api";
-import { ModsSearchTable, RegexArea, RegexHeader } from "~/pages/maps";
+import { HeaderWithProfile, ModsSearchTable, RegexArea } from "~/pages/maps";
 import { MapContextProvider } from "~/pages/maps/context/MapsContext";
-import { MapRequirements } from "~/pages/maps/map-requirements/MapRequirements";
+import { FilterPanel } from "~/pages/maps/filter-panel/FilterPanel";
 
 export const route = {
   preload() {
@@ -18,9 +18,9 @@ export default function Maps() {
   return (
     <MapContextProvider>
       <main class="w-full p-4 space-y-4">
-        <RegexHeader />
+        <HeaderWithProfile />
         <RegexArea />
-        <MapRequirements />
+        <FilterPanel />
         <ModsSearchTable mods={modsAccessor} />
       </main>
     </MapContextProvider>

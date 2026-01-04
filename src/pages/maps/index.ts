@@ -1,3 +1,3 @@
-export * from "./mod-search/ModsSearchTable";
+export * from "~/pages/maps/mod-search-table/ModsSearchTable";
+export * from "./header-with-profile/HeaderWithProfile";
 export * from "./regex-area/RegexArea";
-export * from "./regex-area/RegexHeader";

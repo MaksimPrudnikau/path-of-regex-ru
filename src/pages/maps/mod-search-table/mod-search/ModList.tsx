@@ -1,7 +1,7 @@
 import { For, useContext } from "solid-js";
 import type { MapMod } from "~/api";
 import { MapsContext } from "~/pages/maps/context/context";
-import { Mod } from "~/pages/maps/mod-search/Mod";
+import { Mod } from "~/pages/maps/mod-search-table/mod-search/Mod";
 
 type Props = {
   mods: MapMod[];
