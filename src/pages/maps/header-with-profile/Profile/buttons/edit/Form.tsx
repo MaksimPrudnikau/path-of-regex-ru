@@ -1,7 +1,11 @@
 import { createSignal } from "solid-js";
 import { ProfileInput } from "../add/Input";
 
-export function EditForm() {
+type Props = {
+  onSubmit: (name: string) => void;
+};
+
+export function EditForm(props: Props) {
   const [name, setName] = createSignal("");
   const [error, setError] = createSignal("");
 
@@ -9,6 +13,8 @@ export function EditForm() {
     if (!name()) {
       setError("Введите название профиля");
     }
+
+    props.onSubmit(name());
   };
 
   return (

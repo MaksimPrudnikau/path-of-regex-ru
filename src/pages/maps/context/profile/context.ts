@@ -6,9 +6,9 @@ export type Profiles = Map<string, MapsStore | undefined>;
 export type Context = {
   profiles: Accessor<Profiles>;
   currentProfile: Accessor<string>;
-  addProfile: (name: string, profile: MapsStore) => void;
-  updateProfile: (name: string, config: { name: string }) => void;
-  removeProfile: (name: string) => void;
+  addProfile: (name: string, duplicateFrom?: string) => void;
+  updateProfile: (name: string) => void;
+  removeProfile: () => void;
   setCurrentProfile: (name: string) => void;
 };
 

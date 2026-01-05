@@ -2,7 +2,11 @@ import { createSignal } from "solid-js";
 import { DuplicateFrom } from "./DuplicateFrom";
 import { ProfileInput } from "./Input";
 
-export function AddForm() {
+type Props = {
+  onSubmit: (name: string, duplicateFrom?: string) => void;
+};
+
+export function AddForm(props: Props) {
   const [name, setName] = createSignal("");
   const [duplicateFrom, setDuplicateFrom] = createSignal<string>();
   const [error, setError] = createSignal("");
@@ -11,7 +15,9 @@ export function AddForm() {
     if (!name()) {
       setError("Введите название профиля");
     }
-    console.log("save", name(), duplicateFrom());
+
+    props.onSubmit(name(), duplicateFrom());
+    setName("");
   };
 
   return (

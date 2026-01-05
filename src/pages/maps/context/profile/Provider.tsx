@@ -1,38 +1,43 @@
 import { createSignal, type ParentProps } from "solid-js";
 import { initialMapsContextState, type MapsStore } from "~/pages/maps/context";
-import { MapsProfileContext, type Profiles } from "./context";
+import { type Context, MapsProfileContext, type Profiles } from "./context";
 
 const STORAGE_KEY = "path-of-regex-maps-profiles";
 
 export function ProfileContextProvider(props: ParentProps) {
   const [profiles, setProfiles] = createSignal<Profiles>(initialProfiles());
-  const [currentProfile, setCurrentProfile] = createSignal<string>("");
+  const [currentProfile, setCurrentProfile] = createSignal<string>("default");
 
-  const addProfile = (name: string, profile: MapsStore) => {
+  const addProfile: Context["addProfile"] = (name: string, duplicateFrom?: string) => {
     setProfiles((prev) => {
       const newMap = new Map(prev);
+      const profile: MapsStore = duplicateFrom
+        ? newMap.get(duplicateFrom)!
+        : initialMapsContextState();
+
       newMap.set(name, profile);
+      setCurrentProfile(name);
 
       return newMap;
     });
   };
 
-  const updateProfile = (name: string, config: { name: string }) => {
+  const updateProfile: Context["updateProfile"] = (name: string) => {
     setProfiles((prev) => {
       const newMap = new Map(prev);
 
       const profile = newMap.get(name);
-      newMap.set(config.name, profile);
+      newMap.set(currentProfile(), profile);
       newMap.delete(name);
 
       return newMap;
     });
   };
 
-  const removeProfile = (name: string) => {
+  const removeProfile: Context["removeProfile"] = () => {
     setProfiles((prev) => {
       const newMap = new Map(prev);
-      newMap.delete(name);
+      newMap.delete(currentProfile());
       return newMap;
     });
   };
@@ -56,6 +61,10 @@ export function ProfileContextProvider(props: ParentProps) {
 function initialProfiles(): Profiles {
   const initialMap = new Map();
   initialMap.set("default", initialMapsContextState());
+
+  if (typeof window === "undefined") {
+    return initialMap;
+  }
 
   const storage = localStorage.getItem(STORAGE_KEY);
 
