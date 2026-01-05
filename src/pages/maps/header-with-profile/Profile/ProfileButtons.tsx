@@ -1,5 +1,5 @@
 import { Add } from "./buttons/add/Add";
-import { Edit } from "./buttons/Edit";
+import { Edit } from "./buttons/edit/Edit";
 import { Remove } from "./buttons/Remove";
 
 export function ProfileButtons() {
