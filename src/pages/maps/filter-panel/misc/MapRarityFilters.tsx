@@ -1,5 +1,5 @@
 import { useContext } from "solid-js";
-import { MapsContext } from "~/pages/maps/context";
+import { MapsContext } from "~/pages/maps/context/maps";
 import { CheckboxFilter } from "./checkbox/CheckboxFilter";
 import { ExcludeToggle } from "./checkbox/ExcludeToggle";
 

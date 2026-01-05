@@ -1,10 +1,6 @@
 import { useContext } from "solid-js";
 import type { KeyOfType } from "~/lib/key-of-type";
-import {
-  IncludeMapType,
-  MapsContext,
-  type MapsStore,
-} from "~/pages/maps/context/context";
+import { IncludeMapType, MapsContext, type MapsStore, } from "~/pages/maps/context/maps/context";
 
 type Props = {
   model: KeyOfType<MapsStore, IncludeMapType>;

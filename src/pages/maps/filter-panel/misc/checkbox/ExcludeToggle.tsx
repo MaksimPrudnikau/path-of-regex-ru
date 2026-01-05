@@ -1,12 +1,6 @@
-import {
-  type Accessor,
-  createEffect,
-  type ParentProps,
-  Show,
-  useContext,
-} from "solid-js";
+import { type Accessor, createEffect, type ParentProps, Show, useContext, } from "solid-js";
 import type { KeyOfType } from "~/lib/key-of-type";
-import { IncludeMapType, MapsContext, type MapsStore } from "~/pages/maps/context";
+import { IncludeMapType, MapsContext, type MapsStore } from "~/pages/maps/context/maps";
 import { ExcludeFilter } from "./ExcludeFilter";
 
 type Props = {

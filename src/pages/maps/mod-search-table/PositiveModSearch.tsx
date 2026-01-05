@@ -1,6 +1,6 @@
 import { type Accessor, createMemo, useContext } from "solid-js";
 import type { MapMod } from "~/api";
-import { MapsContext, PositiveModsType } from "~/pages/maps/context/context";
+import { MapsContext, PositiveModsType } from "~/pages/maps/context/maps/context";
 import { ModSearch } from "./mod-search/ModSearch";
 
 type Props = {

@@ -1,5 +1,5 @@
 import toRegexRange from "to-regex-range";
-import type { ModRange } from "~/pages/maps/context/context";
+import type { ModRange } from "~/pages/maps/context/maps/context";
 
 export type Config = {
   minAllowed?: number;

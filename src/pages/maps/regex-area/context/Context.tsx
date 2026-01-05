@@ -1,12 +1,6 @@
-import {
-  createEffect,
-  createMemo,
-  createSignal,
-  type ParentProps,
-  useContext,
-} from "solid-js";
+import { createEffect, createMemo, createSignal, type ParentProps, useContext, } from "solid-js";
 import { createStore } from "solid-js/store";
-import { MapsContext } from "~/pages/maps/context";
+import { MapsContext } from "~/pages/maps/context/maps";
 import { buildRegex } from "./buildRegex";
 import { RegexAreaContext } from "./regexAreaContext";
 

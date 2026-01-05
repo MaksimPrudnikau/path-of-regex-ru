@@ -1,6 +1,6 @@
 import { type ParentProps, useContext } from "solid-js";
 import type { KeyOfType } from "~/lib/key-of-type";
-import { MapsContext, type MapsStore } from "~/pages/maps/context/context";
+import { MapsContext, type MapsStore } from "~/pages/maps/context/maps/context";
 
 type Props = {
   model: KeyOfType<MapsStore, boolean | undefined>;

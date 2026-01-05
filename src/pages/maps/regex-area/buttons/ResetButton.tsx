@@ -1,5 +1,5 @@
 import { useContext } from "solid-js";
-import { initialMapsContextState, MapsContext } from "~/pages/maps/context";
+import { initialMapsContextState, MapsContext } from "~/pages/maps/context/maps";
 import { RegexAreaContext } from "~/pages/maps/regex-area/context";
 
 export function ResetButton() {
