@@ -5,12 +5,12 @@ import { EditForm } from "./Form";
 
 export function Edit() {
   const [opened, setOpened] = createSignal(false);
-  const { updateProfile } = useContext(MapsProfileContext);
+  const { editProfile } = useContext(MapsProfileContext);
 
   const handleSave = (name: string) => {
     setOpened(false);
 
-    updateProfile(name);
+    editProfile(name);
   };
 
   return (

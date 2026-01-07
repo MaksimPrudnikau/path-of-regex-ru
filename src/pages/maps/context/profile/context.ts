@@ -7,9 +7,10 @@ export type Context = {
   profiles: Accessor<Profiles>;
   currentProfile: Accessor<string>;
   addProfile: (name: string, duplicateFrom?: string) => void;
-  updateProfile: (name: string) => void;
+  editProfile: (name: string) => void;
   removeProfile: () => void;
   setCurrentProfile: (name: string) => void;
+  updateProfile: (profile: MapsStore) => void;
 };
 
 export const MapsProfileContext = createContext<Context>({} as unknown as Context);

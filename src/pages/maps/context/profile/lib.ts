@@ -18,7 +18,7 @@ export const addProfile = (
         ? newMap.get(duplicateFrom)!
         : initialMapsContextState();
 
-      newMap.set(name, profile);
+      newMap.set(name, deepClone(profile));
       setCurrentProfile(name);
 
       updateStorage(newMap);
@@ -28,17 +28,17 @@ export const addProfile = (
   };
 };
 
-export const updateProfile = (
+export const editProfile = (
   setProfiles: SetProfilesFunc,
   setCurrentProfile: SetCurrentProfileFunc,
   currentProfile: Accessor<string>,
-): Context["updateProfile"] => {
+): Context["editProfile"] => {
   return (name: string) => {
     setProfiles((prev) => {
       const newMap = new Map(prev);
 
       const profile = newMap.get(currentProfile());
-      newMap.set(name, profile);
+      newMap.set(name, deepClone(profile));
       newMap.delete(currentProfile());
       setCurrentProfile(name);
 
@@ -70,22 +70,44 @@ export function syncWithLocalStorage(
 ): () => void {
   return () => {
     const storage = localStorage.getItem(STORAGE_KEY);
-    if (storage) {
-      try {
-        const storageMap = new Map(JSON.parse(storage)) as Profiles;
-        setProfiles(storageMap);
-
-        const firstKey = Array.from(storageMap.keys())[0];
-        if (firstKey) {
-          setCurrentProfile(firstKey);
-        }
-      } catch {
-        localStorage.removeItem(STORAGE_KEY);
-      }
+    if (!storage) {
+      return;
     }
+
+    try {
+      const storageMap = new Map(JSON.parse(storage)) as Profiles;
+      setProfiles(storageMap);
+
+      const firstKey = Array.from(storageMap.keys())[0];
+      if (firstKey) {
+        setCurrentProfile(firstKey);
+      }
+    } catch {
+      localStorage.removeItem(STORAGE_KEY);
+    }
+  };
+}
+
+export function updateProfile(
+  setProfiles: SetProfilesFunc,
+  currentProfile: Accessor<string>,
+) {
+  return (profile: MapsStore) => {
+    setProfiles((prev) => {
+      const newMap = new Map(prev);
+
+      newMap.set(currentProfile(), profile);
+      updateStorage(newMap);
+
+      return newMap;
+    });
   };
 }
 
 function updateStorage(profiles: Profiles) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(Array.from(profiles.entries())));
+}
+
+function deepClone<T>(obj: T): T {
+  return JSON.parse(JSON.stringify(obj));
 }

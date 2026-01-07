@@ -1,4 +1,4 @@
-import { type Accessor, createEffect, createMemo, type ParentProps } from "solid-js";
+import { type Accessor, createMemo, type ParentProps } from "solid-js";
 
 export function NumberInput({
   value,
@@ -35,10 +35,6 @@ export function NumberInput({
     }
 
     return max()! > 999;
-  });
-
-  createEffect(() => {
-    console.log(hasOwnError());
   });
 
   return (

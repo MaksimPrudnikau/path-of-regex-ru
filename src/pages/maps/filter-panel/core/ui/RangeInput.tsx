@@ -1,6 +1,6 @@
 import { type ParentProps, useContext } from "solid-js";
 import type { KeyOfType } from "~/lib/key-of-type";
-import { MapsContext, type MapsStore, type ModRange } from "../../../context/maps/context";
+import { MapsContext, type MapsStore, type ModRange } from "~/pages/maps/context";
 import { NumberInput } from "./NumberInput";
 
 type Props = {
