@@ -1,18 +1,16 @@
-import { createSignal } from "solid-js";
+import { createSignal, useContext } from "solid-js";
+import { MapsProfileContext } from "~/pages/maps/context";
 import { ButtonMenu } from "../ButtonMenu";
 import { EditForm } from "./Form";
 
-type Props = {
-  handleSave: (name: string, duplicateFrom?: string) => void;
-};
-
-export function Edit(props: Props) {
+export function Edit() {
   const [opened, setOpened] = createSignal(false);
+  const { updateProfile } = useContext(MapsProfileContext);
 
   const handleSave = (name: string) => {
     setOpened(false);
 
-    props.handleSave(name);
+    updateProfile(name);
   };
 
   return (

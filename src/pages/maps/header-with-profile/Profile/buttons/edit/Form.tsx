@@ -1,4 +1,5 @@
-import { createSignal } from "solid-js";
+import { createSignal, useContext } from "solid-js";
+import { MapsProfileContext } from "~/pages/maps/context";
 import { ProfileInput } from "../add/Input";
 
 type Props = {
@@ -6,7 +7,8 @@ type Props = {
 };
 
 export function EditForm(props: Props) {
-  const [name, setName] = createSignal("");
+  const { currentProfile } = useContext(MapsProfileContext);
+  const [name, setName] = createSignal(currentProfile());
   const [error, setError] = createSignal("");
 
   const handleSave = () => {
