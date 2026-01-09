@@ -1,13 +1,16 @@
 import { useContext } from "solid-js";
-import { MapsContext } from "~/pages/maps/context/maps";
+import { MapsProfileContext } from "~/pages/maps/context";
 import { CheckboxFilter } from "./checkbox/CheckboxFilter";
 import { ExcludeToggle } from "./checkbox/ExcludeToggle";
 
 export function MapRarityFilters() {
-  const { store } = useContext(MapsContext);
+  const { currentProfile } = useContext(MapsProfileContext);
 
   const isAnyChecked = () =>
-    store.includeNormalMaps || store.includeMagicMaps || store.includeRareMaps || false;
+    currentProfile().includeNormalMaps ||
+    currentProfile().includeMagicMaps ||
+    currentProfile().includeRareMaps ||
+    false;
 
   return (
     <ExcludeToggle isChecked={isAnyChecked} model={"includeMapsType"}>

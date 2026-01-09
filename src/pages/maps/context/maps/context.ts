@@ -1,5 +1,3 @@
-import { createContext } from "solid-js";
-import type { SetStoreFunction } from "solid-js/store";
 import type { MapMod } from "~/api";
 
 export enum IncludeMapType {
@@ -41,13 +39,6 @@ export type MapsStore = {
 
   positiveModsType: PositiveModsType;
 };
-
-type MapsContext = {
-  store: MapsStore;
-  updateStore: SetStoreFunction<MapsStore>;
-};
-
-export const MapsContext = createContext<MapsContext>({} as unknown as MapsContext);
 
 export const initialMapsContextState = (): MapsStore => ({
   includeCorruptedMaps: false,

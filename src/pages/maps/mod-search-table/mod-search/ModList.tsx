@@ -1,6 +1,6 @@
 import { type Accessor, For, useContext } from "solid-js";
 import type { MapMod } from "~/api";
-import { MapsContext } from "~/pages/maps/context/maps/context";
+import { MapsProfileContext } from "~/pages/maps/context";
 import { Mod } from "~/pages/maps/mod-search-table/mod-search/Mod";
 
 type Props = {
@@ -8,24 +8,29 @@ type Props = {
   model: "negativeMods" | "positiveMods";
 };
 
-export function ModList(props: Props) {
-  const { store, updateStore } = useContext(MapsContext);
+export function ModList({ mods, model }: Props) {
+  const { currentProfile, updateProfile } = useContext(MapsProfileContext);
 
-  const selectedMods = () => store[props.model];
+  const selectedMods = () => currentProfile()[model];
 
   const addOrRemoveMod = (mod: MapMod) => {
-    updateStore(props.model, (prev): Pick<MapMod, "id" | "regex">[] => {
-      const index = prev.findIndex((x) => x.id === mod.id);
+    updateProfile((prev) => {
+      const list = prev[model];
 
-      return index > -1
-        ? prev.toSpliced(index, 1)
-        : [...prev, { id: mod.id, regex: mod.regex }];
+      const index = list.findIndex((x) => x.id === mod.id);
+
+      const newList =
+        index > -1
+          ? list.toSpliced(index, 1)
+          : [...list, { id: mod.id, regex: mod.regex }];
+
+      return { ...prev, [model]: newList };
     });
   };
 
   return (
     <div class={"col gap-2"}>
-      <For each={props.mods()}>
+      <For each={mods()}>
         {(mod) => {
           const isSelected = () =>
             selectedMods()

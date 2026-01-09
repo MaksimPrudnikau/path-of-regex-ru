@@ -2,8 +2,9 @@ import type { Accessor, Signal } from "solid-js";
 import { initialMapsContextState, type MapsStore } from "~/pages/maps/context";
 import type { Context, Profiles } from "./context";
 
-const STORAGE_KEY = "path-of-regex-maps-profiles";
+export const STORAGE_KEY = "path-of-regex-maps-profiles";
 
+// Изменяем тип Profiles с Map на Record
 type SetProfilesFunc = Signal<Profiles>["1"];
 type SetCurrentProfileFunc = Signal<string>["1"];
 
@@ -13,17 +14,17 @@ export const addProfile = (
 ): Context["addProfile"] => {
   return (name: string, duplicateFrom?: string) => {
     setProfiles((prev) => {
-      const newMap = new Map(prev);
-      const profile: MapsStore = duplicateFrom
-        ? newMap.get(duplicateFrom)!
+      const newProfiles = { ...prev };
+      const profile = duplicateFrom
+        ? newProfiles[duplicateFrom]
         : initialMapsContextState();
 
-      newMap.set(name, deepClone(profile));
+      newProfiles[name] = deepClone(profile);
       setCurrentProfile(name);
 
-      updateStorage(newMap);
+      updateStorage(newProfiles);
 
-      return newMap;
+      return newProfiles;
     });
   };
 };
@@ -35,16 +36,16 @@ export const editProfile = (
 ): Context["editProfile"] => {
   return (name: string) => {
     setProfiles((prev) => {
-      const newMap = new Map(prev);
+      const newProfiles = { ...prev };
 
-      const profile = newMap.get(currentProfile());
-      newMap.set(name, deepClone(profile));
-      newMap.delete(currentProfile());
+      const profile = newProfiles[currentProfile()];
+      newProfiles[name] = deepClone(profile);
+      delete newProfiles[currentProfile()];
       setCurrentProfile(name);
 
-      updateStorage(newMap);
+      updateStorage(newProfiles);
 
-      return newMap;
+      return newProfiles;
     });
   };
 };
@@ -55,38 +56,14 @@ export const removeProfile = (
 ): Context["removeProfile"] => {
   return () => {
     setProfiles((prev) => {
-      const newMap = new Map(prev);
-      newMap.delete(currentProfile());
+      const newProfiles = { ...prev };
+      delete newProfiles[currentProfile()];
 
-      updateStorage(newMap);
-      return newMap;
+      updateStorage(newProfiles);
+      return newProfiles;
     });
   };
 };
-
-export function syncWithLocalStorage(
-  setProfiles: SetProfilesFunc,
-  setCurrentProfile: SetCurrentProfileFunc,
-): () => void {
-  return () => {
-    const storage = localStorage.getItem(STORAGE_KEY);
-    if (!storage) {
-      return;
-    }
-
-    try {
-      const storageMap = new Map(JSON.parse(storage)) as Profiles;
-      setProfiles(storageMap);
-
-      const firstKey = Array.from(storageMap.keys())[0];
-      if (firstKey) {
-        setCurrentProfile(firstKey);
-      }
-    } catch {
-      localStorage.removeItem(STORAGE_KEY);
-    }
-  };
-}
 
 export function updateProfile(
   setProfiles: SetProfilesFunc,
@@ -94,18 +71,17 @@ export function updateProfile(
 ) {
   return (profile: MapsStore) => {
     setProfiles((prev) => {
-      const newMap = new Map(prev);
+      const newProfiles = { ...prev };
+      newProfiles[currentProfile()] = profile;
+      updateStorage(newProfiles);
 
-      newMap.set(currentProfile(), profile);
-      updateStorage(newMap);
-
-      return newMap;
+      return newProfiles;
     });
   };
 }
 
 function updateStorage(profiles: Profiles) {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(Array.from(profiles.entries())));
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(profiles));
 }
 
 function deepClone<T>(obj: T): T {

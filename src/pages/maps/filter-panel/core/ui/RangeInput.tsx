@@ -1,6 +1,6 @@
-import { type ParentProps, useContext } from "solid-js";
+import { createEffect, type ParentProps, useContext } from "solid-js";
 import type { KeyOfType } from "~/lib/key-of-type";
-import { MapsContext, type MapsStore, type ModRange } from "~/pages/maps/context";
+import { MapsProfileContext, type MapsStore, type ModRange } from "~/pages/maps/context";
 import { NumberInput } from "./NumberInput";
 
 type Props = {
@@ -10,29 +10,47 @@ type Props = {
 };
 
 export function RangeInput({ model, children, min = 0, max }: ParentProps<Props>) {
-  const { updateStore, store } = useContext(MapsContext);
+  const { currentProfile, updateProfile } = useContext(MapsProfileContext);
 
   const update = (value: number | undefined, fieldName: keyof ModRange) => {
-    updateStore(model, (prev: ModRange) => ({ ...prev, [fieldName]: value }));
+    updateProfile((prev) => {
+      return {
+        ...prev,
+        [model]: {
+          ...prev[model],
+          [fieldName]: value,
+        },
+      };
+    });
   };
+
+  const range = () => currentProfile()[model];
+
+  createEffect(() => {
+    if (model !== "level") {
+      return;
+    }
+
+    console.log(currentProfile()[model]);
+  });
 
   return (
     <div class={"row w-full justify-between"}>
       <span class={"min-w-fit"}>{children}</span>
       <div class={"row gap-2"}>
         <NumberInput
-          max={() => store[model].max}
-          min={() => min}
+          max={range().max}
+          min={min}
           updateStore={(value) => update(value, "min")}
-          value={() => store[model].min}
+          value={range().min}
         >
           мин
         </NumberInput>
         <NumberInput
-          max={() => max}
-          min={() => store[model].min}
+          max={max}
+          min={range().min}
           updateStore={(value) => update(value, "max")}
-          value={() => store[model].max}
+          value={range().max}
         >
           макс
         </NumberInput>

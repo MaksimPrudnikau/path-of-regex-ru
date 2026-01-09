@@ -1,4 +1,4 @@
-import { type Accessor, createMemo, type ParentProps } from "solid-js";
+import { createMemo, type ParentProps } from "solid-js";
 
 export function NumberInput({
   value,
@@ -7,9 +7,9 @@ export function NumberInput({
   min,
   max,
 }: ParentProps<{
-  min: Accessor<number | undefined>;
-  max: Accessor<number | undefined>;
-  value: Accessor<number | undefined>;
+  min: number | undefined;
+  max: number | undefined;
+  value: number | undefined;
   updateStore: (value: number | undefined) => void;
 }>) {
   const handleInput = (e: { target: { value: string } }) => {
@@ -18,23 +18,23 @@ export function NumberInput({
   };
 
   const hasOwnError = createMemo(() => {
-    if (!value() || !min()) {
+    if (!value || !min) {
       return false;
     }
 
-    if (value()! < (min() ?? 0)) {
+    if (value < (min ?? 0)) {
       return true;
     }
 
-    if (!max()) {
+    if (!max) {
       return false;
     }
 
-    if (max()! < (min() ?? 0)) {
+    if (max! < (min ?? 0)) {
       return true;
     }
 
-    return max()! > 999;
+    return max! > 999;
   });
 
   return (
@@ -42,14 +42,14 @@ export function NumberInput({
       class="input w-16 h-8 rounded-sm"
       classList={{
         "border-red-500": hasOwnError(),
-        "input-primary": !hasOwnError() && value() !== undefined,
+        "input-primary": !hasOwnError() && !!value,
       }}
-      max={max()}
-      min={min() ?? 0}
+      max={max}
+      min={min ?? 0}
       onInput={handleInput}
       placeholder={children?.toString()}
       type="number"
-      value={value() ?? ""}
+      value={value}
     />
   );
 }

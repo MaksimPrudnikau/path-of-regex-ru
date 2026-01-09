@@ -1,6 +1,7 @@
 import { type Accessor, createMemo, useContext } from "solid-js";
 import type { MapMod } from "~/api";
-import { MapsContext, PositiveModsType } from "~/pages/maps/context/maps/context";
+import { MapsProfileContext } from "~/pages/maps/context";
+import { PositiveModsType } from "~/pages/maps/context/maps";
 import { ModSearch } from "./mod-search/ModSearch";
 
 type Props = {
@@ -8,13 +9,13 @@ type Props = {
 };
 
 export function PositiveModSearch({ mods }: Props) {
-  const { store, updateStore } = useContext(MapsContext);
+  const { currentProfile, updateProfile } = useContext(MapsProfileContext);
 
   const filteredAndSortedMods = createMemo(() =>
     mods().toSorted((a, b) => a.rank - b.rank),
   );
 
-  const positiveModsType = () => store.positiveModsType;
+  const positiveModsType = () => currentProfile().positiveModsType;
 
   return (
     <ModSearch
@@ -33,7 +34,10 @@ export function PositiveModSearch({ mods }: Props) {
             checked={positiveModsType() === PositiveModsType.Any}
             class={`radio radio-primary rounded-md`}
             onChange={() => {
-              updateStore("positiveModsType", () => PositiveModsType.Any);
+              updateProfile((prev) => ({
+                ...prev,
+                positiveModsType: PositiveModsType.Any,
+              }));
             }}
             type="radio"
           />
@@ -44,7 +48,10 @@ export function PositiveModSearch({ mods }: Props) {
             checked={positiveModsType() === PositiveModsType.None}
             class={`radio radio-primary rounded-md`}
             onChange={() => {
-              updateStore("positiveModsType", () => PositiveModsType.None);
+              updateProfile((prev) => ({
+                ...prev,
+                positiveModsType: PositiveModsType.None,
+              }));
             }}
             type="radio"
           />

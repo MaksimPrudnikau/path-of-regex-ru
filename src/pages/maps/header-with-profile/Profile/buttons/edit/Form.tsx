@@ -7,8 +7,8 @@ type Props = {
 };
 
 export function EditForm(props: Props) {
-  const { currentProfile } = useContext(MapsProfileContext);
-  const [name, setName] = createSignal(currentProfile());
+  const { currentProfileName } = useContext(MapsProfileContext);
+  const [name, setName] = createSignal(currentProfileName());
   const [error, setError] = createSignal("");
 
   const handleSave = () => {

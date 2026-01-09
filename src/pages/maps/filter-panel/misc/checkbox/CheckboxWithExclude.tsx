@@ -1,6 +1,7 @@
 import { type ParentProps, useContext } from "solid-js";
 import type { KeyOfType } from "~/lib/key-of-type";
-import { type IncludeMapType, MapsContext, type MapsStore } from "~/pages/maps/context/maps";
+import { MapsProfileContext } from "~/pages/maps/context";
+import type { IncludeMapType, MapsStore } from "~/pages/maps/context/maps";
 import { CheckboxFilter } from "./CheckboxFilter";
 import { ExcludeToggle } from "./ExcludeToggle";
 
@@ -18,10 +19,10 @@ export function CheckboxWithExclude({
   color,
   textColor,
 }: ParentProps<Props>) {
-  const { store } = useContext(MapsContext);
+  const { currentProfile } = useContext(MapsProfileContext);
 
   return (
-    <ExcludeToggle isChecked={() => store[model]} model={typeModel}>
+    <ExcludeToggle isChecked={() => currentProfile()[model]} model={typeModel}>
       <CheckboxFilter color={color} model={model} textColor={textColor}>
         {children}
       </CheckboxFilter>

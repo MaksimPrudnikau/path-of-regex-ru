@@ -1,18 +1,20 @@
 import { useContext } from "solid-js";
 import type { KeyOfType } from "~/lib/key-of-type";
-import { IncludeMapType, MapsContext, type MapsStore, } from "~/pages/maps/context/maps/context";
+import { MapsProfileContext } from "~/pages/maps/context";
+import { IncludeMapType, type MapsStore } from "~/pages/maps/context/maps";
 
 type Props = {
   model: KeyOfType<MapsStore, IncludeMapType>;
 };
 
 export function ExcludeFilter({ model }: Props) {
-  const { store, updateStore } = useContext(MapsContext);
+  const { currentProfile, updateProfile } = useContext(MapsProfileContext);
+
   const update = (value: IncludeMapType) => {
-    updateStore(model, () => value);
+    updateProfile((prev) => ({ ...prev, [model]: value }));
   };
 
-  const isChecked = () => store[model] === IncludeMapType.Exclude;
+  const isChecked = () => currentProfile()[model] === IncludeMapType.Exclude;
   return (
     <div class={"row gap-2"}>
       <input

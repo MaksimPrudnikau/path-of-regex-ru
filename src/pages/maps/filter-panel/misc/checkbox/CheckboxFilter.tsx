@@ -1,6 +1,6 @@
 import { type ParentProps, useContext } from "solid-js";
 import type { KeyOfType } from "~/lib/key-of-type";
-import { MapsContext, type MapsStore } from "~/pages/maps/context/maps/context";
+import { MapsProfileContext, type MapsStore } from "~/pages/maps/context";
 
 type Props = {
   model: KeyOfType<MapsStore, boolean | undefined>;
@@ -14,19 +14,21 @@ export function CheckboxFilter({
   color = "checkbox-primary",
   textColor = "",
 }: ParentProps<Props>) {
-  const { store, updateStore } = useContext(MapsContext);
+  const { currentProfile, updateProfile } = useContext(MapsProfileContext);
 
   const handleChange = (e: { target: { checked: boolean } }) => {
-    updateStore(model, () => e.target.checked);
+    updateProfile((prev) => {
+      return { ...prev, [model]: e.target.checked };
+    });
   };
 
   return (
     <div class={"row gap-2"}>
       <input
-        checked={store[model]}
+        checked={currentProfile()[model]}
         class={`checkbox rounded-md`}
         classList={{
-          [color]: store[model],
+          [color]: currentProfile()[model],
         }}
         onChange={handleChange}
         type="checkbox"

@@ -1,21 +1,30 @@
-import { For, useContext } from "solid-js";
+import { createMemo, createSignal, For, onMount, useContext } from "solid-js";
 import { MapsProfileContext } from "~/pages/maps/context";
 
 export function ProfileDropdown() {
-  const context = useContext(MapsProfileContext);
+  const { profiles, currentProfileName, setCurrentProfile } =
+    useContext(MapsProfileContext);
 
-  const profiles = () => Array.from(context.profiles().keys());
+  // Используем локальный сигнал для контроля рендеринга
+  const [isClient, setIsClient] = createSignal(false);
+
+  onMount(() => setIsClient(true));
+
+  const profilesList = createMemo(() => {
+    if (!isClient()) return [];
+    const p = profiles;
+    if (!p || typeof p !== "object") return [];
+    return Object.keys(p);
+  });
 
   return (
     <select
       class="select min-w-36"
-      onChange={(e) => context.setCurrentProfile(e.target.value)}
-      value={context.currentProfile()}
+      onChange={(e) => setCurrentProfile(e.target.value)}
+      value={currentProfileName()}
     >
-      <For each={profiles()}>
-        {(profile) => (
-          <option selected={context.currentProfile() === profile}>{profile}</option>
-        )}
+      <For each={profilesList()}>
+        {(profile) => <option value={profile}>{profile}</option>}
       </For>
     </select>
   );

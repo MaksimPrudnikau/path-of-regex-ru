@@ -5,7 +5,7 @@ export function Remove() {
   const { profiles, removeProfile } = useContext(MapsProfileContext);
 
   let dialogElement!: HTMLDialogElement;
-  const isSingleProfile = () => profiles().size <= 1;
+  const isSingleProfile = () => Object.keys(profiles).length <= 1;
 
   const onClick = () => {
     dialogElement.showModal();

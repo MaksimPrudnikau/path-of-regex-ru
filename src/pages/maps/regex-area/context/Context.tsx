@@ -1,11 +1,11 @@
 import { createEffect, createMemo, createSignal, type ParentProps, useContext, } from "solid-js";
 import { createStore } from "solid-js/store";
-import { MapsContext } from "~/pages/maps/context/maps";
+import { MapsProfileContext } from "~/pages/maps/context";
 import { buildRegex } from "./buildRegex";
 import { RegexAreaContext } from "./regexAreaContext";
 
 export function RegexAreaContextProvider(props: ParentProps) {
-  const { store: mapsStore } = useContext(MapsContext);
+  const { currentProfile } = useContext(MapsProfileContext);
   const [errorMessage, setErrorMessage] = createSignal<string>();
 
   const [store, updateStore] = createStore({
@@ -21,7 +21,7 @@ export function RegexAreaContextProvider(props: ParentProps) {
     }
 
     try {
-      const newRegex = buildRegex(mapsStore);
+      const newRegex = buildRegex(currentProfile());
       setPrevRegex(newRegex);
       setErrorMessage();
       return newRegex;

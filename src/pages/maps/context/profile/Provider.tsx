@@ -1,32 +1,38 @@
-import { createSignal, onMount, type ParentProps } from "solid-js";
-import { initialMapsContextState } from "~/pages/maps/context";
-import {
-    addProfile,
-    editProfile,
-    removeProfile,
-    syncWithLocalStorage,
-    updateProfile,
-} from "~/pages/maps/context/profile/lib";
-import { MapsProfileContext, type Profiles } from "./context";
+import { makePersisted } from "@solid-primitives/storage";
+import { createMemo, createSignal, type ParentProps } from "solid-js";
+import { createStore } from "solid-js/store";
+import { initialMapsContextState, type MapsStore, type Profiles, } from "~/pages/maps/context";
+import { addProfile, editProfile, removeProfile, STORAGE_KEY, } from "~/pages/maps/context/profile/lib";
+import { MapsProfileContext } from "./context";
 
 export function ProfileContextProvider(props: ParentProps) {
-  const [profiles, setProfiles] = createSignal<Profiles>(
-    new Map([["default", initialMapsContextState()]]),
+  const [profiles, setProfiles] = makePersisted(
+    createStore<Profiles>({ default: initialMapsContextState() }),
+    { name: STORAGE_KEY },
   );
-  const [currentProfile, setCurrentProfile] = createSignal<string>("default");
+  const [currentProfileName, setCurrentProfileName] = makePersisted(
+    createSignal<string>("default"),
+  );
 
-  onMount(syncWithLocalStorage(setProfiles, setCurrentProfile));
+  const currentProfile = createMemo(() =>
+    profiles ? profiles[currentProfileName()]! : initialMapsContextState(),
+  );
+
+  const updateProfile = (setter: (prev: MapsStore) => MapsStore) => {
+    setProfiles(currentProfileName(), setter);
+  };
 
   return (
     <MapsProfileContext.Provider
       value={{
-        addProfile: addProfile(setProfiles, setCurrentProfile),
+        addProfile: addProfile(setProfiles, setCurrentProfileName),
         currentProfile,
-        editProfile: editProfile(setProfiles, setCurrentProfile, currentProfile),
+        currentProfileName,
+        editProfile: editProfile(setProfiles, setCurrentProfileName, currentProfileName),
         profiles,
-        removeProfile: removeProfile(setProfiles, currentProfile),
-        setCurrentProfile,
-        updateProfile: updateProfile(setProfiles, currentProfile),
+        removeProfile: removeProfile(setProfiles, currentProfileName),
+        setCurrentProfile: setCurrentProfileName,
+        updateProfile,
       }}
     >
       {props.children}
