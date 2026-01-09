@@ -1,4 +1,4 @@
-import { createEffect, type ParentProps, useContext } from "solid-js";
+import { createMemo, type ParentProps, useContext } from "solid-js";
 import type { KeyOfType } from "~/lib/key-of-type";
 import { MapsProfileContext, type MapsStore, type ModRange } from "~/pages/maps/context";
 import { NumberInput } from "./NumberInput";
@@ -24,14 +24,10 @@ export function RangeInput({ model, children, min = 0, max }: ParentProps<Props>
     });
   };
 
-  const range = () => currentProfile()[model];
+  const range = createMemo(() => {
+    const p = currentProfile();
 
-  createEffect(() => {
-    if (model !== "level") {
-      return;
-    }
-
-    console.log(currentProfile()[model]);
+    return p[model];
   });
 
   return (
@@ -42,7 +38,7 @@ export function RangeInput({ model, children, min = 0, max }: ParentProps<Props>
           max={range().max}
           min={min}
           updateStore={(value) => update(value, "min")}
-          value={range().min}
+          value={() => range().min}
         >
           мин
         </NumberInput>
@@ -50,7 +46,7 @@ export function RangeInput({ model, children, min = 0, max }: ParentProps<Props>
           max={max}
           min={range().min}
           updateStore={(value) => update(value, "max")}
-          value={range().max}
+          value={() => range().max}
         >
           макс
         </NumberInput>
