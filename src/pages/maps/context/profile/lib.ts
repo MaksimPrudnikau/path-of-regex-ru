@@ -1,10 +1,9 @@
 import type { Accessor, Signal } from "solid-js";
-import { initialMapsContextState, type MapsStore } from "~/pages/maps/context";
+import { initialMapsContextState } from "~/pages/maps/context";
 import type { Context, Profiles } from "./context";
 
 export const STORAGE_KEY = "path-of-regex-maps-profiles";
 
-// Изменяем тип Profiles с Map на Record
 type SetProfilesFunc = Signal<Profiles>["1"];
 type SetCurrentProfileFunc = Signal<string>["1"];
 
@@ -14,15 +13,18 @@ export const addProfile = (
 ): Context["addProfile"] => {
   return (name: string, duplicateFrom?: string) => {
     setProfiles((prev) => {
+      if (Object.keys(prev).includes(name)) {
+        alert(`Профиль "${name}" уже существует`);
+        return prev;
+      }
+
       const newProfiles = { ...prev };
-      const profile = duplicateFrom
+
+      newProfiles[name] = duplicateFrom
         ? newProfiles[duplicateFrom]
         : initialMapsContextState();
 
-      newProfiles[name] = deepClone(profile);
       setCurrentProfile(name);
-
-      updateStorage(newProfiles);
 
       return newProfiles;
     });
@@ -34,56 +36,37 @@ export const editProfile = (
   setCurrentProfile: SetCurrentProfileFunc,
   currentProfile: Accessor<string>,
 ): Context["editProfile"] => {
-  return (name: string) => {
+  return (newName: string) => {
+    const oldName = currentProfile();
+
+    if (oldName === newName) {
+      return;
+    }
+
     setProfiles((prev) => {
-      const newProfiles = { ...prev };
+      if (prev[newName]) {
+        alert(`Профиль "${newName}" уже существует`);
+        return prev;
+      }
 
-      const profile = newProfiles[currentProfile()];
-      newProfiles[name] = deepClone(profile);
-      delete newProfiles[currentProfile()];
-      setCurrentProfile(name);
+      const newProfiles: Profiles = {};
 
-      updateStorage(newProfiles);
+      // Копируем все профили кроме старого
+      for (const key in prev) {
+        if (key !== oldName) {
+          newProfiles[key] = prev[key];
+        }
+      }
+
+      // Добавляем переименованный профиль
+      if (prev[oldName]) {
+        newProfiles[newName] = { ...prev[oldName] }; // глубокая копия желательна
+      }
 
       return newProfiles;
     });
+
+    // Обновляем текущий профиль ПОСЛЕ обновления profiles
+    setCurrentProfile(newName);
   };
 };
-
-export const removeProfile = (
-  setProfiles: SetProfilesFunc,
-  currentProfile: Accessor<string>,
-): Context["removeProfile"] => {
-  return () => {
-    setProfiles((prev) => {
-      const newProfiles = { ...prev };
-      delete newProfiles[currentProfile()];
-
-      updateStorage(newProfiles);
-      return newProfiles;
-    });
-  };
-};
-
-export function updateProfile(
-  setProfiles: SetProfilesFunc,
-  currentProfile: Accessor<string>,
-) {
-  return (profile: MapsStore) => {
-    setProfiles((prev) => {
-      const newProfiles = { ...prev };
-      newProfiles[currentProfile()] = profile;
-      updateStorage(newProfiles);
-
-      return newProfiles;
-    });
-  };
-}
-
-function updateStorage(profiles: Profiles) {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(profiles));
-}
-
-function deepClone<T>(obj: T): T {
-  return JSON.parse(JSON.stringify(obj));
-}

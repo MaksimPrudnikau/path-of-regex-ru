@@ -18,7 +18,10 @@ export function AddForm(props: Props) {
 
     props.onSubmit(name(), duplicateFrom());
     setName("");
+    setDuplicateFrom("");
   };
+
+  let form!: HTMLFormElement;
 
   return (
     <form
@@ -27,7 +30,9 @@ export function AddForm(props: Props) {
         e.preventDefault();
 
         handleSave();
+        form.reset();
       }}
+      ref={form}
     >
       <h4>Создать новый профиль:</h4>
       <ProfileInput error={error} name={name} setError={setError} setName={setName} />

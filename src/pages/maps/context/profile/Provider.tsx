@@ -1,8 +1,8 @@
 import { makePersisted } from "@solid-primitives/storage";
-import { createMemo, createSignal, type ParentProps } from "solid-js";
-import { createStore } from "solid-js/store";
+import { batch, createMemo, createSignal, type ParentProps } from "solid-js";
+import { createStore, reconcile, unwrap } from "solid-js/store";
 import { initialMapsContextState, type MapsStore, type Profiles, } from "~/pages/maps/context";
-import { addProfile, editProfile, removeProfile, STORAGE_KEY, } from "~/pages/maps/context/profile/lib";
+import { STORAGE_KEY } from "~/pages/maps/context/profile/lib";
 import { MapsProfileContext } from "./context";
 
 export function ProfileContextProvider(props: ParentProps) {
@@ -25,12 +25,60 @@ export function ProfileContextProvider(props: ParentProps) {
   return (
     <MapsProfileContext.Provider
       value={{
-        addProfile: addProfile(setProfiles, setCurrentProfileName),
+        addProfile: (name: string, duplicateFrom?: string) => {
+          if (name in profiles) {
+            alert(`Профиль с именем "${name}" уже существует`);
+            return;
+          }
+
+          if (duplicateFrom && !(duplicateFrom in profiles)) {
+            alert(`Профиль с именем "${duplicateFrom}" не найден`);
+            return;
+          }
+
+          const unwrappedProfiles = unwrap(profiles);
+
+          const newProfile = duplicateFrom
+            ? unwrappedProfiles[duplicateFrom]
+            : initialMapsContextState();
+
+          batch(() => {
+            setProfiles(name, JSON.parse(JSON.stringify(newProfile)));
+            setCurrentProfileName(name);
+          });
+        },
         currentProfile,
         currentProfileName,
-        editProfile: editProfile(setProfiles, setCurrentProfileName, currentProfileName),
+        editProfile: (newName: string) => {
+          const unwrappedProfiles = unwrap(profiles);
+          const unwrappedProfile = profiles[currentProfileName()];
+
+          const { [currentProfileName()]: _, ...rest } = unwrappedProfiles;
+          rest[newName] = unwrappedProfile;
+
+          batch(() => {
+            setProfiles(reconcile(rest));
+            setCurrentProfileName(newName);
+          });
+        },
         profiles,
-        removeProfile: removeProfile(setProfiles, currentProfileName),
+        removeProfile: () => {
+          const profileNames = Object.keys(profiles);
+
+          if (profileNames.length < 2) {
+            alert("Нельзя удалить единственный профиль");
+            return;
+          }
+
+          const { [currentProfileName()]: _, ...rest } = profiles;
+
+          const newName = Object.keys(rest)[0];
+
+          batch(() => {
+            setProfiles(reconcile(rest));
+            setCurrentProfileName(newName);
+          });
+        },
         setCurrentProfile: setCurrentProfileName,
         updateProfile,
       }}
