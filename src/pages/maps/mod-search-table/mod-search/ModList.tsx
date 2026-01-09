@@ -29,7 +29,7 @@ export function ModList({ mods, model }: Props) {
   };
 
   return (
-    <div class={"col gap-2"}>
+    <div class={"col gap-2 w-full"}>
       <For each={mods()}>
         {(mod) => {
           const isSelected = () =>

@@ -26,7 +26,7 @@ export function ModsSearchTable({ mods }: Props) {
           <span class={"text-accent"}>Показать модификаторы Т17 карт</span>
         </div>
       </div>
-      <div class={"w-full grid grid-cols-2 grid-rows-1 gap-10"}>
+      <div class={"w-full grid grid-cols-2 grid-rows-1 gap-20"}>
         <NegativeModSearch mods={filteredMods} />
         <PositiveModSearch mods={filteredMods} />
       </div>

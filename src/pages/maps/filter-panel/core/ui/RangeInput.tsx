@@ -31,8 +31,8 @@ export function RangeInput({ model, children, min = 0, max }: ParentProps<Props>
   });
 
   return (
-    <div class={"row w-full justify-between"}>
-      <span class={"min-w-fit"}>{children}</span>
+    <div class={"row w-full"}>
+      <span class={"min-w-52"}>{children}</span>
       <div class={"row gap-2"}>
         <NumberInput
           max={range().max}

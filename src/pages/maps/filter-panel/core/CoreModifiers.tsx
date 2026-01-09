@@ -1,10 +1,8 @@
-import { AdditionalLootModifiers } from "./AdditionalLootModifiers";
-import { BasicModifiers } from "./BasicModifiers";
-import { MonstersModifiers } from "./MonstersModifiers";
+import { AdditionalLootModifiers, BasicModifiers, MonstersModifiers } from "./modifiers";
 
 export function CoreModifiers() {
   return (
-    <div class="grid grid-cols-1 md:grid-cols-[auto_auto_auto] gap-x-8 gap-y-6 w-full">
+    <div class="flex row flex-wrap gap-10">
       <BasicModifiers />
       <MonstersModifiers />
       <AdditionalLootModifiers />

@@ -7,7 +7,7 @@ type Props = {
 
 export function SearchInput(props: Props) {
   return (
-    <label class="input">
+    <label class="input w-full">
       <input
         id={"search-mod-input"}
         onInput={(e) => {
