@@ -10,7 +10,7 @@ type Props = {
 };
 
 export function RangeInput({ model, children, min = 0, max }: ParentProps<Props>) {
-  const { currentProfile, updateProfile } = useContext(MapsProfileContext);
+  const { profiles, currentProfileName, updateProfile } = useContext(MapsProfileContext);
 
   const update = (value: number | undefined, fieldName: keyof ModRange) => {
     updateProfile((prev) => {
@@ -24,29 +24,26 @@ export function RangeInput({ model, children, min = 0, max }: ParentProps<Props>
     });
   };
 
-  const range = createMemo(() => {
-    const p = currentProfile();
-
-    return p[model];
-  });
+  const getMin = createMemo(() => profiles[currentProfileName()][model].min);
+  const getMax = createMemo(() => profiles[currentProfileName()][model].max);
 
   return (
     <div class={"row w-full"}>
       <span class={"min-w-52"}>{children}</span>
       <div class={"row gap-2"}>
         <NumberInput
-          max={range().max}
+          max={getMax()}
           min={min}
           updateStore={(value) => update(value, "min")}
-          value={() => range().min}
+          value={getMin}
         >
           мин
         </NumberInput>
         <NumberInput
           max={max}
-          min={range().min}
+          min={getMin()}
           updateStore={(value) => update(value, "max")}
-          value={() => range().max}
+          value={getMax}
         >
           макс
         </NumberInput>

@@ -1,5 +1,5 @@
 import { A, useLocation } from "@solidjs/router";
-import { children, createEffect, createMemo, type ParentProps } from "solid-js";
+import { children, createMemo, type ParentProps } from "solid-js";
 
 type Props = {
   icon: string;
@@ -9,15 +9,7 @@ export function Tab(props: ParentProps<Props>) {
   const c = children(() => props.children);
   const params = useLocation();
 
-  createEffect(() => {
-    console.log(props.icon);
-  });
-
   const isActive = createMemo(() => params.pathname.includes(props.icon));
-  // const isActive = createMemo(() =>
-  //   `/${props.icon}` params.pathname.
-  //     : pageContext.urlPathname.startsWith(props.href),
-  // );
 
   return (
     <A

@@ -1,5 +1,5 @@
 import { makePersisted } from "@solid-primitives/storage";
-import { batch, createMemo, createSignal, type ParentProps, Show } from "solid-js";
+import { batch, createMemo, createSignal, type ParentProps } from "solid-js";
 import { createStore, reconcile, unwrap } from "solid-js/store";
 import { initialMapsContextState, type MapsStore, type Profiles, } from "~/pages/maps/context";
 import { STORAGE_KEY } from "~/pages/maps/context/profile/lib";
@@ -12,10 +12,11 @@ export function ProfileContextProvider(props: ParentProps) {
   );
   const [currentProfileName, setCurrentProfileName] = makePersisted(
     createSignal<string>("default"),
+    { name: `${STORAGE_KEY}:current` },
   );
 
-  const currentProfile = createMemo(() =>
-    profiles ? profiles[currentProfileName()]! : initialMapsContextState(),
+  const currentProfile = createMemo(
+    () => profiles?.[currentProfileName()] ?? initialMapsContextState(),
   );
 
   const updateProfile = (setter: (prev: MapsStore) => MapsStore) => {
@@ -50,6 +51,11 @@ export function ProfileContextProvider(props: ParentProps) {
         currentProfile,
         currentProfileName,
         editProfile: (newName: string) => {
+          if (newName in profiles) {
+            alert(`Профиль с именем "${newName}" уже существует`);
+            return;
+          }
+
           const unwrappedProfiles = unwrap(profiles);
           const unwrappedProfile = profiles[currentProfileName()];
 
@@ -83,7 +89,7 @@ export function ProfileContextProvider(props: ParentProps) {
         updateProfile,
       }}
     >
-      <Show when={!!currentProfile()}>{props.children}</Show>
+      {props.children}
     </MapsProfileContext.Provider>
   );
 }

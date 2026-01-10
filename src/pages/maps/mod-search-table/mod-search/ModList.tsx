@@ -1,4 +1,4 @@
-import { type Accessor, For, useContext } from "solid-js";
+import { type Accessor, createMemo, For, useContext } from "solid-js";
 import type { MapMod } from "~/api";
 import { MapsProfileContext } from "~/pages/maps/context";
 import { Mod } from "~/pages/maps/mod-search-table/mod-search/Mod";
@@ -11,7 +11,7 @@ type Props = {
 export function ModList({ mods, model }: Props) {
   const { currentProfile, updateProfile } = useContext(MapsProfileContext);
 
-  const selectedMods = () => currentProfile()[model];
+  const selectedMods = createMemo(() => currentProfile()[model]);
 
   const addOrRemoveMod = (mod: MapMod) => {
     updateProfile((prev) => {
@@ -32,10 +32,9 @@ export function ModList({ mods, model }: Props) {
     <div class={"col gap-2 w-full"}>
       <For each={mods()}>
         {(mod) => {
-          const isSelected = () =>
-            selectedMods()
-              .map((x) => x.id)
-              .includes(mod.id);
+          const isSelected = createMemo(() =>
+            (selectedMods() ?? []).map((x) => x.id).includes(mod.id),
+          );
 
           return (
             <Mod isSelected={isSelected} mod={mod} onClick={() => addOrRemoveMod(mod)} />
