@@ -3,6 +3,7 @@ import { children, createMemo, type ParentProps } from "solid-js";
 
 type Props = {
   icon: string;
+  disabled?: boolean;
 };
 
 export function Tab(props: ParentProps<Props>) {
@@ -12,15 +13,25 @@ export function Tab(props: ParentProps<Props>) {
   const isActive = createMemo(() => params.pathname.includes(props.icon));
 
   return (
-    <A
-      class={
-        "link link-hover flex gap-2 items-center px-3 py-2 hover:bg-base-300 rounded-xl"
-      }
-      classList={{ "bg-base-300": isActive() }}
-      href={`/${props.icon}`}
+    <div
+      classList={{
+        tooltip: props.disabled,
+      }}
+      data-tip={"Скоро..."}
     >
-      <img alt={props.icon} src={`/icons/${props.icon}.png`} width={40} />
-      {c()}
-    </A>
+      <A
+        class={
+          "link link-hover flex gap-2 items-center px-3 py-2 hover:bg-base-300 rounded-xl text"
+        }
+        classList={{
+          "bg-base-300": isActive(),
+          "pointer-events-none opacity-30 line-through": props.disabled,
+        }}
+        href={`/${props.icon}`}
+      >
+        <img alt={props.icon} src={`/icons/${props.icon}.png`} width={40} />
+        {c()}
+      </A>
+    </div>
   );
 }
