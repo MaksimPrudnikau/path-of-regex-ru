@@ -1,32 +1,52 @@
-# SolidStart
+# Path of Regex Ru  
+**Русская версия генератора regex для Path of Exile 1**
 
-Everything you need to build a Solid project, powered by [`solid-start`](https://start.solidjs.com);
+---
 
-## Creating a project
+### Что это за сайт?
 
-```bash
-# create a new project in the current directory
-npm init solid@latest
+Этот сайт помогает игрокам **Path of Exile** создавать регулярные выражения (regex)  
+для фильтрации карт и других предметов по самым разным параметрам:  
+уровень, тип, модификаторы, фракции, крафт и многое другое.
 
-# create a new project in my-app
-npm init solid@latest my-app
-```
+Это адаптация и развитие популярного английского сервиса [poe.re](https://poe.re),  
+но полностью адаптированная под **русский клиент** игры + с новыми удобными функциями.
 
-## Developing
+---
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+### Почему я создал этот сайт?
 
-```bash
-npm run dev
+Оригинальный poe.re — отличный инструмент, но его данные **не работают** с русским клиентом PoE.  
+Я решил сделать свою версию, которая будет правильно работать у всех русскоязычных игроков,  
+а заодно добавил несколько приятных улучшений.
 
-# or start the server and open the app in a new browser tab
-npm run dev
-```
+**Это мой маленький вклад в русскоязычное сообщество Path of Exile!**
 
-## Building
+---
 
-Solid apps are built with _adapters_, which optimise your project for deployment to different environments.
+### Важно: сайт абсолютно бесплатный навсегда
 
-By default, `npm run build` will generate a Node app that you can run with `npm start`. To use a different adapter, add it to the `devDependencies` in `package.json` and specify in your `app.config.js`.
+Я специально сделал этот ресурс **полностью бесплатным**, без рекламы, без донатов, без скрытых платежей.
 
-## This project was created with the [Solid CLI](https://github.com/solidjs-community/solid-cli)
+Моя цель — облегчить жизнь русскоязычному комьюнити PoE.  
+Пока я имею возможность поддерживать сайт бесплатно — он таким и останется.
+
+**Наслаждайтесь и делитесь с друзьями!**
+
+---
+
+### Обо мне
+
+Привет! Меня зовут **Максим**.  
+**Path of Exile** — моя любимая игра, хотя играю я в неё всего три года.  
+За это время она стала для меня гораздо больше, чем просто игра — это целая вселенная глубины, сложности и бесконечных возможностей.
+
+По счастливой случайности я веб-разработчик.  
+Когда я увидел, насколько мало в русскоязычном сообществе действительно удобных и качественных ресурсов на родном языке — я понял, что это мой шанс.
+
+Шанс немного помочь любимой игре и всем русскоязычным exile-ам :)
+
+---
+
+© 2026 Maksim Prunikau  
+Все права защищены
