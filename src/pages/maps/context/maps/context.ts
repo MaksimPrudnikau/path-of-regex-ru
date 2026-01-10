@@ -38,6 +38,7 @@ export type MapsStore = {
   positiveMods: Array<Pick<MapMod, "id" | "regex">>;
 
   positiveModsType: PositiveModsType;
+  includeT17: boolean;
 };
 
 export const initialMapsContextState = (): MapsStore => ({
@@ -47,6 +48,7 @@ export const initialMapsContextState = (): MapsStore => ({
   includeMapsType: IncludeMapType.Include,
   includeNormalMaps: false,
   includeRareMaps: false,
+  includeT17: false,
   includeUnidentifiedMaps: false,
   includeUnidentifiedMapsType: IncludeMapType.Include,
   level: {},
