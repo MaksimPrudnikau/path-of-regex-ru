@@ -16,7 +16,6 @@ export default defineConfig({
   },
   ssr: false,
   vite: {
-    base: "/path-of-regex-ru",
     plugins: [
       tailwindcss(),
       devtools({
