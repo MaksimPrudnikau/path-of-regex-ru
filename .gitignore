@@ -29,3 +29,4 @@ Thumbs.db
 /pnpm-workspace.yaml
 /.output/server/
 /.output/nitro.json
+/.output/
