@@ -1,70 +1,64 @@
 {
-  "version": "6",
-  "dialect": "sqlite",
-  "id": "6580b780-31f1-4f85-b20c-21d00727d4f6",
+  "id": "99ef06c4-2d05-48c0-ae08-8a826c6bb44d",
   "prevId": "00000000-0000-0000-0000-000000000000",
+  "version": "7",
+  "dialect": "postgresql",
   "tables": {
-    "maps": {
+    "public.maps": {
       "name": "maps",
+      "schema": "",
       "columns": {
         "id": {
           "name": "id",
-          "type": "integer",
+          "type": "serial",
           "primaryKey": true,
-          "notNull": true,
-          "autoincrement": true
+          "notNull": true
         },
         "name": {
           "name": "name",
           "type": "text",
           "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false
+          "notNull": true
         },
         "rank": {
           "name": "rank",
           "type": "real",
           "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false
+          "notNull": true
         },
         "regex": {
           "name": "regex",
           "type": "text",
           "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false
+          "notNull": true
         }
       },
-      "indexes": {
-        "maps_id_unique": {
-          "name": "maps_id_unique",
-          "columns": ["id"],
-          "isUnique": true
-        },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
         "maps_name_unique": {
           "name": "maps_name_unique",
-          "columns": ["name"],
-          "isUnique": true
+          "nullsNotDistinct": false,
+          "columns": [
+            "name"
+          ]
         },
         "maps_regex_unique": {
           "name": "maps_regex_unique",
-          "columns": ["regex"],
-          "isUnique": true
+          "nullsNotDistinct": false,
+          "columns": [
+            "regex"
+          ]
         }
-      },
-      "foreignKeys": {},
-      "compositePrimaryKeys": {},
-      "uniqueConstraints": {}
+      }
     }
   },
   "enums": {},
+  "schemas": {},
   "_meta": {
+    "columns": {},
     "schemas": {},
-    "tables": {},
-    "columns": {}
-  },
-  "internal": {
-    "indexes": {}
+    "tables": {}
   }
 }

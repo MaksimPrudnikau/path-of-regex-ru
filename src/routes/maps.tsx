@@ -10,8 +10,6 @@ export const route = {
   },
 } satisfies RouteDefinition;
 
-// export default clientOnly(async () => ({ default: Maps }), { lazy: true });
-
 export default function Maps() {
   const mods = createAsyncStore(async () => getMapMods());
 
