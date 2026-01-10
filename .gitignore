@@ -1,6 +1,5 @@
 dist
 .wrangler
-.output
 .vercel
 .netlify
 .vinxi
@@ -28,3 +27,5 @@ gitignore
 Thumbs.db
 /pnpm-lock.yaml
 /pnpm-workspace.yaml
+/.output/server/
+/.output/nitro.json
