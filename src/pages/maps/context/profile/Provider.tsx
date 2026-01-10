@@ -1,5 +1,5 @@
 import { makePersisted } from "@solid-primitives/storage";
-import { batch, createMemo, createSignal, type ParentProps } from "solid-js";
+import { batch, createMemo, createSignal, type ParentProps, Show } from "solid-js";
 import { createStore, reconcile, unwrap } from "solid-js/store";
 import { initialMapsContextState, type MapsStore, type Profiles, } from "~/pages/maps/context";
 import { STORAGE_KEY } from "~/pages/maps/context/profile/lib";
@@ -83,7 +83,7 @@ export function ProfileContextProvider(props: ParentProps) {
         updateProfile,
       }}
     >
-      {props.children}
+      <Show when={!!currentProfile()}>{props.children}</Show>
     </MapsProfileContext.Provider>
   );
 }

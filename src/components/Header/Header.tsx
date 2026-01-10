@@ -4,7 +4,7 @@ export function Header() {
   return (
     <header class={"w-full col gap-5 items-start"}>
       <h1>Path of Regex Ru (Русская версия)</h1>
-      <div class={"flex gap-3 flex-wrap"}>
+      <div class={`flex gap-3 flex-wrap`}>
         <Tab icon={"vendors"}>Торговцы</Tab>
         <Tab icon={"maps"}>Карты</Tab>
         <Tab icon={"items"}>Предметы</Tab>
