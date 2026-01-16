@@ -25,8 +25,9 @@
   },
   "name": "example-with-drizzle",
   "scripts": {
-    "build": "vinxi build && vinxi start",
-    "dev": "vinxi dev"
+    "build": "vinxi build",
+    "dev": "vinxi dev",
+    "start": "vinxi start"
   },
   "type": "module"
 }
