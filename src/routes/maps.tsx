@@ -1,6 +1,5 @@
 import { createAsyncStore, type RouteDefinition } from "@solidjs/router";
-import { Show } from "solid-js";
-import { isServer } from "solid-js/web";
+import { clientOnly } from "@solidjs/start";
 import { getMapMods } from "~/api";
 import { HeaderWithProfile, ModsSearchTable, RegexArea } from "~/pages/maps";
 import { ProfileContextProvider } from "~/pages/maps/context";
@@ -12,21 +11,21 @@ export const route = {
   },
 } satisfies RouteDefinition;
 
-export default function Maps() {
+export default clientOnly(async () => ({ default: Maps }), { lazy: true });
+
+function Maps() {
   const mods = createAsyncStore(async () => getMapMods());
 
   const modsAccessor = () => mods() ?? [];
 
   return (
-    <Show fallback={"Загрузка..."} when={!isServer}>
-      <ProfileContextProvider>
-        <main class="w-full p-4 space-y-4">
-          <HeaderWithProfile />
-          <RegexArea />
-          <FilterPanel />
-          <ModsSearchTable mods={modsAccessor} />
-        </main>
-      </ProfileContextProvider>
-    </Show>
+    <ProfileContextProvider>
+      <main class="w-full p-4 space-y-4">
+        <HeaderWithProfile />
+        <RegexArea />
+        <FilterPanel />
+        <ModsSearchTable mods={modsAccessor} />
+      </main>
+    </ProfileContextProvider>
   );
 }
