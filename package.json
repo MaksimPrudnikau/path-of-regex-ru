@@ -15,7 +15,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "2.3.10",
-    "@types/node": "^24.10.4",
+    "@types/node": "^24.10.7",
     "@types/to-regex-range": "^5.0.3",
     "drizzle-kit": "^0.22.8",
     "solid-devtools": "^0.34.4"
@@ -25,9 +25,8 @@
   },
   "name": "example-with-drizzle",
   "scripts": {
-    "build": "vinxi build",
-    "dev": "vinxi dev",
-    "start": "vinxi start"
+    "build": "vinxi build && vinxi start",
+    "dev": "vinxi dev"
   },
   "type": "module"
 }

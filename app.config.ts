@@ -12,15 +12,12 @@ export default defineConfig({
     prerender: {
       crawlLinks: true,
     },
-    ssr: false,
   },
-  ssr: false,
   vite: {
     plugins: [
       tailwindcss(),
       devtools({
-        /* features options - all disabled by default */
-        autoname: true, // e.g. enable autoname
+        autoname: true,
       }),
     ],
     resolve: {
