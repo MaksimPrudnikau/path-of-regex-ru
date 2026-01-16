@@ -94,9 +94,7 @@ export function ProfileContextProvider(props: ParentProps) {
         updateProfile,
       }}
     >
-      <Show fallback={"Загрузка..."} when={!isServer}>
-        {props.children}
-      </Show>
+      {props.children}
     </MapsProfileContext.Provider>
   );
 }

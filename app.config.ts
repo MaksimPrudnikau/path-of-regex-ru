@@ -12,6 +12,7 @@ export default defineConfig({
     prerender: {
       crawlLinks: true,
     },
+    ssr: false,
   },
   vite: {
     plugins: [
