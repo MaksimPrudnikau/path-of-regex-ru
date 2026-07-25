@@ -1,9 +1,10 @@
-import toRegexRange from "to-regex-range";
-import type { ModRange } from "~/pages/maps/context/maps/context";
+import toRegexRange from 'to-regex-range'
+import type { ModRange } from '~/pages/maps/context/maps/context'
 
 export type Config = {
   minAllowed?: number;
   maxAllowed?: number;
+  withBraces?: boolean;
 };
 
 export function generateModRangeRegex(range: ModRange, config?: Config): string {
@@ -20,7 +21,9 @@ export function generateModRangeRegex(range: ModRange, config?: Config): string 
 
   const removeBrackets = regex.replaceAll("(", "").replaceAll(")", "");
 
-  return `(${removeBrackets})`;
+  console.log("removeBrackets", config?.withBraces ?? true);
+
+  return (config?.withBraces ?? true) ? `(${removeBrackets})` : removeBrackets;
 }
 
 function validateRage(min: number, max: number, config: Config | undefined) {

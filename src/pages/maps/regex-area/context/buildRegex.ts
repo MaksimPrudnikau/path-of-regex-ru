@@ -1,5 +1,13 @@
-import { IncludeMapType, type MapsStore, type ModRange, PositiveModsType, } from "~/pages/maps/context/maps";
-import { type Config, generateModRangeRegex } from "./regex-builders/modRange.builder";
+import {
+  IncludeMapType,
+  type MapsStore,
+  type ModRange,
+  PositiveModsType,
+} from '~/pages/maps/context/maps'
+import {
+  type Config,
+  generateModRangeRegex,
+} from './regex-builders/modRange.builder'
 
 export const buildRegex = (store: MapsStore): string => {
   const {
@@ -46,7 +54,7 @@ export const buildRegex = (store: MapsStore): string => {
 
   const addIfHas = numberArrayUpdater(resultArray);
 
-  addIfHas(level, "рты: {0}$", { maxAllowed: 17 });
+  addIfHas(level, "Ур. {0}", { maxAllowed: 17, withBraces: false });
   addIfHas(quality, "во: {0}$", { maxAllowed: 20 });
 
   addIfHas(quantity, "^Кол.+: \\+{0}%");
@@ -89,10 +97,7 @@ function numberArrayUpdater(array: string[]) {
       return;
     }
 
-    const regex = generateModRangeRegex(range, {
-      maxAllowed: config?.maxAllowed,
-      minAllowed: config?.minAllowed,
-    });
+    const regex = generateModRangeRegex(range, config);
 
     array.push(stringFormat(format, regex));
   };

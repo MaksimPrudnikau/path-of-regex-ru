@@ -1,12 +1,13 @@
-import { A } from "@solidjs/router";
-import { Tab } from "./Tab";
+import { A } from '@solidjs/router'
+import { Tab } from './Tab'
 
 export function Header() {
   return (
-    <header class={"w-full col gap-10 items-start"}>
+    <header class={"w-full col gap-10 items-start mt-2"}>
       <h1>
         <A class={"link link-hover"} href={"/"}>
-          Path of Regex Ru (Русская версия)
+          Path of Regex Ru (Русская версия){" "}
+          <span class={"text-sm font-light text-gray-400 items-start"}>3.29</span>
         </A>
       </h1>
       <div class={`flex gap-3 flex-wrap`}>
