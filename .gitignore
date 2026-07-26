@@ -30,3 +30,7 @@ Thumbs.db
 /.output/server/
 /.output/nitro.json
 /.output/
+
+/src/generated/prisma
+
+/generated/prisma

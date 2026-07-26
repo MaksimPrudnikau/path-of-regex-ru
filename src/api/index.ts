@@ -1,10 +1,11 @@
-import { query } from "@solidjs/router";
-import type { maps } from "@/drizzle/schemas";
-import { db } from "~/api/db";
+import { query } from '@solidjs/router'
+import type { maps } from '@/generated/prisma/browser'
+import { prisma } from '~/api/db'
 
 export const getMapMods = query(() => {
   "use server";
-  return db.query.maps.findMany();
+
+  return prisma.maps.findMany();
 }, "getMapMods");
 
-export type MapMod = typeof maps.$inferSelect;
+export type MapMod = maps;

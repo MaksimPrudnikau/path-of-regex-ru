@@ -1,13 +1,18 @@
-import { type Accessor, createMemo } from "solid-js";
-import type { MapMod } from "~/api";
-import { ModSearch } from "./mod-search/ModSearch";
+import { type Accessor, createEffect, createMemo } from 'solid-js'
+import { unwrap } from 'solid-js/store'
+import type { MapMod } from '~/api'
+import { ModSearch } from './mod-search/ModSearch'
 
 type Props = {
   mods: Accessor<MapMod[]>;
 };
 
 export function NegativeModSearch({ mods }: Props) {
-  const sortedMods = createMemo(() => mods().toSorted((a, b) => b.rank - a.rank));
+  const sortedMods = createMemo(() => mods().sort((a, b) => b.rank - a.rank));
+
+  createEffect(() => {
+    console.log(unwrap(sortedMods()));
+  });
 
   return (
     <ModSearch

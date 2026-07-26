@@ -1,8 +1,5 @@
-import { drizzle } from "drizzle-orm/postgres-js";
-import postgres from "postgres";
-import * as schema from "@/drizzle/schemas";
+import { PrismaBetterSqlite3 } from '@prisma/adapter-better-sqlite3'
+import { PrismaClient } from '@/generated/prisma/client'
 
-const connectionString = import.meta.env.VITE_DATABASE_URL;
-
-const client = postgres(connectionString as string, { prepare: true });
-export const db = drizzle(client, { schema });
+const adapter = new PrismaBetterSqlite3({ url: "file:./db.sqlite" });
+export const prisma = new PrismaClient({ adapter });
