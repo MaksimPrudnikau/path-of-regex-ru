@@ -61,6 +61,9 @@ export type ModelName = (typeof ModelName)[keyof typeof ModelName]
  */
 
 export const TransactionIsolationLevel = runtime.makeStrictEnum({
+  ReadUncommitted: 'ReadUncommitted',
+  ReadCommitted: 'ReadCommitted',
+  RepeatableRead: 'RepeatableRead',
   Serializable: 'Serializable'
 } as const)
 
@@ -71,7 +74,8 @@ export const MapsScalarFieldEnum = {
   id: 'id',
   name: 'name',
   rank: 'rank',
-  regex: 'regex'
+  regex: 'regex',
+  uniqueIndex: 'uniqueIndex'
 } as const
 
 export type MapsScalarFieldEnum = (typeof MapsScalarFieldEnum)[keyof typeof MapsScalarFieldEnum]
@@ -83,4 +87,12 @@ export const SortOrder = {
 } as const
 
 export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
+
+
+export const QueryMode = {
+  default: 'default',
+  insensitive: 'insensitive'
+} as const
+
+export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
 

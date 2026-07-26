@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "@prisma/adapter-better-sqlite3": "^7.9.0",
+    "@prisma/adapter-pg": "^7.9.0",
     "@prisma/client": "^7.9.0",
     "@solid-primitives/deep": "^0.3.7",
     "@solid-primitives/storage": "^4.4.0",

@@ -29,11 +29,13 @@ export type AggregateMaps = {
 export type MapsAvgAggregateOutputType = {
   id: number | null
   rank: number | null
+  uniqueIndex: number | null
 }
 
 export type MapsSumAggregateOutputType = {
   id: number | null
   rank: number | null
+  uniqueIndex: number | null
 }
 
 export type MapsMinAggregateOutputType = {
@@ -41,6 +43,7 @@ export type MapsMinAggregateOutputType = {
   name: string | null
   rank: number | null
   regex: string | null
+  uniqueIndex: number | null
 }
 
 export type MapsMaxAggregateOutputType = {
@@ -48,6 +51,7 @@ export type MapsMaxAggregateOutputType = {
   name: string | null
   rank: number | null
   regex: string | null
+  uniqueIndex: number | null
 }
 
 export type MapsCountAggregateOutputType = {
@@ -55,6 +59,7 @@ export type MapsCountAggregateOutputType = {
   name: number
   rank: number
   regex: number
+  uniqueIndex: number
   _all: number
 }
 
@@ -62,11 +67,13 @@ export type MapsCountAggregateOutputType = {
 export type MapsAvgAggregateInputType = {
   id?: true
   rank?: true
+  uniqueIndex?: true
 }
 
 export type MapsSumAggregateInputType = {
   id?: true
   rank?: true
+  uniqueIndex?: true
 }
 
 export type MapsMinAggregateInputType = {
@@ -74,6 +81,7 @@ export type MapsMinAggregateInputType = {
   name?: true
   rank?: true
   regex?: true
+  uniqueIndex?: true
 }
 
 export type MapsMaxAggregateInputType = {
@@ -81,6 +89,7 @@ export type MapsMaxAggregateInputType = {
   name?: true
   rank?: true
   regex?: true
+  uniqueIndex?: true
 }
 
 export type MapsCountAggregateInputType = {
@@ -88,6 +97,7 @@ export type MapsCountAggregateInputType = {
   name?: true
   rank?: true
   regex?: true
+  uniqueIndex?: true
   _all?: true
 }
 
@@ -182,6 +192,7 @@ export type MapsGroupByOutputType = {
   name: string
   rank: number
   regex: string
+  uniqueIndex: number
   _count: MapsCountAggregateOutputType | null
   _avg: MapsAvgAggregateOutputType | null
   _sum: MapsSumAggregateOutputType | null
@@ -210,8 +221,9 @@ export type mapsWhereInput = {
   NOT?: Prisma.mapsWhereInput | Prisma.mapsWhereInput[]
   id?: Prisma.IntFilter<"maps"> | number
   name?: Prisma.StringFilter<"maps"> | string
-  rank?: Prisma.FloatFilter<"maps"> | number
+  rank?: Prisma.IntFilter<"maps"> | number
   regex?: Prisma.StringFilter<"maps"> | string
+  uniqueIndex?: Prisma.IntFilter<"maps"> | number
 }
 
 export type mapsOrderByWithRelationInput = {
@@ -219,23 +231,26 @@ export type mapsOrderByWithRelationInput = {
   name?: Prisma.SortOrder
   rank?: Prisma.SortOrder
   regex?: Prisma.SortOrder
+  uniqueIndex?: Prisma.SortOrder
 }
 
 export type mapsWhereUniqueInput = Prisma.AtLeast<{
   id?: number
-  name?: string
-  regex?: string
   AND?: Prisma.mapsWhereInput | Prisma.mapsWhereInput[]
   OR?: Prisma.mapsWhereInput[]
   NOT?: Prisma.mapsWhereInput | Prisma.mapsWhereInput[]
-  rank?: Prisma.FloatFilter<"maps"> | number
-}, "id" | "id" | "name" | "regex">
+  name?: Prisma.StringFilter<"maps"> | string
+  rank?: Prisma.IntFilter<"maps"> | number
+  regex?: Prisma.StringFilter<"maps"> | string
+  uniqueIndex?: Prisma.IntFilter<"maps"> | number
+}, "id">
 
 export type mapsOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   rank?: Prisma.SortOrder
   regex?: Prisma.SortOrder
+  uniqueIndex?: Prisma.SortOrder
   _count?: Prisma.mapsCountOrderByAggregateInput
   _avg?: Prisma.mapsAvgOrderByAggregateInput
   _max?: Prisma.mapsMaxOrderByAggregateInput
@@ -249,54 +264,65 @@ export type mapsScalarWhereWithAggregatesInput = {
   NOT?: Prisma.mapsScalarWhereWithAggregatesInput | Prisma.mapsScalarWhereWithAggregatesInput[]
   id?: Prisma.IntWithAggregatesFilter<"maps"> | number
   name?: Prisma.StringWithAggregatesFilter<"maps"> | string
-  rank?: Prisma.FloatWithAggregatesFilter<"maps"> | number
+  rank?: Prisma.IntWithAggregatesFilter<"maps"> | number
   regex?: Prisma.StringWithAggregatesFilter<"maps"> | string
+  uniqueIndex?: Prisma.IntWithAggregatesFilter<"maps"> | number
 }
 
 export type mapsCreateInput = {
+  id: number
   name: string
   rank: number
   regex: string
+  uniqueIndex: number
 }
 
 export type mapsUncheckedCreateInput = {
-  id?: number
+  id: number
   name: string
   rank: number
   regex: string
+  uniqueIndex: number
 }
 
 export type mapsUpdateInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  rank?: Prisma.FloatFieldUpdateOperationsInput | number
+  rank?: Prisma.IntFieldUpdateOperationsInput | number
   regex?: Prisma.StringFieldUpdateOperationsInput | string
+  uniqueIndex?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type mapsUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  rank?: Prisma.FloatFieldUpdateOperationsInput | number
+  rank?: Prisma.IntFieldUpdateOperationsInput | number
   regex?: Prisma.StringFieldUpdateOperationsInput | string
+  uniqueIndex?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type mapsCreateManyInput = {
-  id?: number
+  id: number
   name: string
   rank: number
   regex: string
+  uniqueIndex: number
 }
 
 export type mapsUpdateManyMutationInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  rank?: Prisma.FloatFieldUpdateOperationsInput | number
+  rank?: Prisma.IntFieldUpdateOperationsInput | number
   regex?: Prisma.StringFieldUpdateOperationsInput | string
+  uniqueIndex?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type mapsUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  rank?: Prisma.FloatFieldUpdateOperationsInput | number
+  rank?: Prisma.IntFieldUpdateOperationsInput | number
   regex?: Prisma.StringFieldUpdateOperationsInput | string
+  uniqueIndex?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type mapsCountOrderByAggregateInput = {
@@ -304,11 +330,13 @@ export type mapsCountOrderByAggregateInput = {
   name?: Prisma.SortOrder
   rank?: Prisma.SortOrder
   regex?: Prisma.SortOrder
+  uniqueIndex?: Prisma.SortOrder
 }
 
 export type mapsAvgOrderByAggregateInput = {
   id?: Prisma.SortOrder
   rank?: Prisma.SortOrder
+  uniqueIndex?: Prisma.SortOrder
 }
 
 export type mapsMaxOrderByAggregateInput = {
@@ -316,6 +344,7 @@ export type mapsMaxOrderByAggregateInput = {
   name?: Prisma.SortOrder
   rank?: Prisma.SortOrder
   regex?: Prisma.SortOrder
+  uniqueIndex?: Prisma.SortOrder
 }
 
 export type mapsMinOrderByAggregateInput = {
@@ -323,23 +352,13 @@ export type mapsMinOrderByAggregateInput = {
   name?: Prisma.SortOrder
   rank?: Prisma.SortOrder
   regex?: Prisma.SortOrder
+  uniqueIndex?: Prisma.SortOrder
 }
 
 export type mapsSumOrderByAggregateInput = {
   id?: Prisma.SortOrder
   rank?: Prisma.SortOrder
-}
-
-export type StringFieldUpdateOperationsInput = {
-  set?: string
-}
-
-export type FloatFieldUpdateOperationsInput = {
-  set?: number
-  increment?: number
-  decrement?: number
-  multiply?: number
-  divide?: number
+  uniqueIndex?: Prisma.SortOrder
 }
 
 export type IntFieldUpdateOperationsInput = {
@@ -350,6 +369,10 @@ export type IntFieldUpdateOperationsInput = {
   divide?: number
 }
 
+export type StringFieldUpdateOperationsInput = {
+  set?: string
+}
+
 
 
 export type mapsSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -357,6 +380,7 @@ export type mapsSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   name?: boolean
   rank?: boolean
   regex?: boolean
+  uniqueIndex?: boolean
 }, ExtArgs["result"]["maps"]>
 
 export type mapsSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -364,6 +388,7 @@ export type mapsSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   name?: boolean
   rank?: boolean
   regex?: boolean
+  uniqueIndex?: boolean
 }, ExtArgs["result"]["maps"]>
 
 export type mapsSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -371,6 +396,7 @@ export type mapsSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   name?: boolean
   rank?: boolean
   regex?: boolean
+  uniqueIndex?: boolean
 }, ExtArgs["result"]["maps"]>
 
 export type mapsSelectScalar = {
@@ -378,9 +404,10 @@ export type mapsSelectScalar = {
   name?: boolean
   rank?: boolean
   regex?: boolean
+  uniqueIndex?: boolean
 }
 
-export type mapsOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "rank" | "regex", ExtArgs["result"]["maps"]>
+export type mapsOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "rank" | "regex" | "uniqueIndex", ExtArgs["result"]["maps"]>
 
 export type $mapsPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "maps"
@@ -390,6 +417,7 @@ export type $mapsPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     name: string
     rank: number
     regex: string
+    uniqueIndex: number
   }, ExtArgs["result"]["maps"]>
   composites: {}
 }
@@ -815,8 +843,9 @@ export interface Prisma__mapsClient<T, Null = never, ExtArgs extends runtime.Typ
 export interface mapsFieldRefs {
   readonly id: Prisma.FieldRef<"maps", 'Int'>
   readonly name: Prisma.FieldRef<"maps", 'String'>
-  readonly rank: Prisma.FieldRef<"maps", 'Float'>
+  readonly rank: Prisma.FieldRef<"maps", 'Int'>
   readonly regex: Prisma.FieldRef<"maps", 'String'>
+  readonly uniqueIndex: Prisma.FieldRef<"maps", 'Int'>
 }
     
 
@@ -1027,6 +1056,7 @@ export type mapsCreateManyArgs<ExtArgs extends runtime.Types.Extensions.Internal
    * The data used to create many maps.
    */
   data: Prisma.mapsCreateManyInput | Prisma.mapsCreateManyInput[]
+  skipDuplicates?: boolean
 }
 
 /**
@@ -1045,6 +1075,7 @@ export type mapsCreateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions
    * The data used to create many maps.
    */
   data: Prisma.mapsCreateManyInput | Prisma.mapsCreateManyInput[]
+  skipDuplicates?: boolean
 }
 
 /**

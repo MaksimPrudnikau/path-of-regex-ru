@@ -4,13 +4,13 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
 }
 
 model maps {
-  id    Int    @id @unique(map: "maps_id_unique") @default(autoincrement())
-  name  String @unique(map: "maps_name_unique")
-  rank  Float
-  regex String @unique(map: "maps_regex_unique")
-  uniqueIndex Float
+  id          Int  @id
+  name        String
+  rank        Int
+  regex       String
+  uniqueIndex Int
 }
