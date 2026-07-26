@@ -24,9 +24,6 @@
     "solid-devtools": "^0.34.5",
     "tsx": "^4.23.1"
   },
-  "engines": {
-    "node": ">=20"
-  },
   "name": "example-with-drizzle",
   "scripts": {
     "build": "vinxi build",
