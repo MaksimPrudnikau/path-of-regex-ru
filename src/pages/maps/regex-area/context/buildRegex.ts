@@ -65,9 +65,9 @@ export const buildRegex = (store: MapsStore): string => {
   addIfHas(moreScarab, "еев: \\+{0}%");
 
   const includeMapsRegexArr = [
-    [includeNormalMaps, "о"],
-    [includeMagicMaps, "в"],
-    [includeRareMaps, "р"],
+    [includeNormalMaps, "О"],
+    [includeMagicMaps, "В"],
+    [includeRareMaps, "Р"],
   ]
     .filter((x) => x[0])
     .map(([_, reg]) => reg);
@@ -81,8 +81,8 @@ export const buildRegex = (store: MapsStore): string => {
     includeMapsType,
     `ть: ${includeMapsRegexArr.length > 1 ? `(${includeMapsRegex})` : `${includeMapsRegex}`}`,
   );
-  addCheckbox(includeUnidentifiedMaps, includeUnidentifiedMapsType, "неоп");
-  addCheckbox(includeCorruptedMaps, includeCorruptedMapsType, "оскв");
+  addCheckbox(includeUnidentifiedMaps, includeUnidentifiedMapsType, "Неоп");
+  addCheckbox(includeCorruptedMaps, includeCorruptedMapsType, "сквернено");
 
   return resultArray.map((reg) => `"${reg}"`).join(" ");
 };

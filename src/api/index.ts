@@ -1,11 +1,11 @@
-import { query } from '@solidjs/router'
-import type { maps } from '@/generated/prisma/browser'
-import { prisma } from '~/api/db'
+import mods from "virtual:map-mods";
 
-export const getMapMods = query(() => {
-  "use server";
+export type MapMod = {
+  id: number;
+  name: string;
+  rank: number;
+  regex: string;
+};
 
-  return prisma.maps.findMany();
-}, "getMapMods");
-
-export type MapMod = maps;
+/** Моды карт из data/maps.sqlite, встроенные в бандл при сборке. */
+export const mapMods: MapMod[] = mods;
