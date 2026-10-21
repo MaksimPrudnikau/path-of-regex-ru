@@ -21,7 +21,7 @@
   "name": "example-with-drizzle",
   "scripts": {
     "build": "vinxi build",
-    "dev": "vinxi dev",
+    "dev": "codegraph sync && vinxi dev",
     "start": "vinxi start",
     "regex:fetch": "node scripts/map-regex/fetch-poedb.mjs",
     "regex:check": "node scripts/map-regex/check.mjs",

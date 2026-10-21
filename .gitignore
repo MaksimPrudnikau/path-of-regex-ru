@@ -29,3 +29,7 @@ Thumbs.db
 /.output/nitro.json
 /.output/
 
+
+# Tailwind docs snapshot (license: keep local)
+/.claude/skills/tailwind-4-docs/references/docs/
+/.claude/skills/tailwind-4-docs/references/docs-index.tsx
