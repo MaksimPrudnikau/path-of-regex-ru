@@ -1,0 +1,56 @@
+import { batch, createMemo, createSignal, type ParentProps } from "solid-js";
+import { beasts } from "../data";
+import { type PriceSnapshot, pricesOf } from "../price/prices";
+import { buildBestiaryBatches, MAX_REGEX_LENGTH } from "../regex-panel/buildBestiaryRegex";
+import { BestiaryContext, type BestiaryStore } from "./context";
+import { matchesFilters, sortByPrice } from "./derive";
+import { createSavedState } from "./savedState";
+
+export function BestiaryContextProvider(props: ParentProps<{ prices: PriceSnapshot }>) {
+  const [store, setStore] = createSavedState();
+  const [search, setSearch] = createSignal("");
+  const [batchIndex, setBatchIndex] = createSignal(0);
+
+  const state = () => store;
+  const selectedIds = createMemo(() => new Set(state().selected));
+  const prices = createMemo(() => pricesOf(props.prices, state().league));
+  const sortedBeasts = createMemo(() => sortByPrice(beasts, prices()));
+  const visibleBeasts = createMemo(() => sortedBeasts().filter((beast) => matchesFilters(beast, state())));
+  const batches = createMemo(() => buildBestiaryBatches(state(), sortedBeasts(), MAX_REGEX_LENGTH));
+  const currentBatch = createMemo(() => Math.max(0, Math.min(batchIndex(), batches().length - 1)));
+
+  const update = (patch: Partial<BestiaryStore>) => setStore(patch);
+  const selectBeasts = (ids: string[], selected: boolean) => {
+    const rest = state().selected.filter((id) => !ids.includes(id));
+    update({ selected: selected ? [...rest, ...ids] : rest });
+  };
+
+  return (
+    <BestiaryContext.Provider
+      value={{
+        batches,
+        batchIndex: currentBatch,
+        isSelected: (id) => selectedIds().has(id),
+        priceOf: (id) => prices()[id],
+        priceSnapshot: () => props.prices,
+        regex: () => batches()[currentBatch()] ?? "",
+        reset: () =>
+          batch(() => {
+            update({ exclude: false, selected: [] });
+            setSearch("");
+            setBatchIndex(0);
+          }),
+        search,
+        selectBeasts,
+        setBatchIndex,
+        setSearch,
+        state,
+        toggleBeast: (id) => selectBeasts([id], !selectedIds().has(id)),
+        update,
+        visibleBeasts,
+      }}
+    >
+      {props.children}
+    </BestiaryContext.Provider>
+  );
+}

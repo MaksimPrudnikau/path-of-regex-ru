@@ -30,7 +30,7 @@ export function Header() {
         <Tab disabled icon={"flasks"}>
           Флаконы
         </Tab>
-        <Tab disabled icon={"bestiary"}>
+        <Tab icon={"bestiary"}>
           Бестиарий
         </Tab>
         <Tab disabled icon={"scarabs"}>
