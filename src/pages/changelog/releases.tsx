@@ -12,6 +12,21 @@ export type Release = {
 
 export const releases: Release[] = [
   {
+    version: "1.1.2",
+    date: "2026-10-22",
+    changes: [
+      () => (
+        <>
+          <b>Профили</b> на странице{" "}
+          <PageLink href="/bestiary" icon="bestiary">
+            бестиария
+          </PageLink>
+          : выбор зверей, фильтры и лига сохраняются отдельно, как на странице карт
+        </>
+      ),
+    ],
+  },
+  {
     version: "1.1.1",
     date: "2026-10-22",
     changes: [

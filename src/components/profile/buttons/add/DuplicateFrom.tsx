@@ -1,18 +1,12 @@
-import { createMemo, For, useContext } from "solid-js";
-import { MapsProfileContext } from "~/pages/maps/context";
+import { For, useContext } from "solid-js";
+import { ProfileControlsContext } from "../../context";
 
 type Props = {
   setDuplicateFrom: (value: string) => void;
 };
 
 export function DuplicateFrom(props: Props) {
-  const { profiles } = useContext(MapsProfileContext);
-
-  const profilesList = createMemo(() => {
-    const p = profiles;
-    if (!p || typeof p !== "object") return [];
-    return Object.keys(p);
-  });
+  const { profileNames } = useContext(ProfileControlsContext);
 
   return (
     <div class={"col gap-2"}>
@@ -28,7 +22,7 @@ export function DuplicateFrom(props: Props) {
           Выберирите профиль
         </option>
 
-        <For each={profilesList()}>{(profile) => <option>{profile}</option>}</For>
+        <For each={profileNames()}>{(profile) => <option>{profile}</option>}</For>
       </select>
     </div>
   );

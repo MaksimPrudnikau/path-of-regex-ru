@@ -1,11 +1,11 @@
 import { createSignal, useContext } from "solid-js";
-import { MapsProfileContext } from "~/pages/maps/context";
+import { ProfileControlsContext } from "../../context";
 import { ButtonMenu } from "../ButtonMenu";
 import { AddForm } from "./Form";
 
 export function Add() {
   const [opened, setOpened] = createSignal(false);
-  const { addProfile } = useContext(MapsProfileContext);
+  const { addProfile } = useContext(ProfileControlsContext);
 
   const handleSave = (name: string, duplicateFrom?: string) => {
     setOpened(false);

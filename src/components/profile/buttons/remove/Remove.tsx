@@ -1,11 +1,11 @@
 import { useContext } from "solid-js";
-import { MapsProfileContext } from "~/pages/maps/context";
+import { ProfileControlsContext } from "../../context";
 
 export function Remove() {
-  const { profiles, removeProfile } = useContext(MapsProfileContext);
+  const { profileNames, removeProfile } = useContext(ProfileControlsContext);
 
   let dialogElement!: HTMLDialogElement;
-  const isSingleProfile = () => Object.keys(profiles).length <= 1;
+  const isSingleProfile = () => profileNames().length <= 1;
 
   const onClick = () => {
     dialogElement.showModal();

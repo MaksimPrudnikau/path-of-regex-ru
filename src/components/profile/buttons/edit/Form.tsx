@@ -1,5 +1,5 @@
 import { createEffect, createSignal, useContext } from "solid-js";
-import { MapsProfileContext } from "~/pages/maps/context";
+import { ProfileControlsContext } from "../../context";
 import { ProfileInput } from "../add/Input";
 
 type Props = {
@@ -7,15 +7,11 @@ type Props = {
 };
 
 export function EditForm(props: Props) {
-  const { currentProfile, currentProfileName } = useContext(MapsProfileContext);
+  const { currentProfileName } = useContext(ProfileControlsContext);
   const [name, setName] = createSignal(currentProfileName());
   const [error, setError] = createSignal("");
 
-  createEffect(() => {
-    currentProfile();
-
-    setName(currentProfileName());
-  });
+  createEffect(() => setName(currentProfileName()));
 
   const handleSave = () => {
     if (!name()) {

@@ -1,4 +1,5 @@
 import { type Accessor, createContext } from "solid-js";
+import type { ProfileControls } from "~/components/profile";
 import type { Beast, BeastColor } from "../data";
 import type { PriceSnapshot } from "../price/prices";
 
@@ -13,7 +14,7 @@ export type BestiaryStore = {
   maxChaos: number | null;
 };
 
-export type Context = {
+export type Context = ProfileControls & {
   state: Accessor<BestiaryStore>;
   priceSnapshot: Accessor<PriceSnapshot>;
   update: (patch: Partial<BestiaryStore>) => void;
