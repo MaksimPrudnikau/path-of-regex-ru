@@ -9,7 +9,7 @@ export function BatchSwitcher() {
   return (
     <Show when={batches().length > 1 || isExcludeTooLong()}>
       <div
-        class="tooltip-bottom join"
+        class="tooltip-bottom join before:text-justify"
         classList={{ tooltip: !isExcludeTooLong() }}
         data-tip={`
         Поиск в игре ограничен ${MAX_REGEX_LENGTH} символами, поэтому ввод разбивается на части.
