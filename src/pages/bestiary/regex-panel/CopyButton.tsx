@@ -1,5 +1,6 @@
 import { createMemo, createSignal, Show, useContext } from "solid-js";
 import { BestiaryContext } from "../context";
+import { MAX_REGEX_LENGTH } from "./buildBestiaryRegex";
 
 export function CopyButton() {
   const { regex } = useContext(BestiaryContext);
@@ -20,7 +21,7 @@ export function CopyButton() {
     <button
       class="btn btn-primary min-w-36"
       classList={{ "btn-success": isCopied() }}
-      disabled={regex() === ""}
+      disabled={regex() === "" || regex().length > MAX_REGEX_LENGTH}
       onClick={copyToClipboard}
       type="button"
     >

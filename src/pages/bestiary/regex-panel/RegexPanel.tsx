@@ -1,4 +1,4 @@
-import { createMemo, Show, useContext } from "solid-js";
+import { createMemo, Match, Switch, useContext } from "solid-js";
 import { BestiaryContext } from "../context";
 import { BatchSwitcher } from "./BatchSwitcher";
 import { MAX_REGEX_LENGTH } from "./buildBestiaryRegex";
@@ -13,18 +13,24 @@ export function RegexPanel() {
   return (
     <section class="card bg-base-200 md:sticky top-0 z-10 shadow-lg">
       <div class="card-body gap-3 p-5">
-        <Show
+        <Switch
           fallback={
+            <code class="text-xl font-bold break-all min-h-8 select-all">
+              {regex()}
+            </code>
+          }
+        >
+          <Match when={regex() === ""}>
             <p class="text-base-content/50 min-h-8">
               Выберите рецепты или зверей ниже, и здесь появится строка для поиска в Бестиарии
             </p>
-          }
-          when={regex() !== ""}
-        >
-          <code class="text-xl font-bold break-all min-h-8 select-all" classList={{ "text-error": isTooLong() }}>
-            {regex()}
-          </code>
-        </Show>
+          </Match>
+          <Match when={isTooLong()}>
+            <p class="italic text-error min-h-8">
+              В режиме исключения строку нельзя разбить на части: каждая часть подсветила бы зверей из остальных. Уберите часть зверей.
+            </p>
+          </Match>
+        </Switch>
         <div class="flex flex-wrap items-center gap-3">
           <CopyButton />
           <button class="btn btn-secondary" onClick={reset} type="button">
@@ -36,11 +42,6 @@ export function RegexPanel() {
             Длина: {regex().length} / {MAX_REGEX_LENGTH}
           </span>
         </div>
-        <Show when={isTooLong()}>
-          <span class="italic text-error">
-            В режиме исключения строку нельзя разбить на части: каждая часть подсветила бы зверей из остальных. Уберите часть зверей.
-          </span>
-        </Show>
         <SelectedBeasts />
       </div>
     </section>
