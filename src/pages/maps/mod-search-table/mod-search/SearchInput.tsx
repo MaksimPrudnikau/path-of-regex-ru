@@ -3,6 +3,7 @@ import type { Accessor } from "solid-js";
 type Props = {
   value: Accessor<string>;
   setValue: (value: string) => void;
+  onPaste?: (text: string, event: ClipboardEvent) => void;
 };
 
 export function SearchInput(props: Props) {
@@ -13,7 +14,8 @@ export function SearchInput(props: Props) {
         onInput={(e) => {
           props.setValue(e.target.value);
         }}
-        placeholder="Модификатор"
+        onPaste={(e) => props.onPaste?.(e.clipboardData?.getData("text") ?? "", e)}
+        placeholder="Модификатор или готовый regex"
         required
         type="search"
         value={props.value()}
