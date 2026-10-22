@@ -9,15 +9,12 @@ export function BatchSwitcher() {
   return (
     <Show when={batches().length > 1 || isExcludeTooLong()}>
       <div
-        class="tooltip tooltip-bottom join"
-        data-tip={
-          isExcludeTooLong()
-            ? "В режиме исключения строку нельзя разбить на части: каждая часть подсветила бы зверей из остальных. Уберите часть зверей или выключите исключение."
-            : `
+        class="tooltip-bottom join"
+        classList={{ tooltip: !isExcludeTooLong() }}
+        data-tip={`
         Поиск в игре ограничен ${MAX_REGEX_LENGTH} символами, поэтому ввод разбивается на части.
-        В зверинце вставляется первая часть, разбирается подсвеченное, затем вставляется вторая часть и так далее.
-        `
-        }
+        В зверинце вставляется первая часть, разбирается подсвеченное, затем вставляется вторая часть и так далее. 
+        `}
       >
         <button
           class="btn btn-primary join-item text-xl"
@@ -29,7 +26,9 @@ export function BatchSwitcher() {
         </button>
         <span class="btn btn-neutral join-item pointer-events-none">
           Строка {batchIndex() + 1} из {batches().length}
-          <span class="badge badge-xs badge-ghost">?</span>
+          <Show when={!isExcludeTooLong()}>
+            <span class="badge badge-xs badge-ghost">?</span>
+          </Show>
         </span>
         <button
           class="btn btn-primary join-item text-xl"
