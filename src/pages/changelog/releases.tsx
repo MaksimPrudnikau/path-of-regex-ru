@@ -1,6 +1,8 @@
+import type { JSX } from "solid-js";
+
 export type Release = {
   version: string;
-  changes: string[];
+  changes: JSX.Element[];
 };
 
 export const releases: Release[] = [
