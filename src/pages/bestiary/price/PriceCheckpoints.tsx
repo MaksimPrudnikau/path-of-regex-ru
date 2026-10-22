@@ -27,13 +27,15 @@ function checkpoints(steps: number[]): Checkpoint[] {
     if (price <= steps[0] || price > steps[last]) continue;
     const share = indexFrom(steps, price) / last;
     const previous = result.at(-1);
-    if (share < MIN_GAP || share > 1 - MIN_GAP) continue;
+    if (share < EDGE_GAP || share > 1 - EDGE_GAP) continue;
     if (previous && share - previous.share < MIN_GAP) continue;
     result.push({ price, share });
   }
   return result;
 }
 
-const MIN_GAP = 0.1;
+const MIN_GAP = 0.06;
+
+const EDGE_GAP = 0.03;
 
 const CHECKPOINT_PRICES = [1, 2, 3, 5, 10, 20, 30, 50, 100, 200, 300, 500, 1000, 2000, 5000];
