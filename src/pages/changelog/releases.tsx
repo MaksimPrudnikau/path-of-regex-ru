@@ -12,6 +12,21 @@ export type Release = {
 
 export const releases: Release[] = [
   {
+    version: "1.1.1",
+    date: "2026-10-22",
+    changes: [
+      () => (
+        <>
+          Под ползунком цен в{" "}
+          <PageLink href="/bestiary" icon="bestiary">
+            бестиарии
+          </PageLink>{" "}
+          появились <b>отметки цен</b>, чтобы сразу видеть, где на шкале <GameEntity icon="chaos" tone="text-secondary">1, 10 или 100 хаосов</GameEntity>
+        </>
+      ),
+    ],
+  },
+  {
     version: "1.1.0",
     date: "2026-10-22",
     changes: [

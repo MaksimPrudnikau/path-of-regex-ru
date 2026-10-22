@@ -1,6 +1,7 @@
 import { createMemo, createSignal, useContext } from "solid-js";
 import { BestiaryContext } from "../context";
 import { ChaosField } from "./ChaosField";
+import { PriceCheckpoints } from "./PriceCheckpoints";
 import { indexFrom, indexTo, priceSteps } from "./priceSteps";
 
 export function PriceRange() {
@@ -46,7 +47,8 @@ export function PriceRange() {
           value={state().maxChaos ?? steps()[last()]}
         />
       </div>
-      <div class="relative grid [--thumb:calc(var(--size-selector,.25rem)*5)]" onPointerMove={pickNearestThumb}>
+      <div class="relative mb-6 grid [--thumb:calc(var(--size-selector,.25rem)*5)]" onPointerMove={pickNearestThumb}>
+        <PriceCheckpoints steps={steps()} />
         <div class={`${BAR_CLASS} inset-x-0 bg-base-content/10`} />
         <div
           class={`${BAR_CLASS} bg-primary`}
