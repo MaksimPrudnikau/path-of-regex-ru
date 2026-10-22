@@ -17,6 +17,7 @@ export type Context = {
   state: Accessor<BestiaryStore>;
   priceSnapshot: Accessor<PriceSnapshot>;
   update: (patch: Partial<BestiaryStore>) => void;
+  applyFilters: (patch: Partial<BestiaryStore>) => void;
   regex: Accessor<string>;
   batches: Accessor<string[]>;
   batchIndex: Accessor<number>;

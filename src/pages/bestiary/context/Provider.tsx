@@ -3,7 +3,7 @@ import { beasts } from "../data";
 import { type PriceSnapshot, pricesOf } from "../price/prices";
 import { buildBestiaryBatches, MAX_REGEX_LENGTH } from "../regex-panel/buildBestiaryRegex";
 import { BestiaryContext, type BestiaryStore } from "./context";
-import { matchesFilters, sortByPrice } from "./derive";
+import { isInPriceRange, matchesFilters, sortByPrice } from "./derive";
 import { createSavedState } from "./savedState";
 
 export function BestiaryContextProvider(props: ParentProps<{ prices: PriceSnapshot }>) {
@@ -20,6 +20,12 @@ export function BestiaryContextProvider(props: ParentProps<{ prices: PriceSnapsh
   const currentBatch = createMemo(() => Math.max(0, Math.min(batchIndex(), batches().length - 1)));
 
   const update = (patch: Partial<BestiaryStore>) => setStore(patch);
+  const applyFilters = (patch: Partial<BestiaryStore>) =>
+    batch(() => {
+      update(patch);
+      if (state().minChaos === null && state().maxChaos === null) return;
+      update({ selected: visibleBeasts().filter((beast) => isInPriceRange(prices()[beast.id], state())).map((beast) => beast.id) });
+    });
   const selectBeasts = (ids: string[], selected: boolean) => {
     const rest = state().selected.filter((id) => !ids.includes(id));
     update({ selected: selected ? [...rest, ...ids] : rest });
@@ -28,6 +34,7 @@ export function BestiaryContextProvider(props: ParentProps<{ prices: PriceSnapsh
   return (
     <BestiaryContext.Provider
       value={{
+        applyFilters,
         batches,
         batchIndex: currentBatch,
         isSelected: (id) => selectedIds().has(id),

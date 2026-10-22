@@ -5,11 +5,11 @@ import { BEAST_TONES } from "../beastTone";
 import { FilterSelect } from "./FilterSelect";
 
 export function BeastFilters() {
-  const { state, update } = useContext(BestiaryContext);
+  const { applyFilters, state } = useContext(BestiaryContext);
 
   const toggleColor = (color: BeastColor, enabled: boolean) => {
     const rest = state().colors.filter((item) => item !== color);
-    update({ colors: enabled ? [...rest, color] : rest });
+    applyFilters({ colors: enabled ? [...rest, color] : rest });
   };
 
   return (
@@ -30,14 +30,14 @@ export function BeastFilters() {
       <FilterSelect
         allLabel="Все"
         label="Группа"
-        onChange={(group) => update({ group })}
+        onChange={(group) => applyFilters({ group })}
         options={groups}
         value={state().group}
       />
       <FilterSelect
         allLabel="Все"
         label="Семейство"
-        onChange={(family) => update({ family })}
+        onChange={(family) => applyFilters({ family })}
         options={families}
         value={state().family}
       />
