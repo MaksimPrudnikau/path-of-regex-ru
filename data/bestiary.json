@@ -1,0 +1,2540 @@
+{
+ "beasts": [
+  {
+   "family": "Глубины",
+   "group": "Головоногие",
+   "name": "Буйный наблюдатель",
+   "color": "red",
+   "id": "Vivid_Watcher",
+   "regex": "юдат"
+  },
+  {
+   "family": "Глубины",
+   "group": "Головоногие",
+   "name": "Кальмар Краценна",
+   "color": "red",
+   "id": "Craicic_Squid",
+   "regex": "мар Кра"
+  },
+  {
+   "family": "Глубины",
+   "group": "Земноводные",
+   "name": "Квакун Краценна",
+   "color": "red",
+   "id": "Craicic_Croaker",
+   "regex": "кун Кра"
+  },
+  {
+   "family": "Глубины",
+   "group": "Ракообразные",
+   "name": "Краб-паук Краценна",
+   "color": "red",
+   "id": "Craicic_Spider_Crab",
+   "regex": "аук Кра"
+  },
+  {
+   "family": "Глубины",
+   "group": "Ракообразные",
+   "name": "Краценн, Первый Глубин",
+   "color": "red",
+   "id": "Craiceann,_First_of_the_Deep",
+   "regex": "вый Глу"
+  },
+  {
+   "family": "Глубины",
+   "group": "Ракообразные",
+   "name": "Крепкий краб Краценна",
+   "color": "red",
+   "id": "Craicic_Shield_Crab",
+   "regex": "кий краб Кра"
+  },
+  {
+   "family": "Глубины",
+   "group": "Земноводные",
+   "name": "Пасть Краценна",
+   "color": "red",
+   "id": "Craicic_Maw",
+   "regex": "сть Кра"
+  },
+  {
+   "family": "Глубины",
+   "group": "Ракообразные",
+   "name": "Первобытный клешнелом",
+   "color": "red",
+   "id": "Primal_Crushclaw",
+   "regex": "шнел"
+  },
+  {
+   "family": "Глубины",
+   "group": "Ракообразные",
+   "name": "Песчаный плевун Краценна",
+   "color": "red",
+   "id": "Craicic_Sand_Spitter",
+   "regex": "евун Кра"
+  },
+  {
+   "family": "Глубины",
+   "group": "Ракообразные",
+   "name": "Свирепый краб Краценна",
+   "color": "red",
+   "id": "Craicic_Savage_Crab",
+   "regex": "пый краб Кра"
+  },
+  {
+   "family": "Глубины",
+   "group": "Головоногие",
+   "name": "Слуга Краценна",
+   "color": "red",
+   "id": "Craicic_Vassal",
+   "regex": "уга Кра"
+  },
+  {
+   "family": "Глубины",
+   "group": "Головоногие",
+   "name": "Смотритель Краценна",
+   "color": "red",
+   "id": "Craicic_Watcher",
+   "regex": "ритель Кра"
+  },
+  {
+   "family": "Леса",
+   "group": "Кошачьи",
+   "name": "Адский лев-альфа Фаррул",
+   "color": "red",
+   "id": "Farric_Flame_Hellion_Alpha",
+   "regex": "в-альфа Фар"
+  },
+  {
+   "family": "Леса",
+   "group": "Приматы",
+   "name": "Вождь Фаррул",
+   "color": "red",
+   "id": "Farric_Chieftain",
+   "regex": "ждь Фар"
+  },
+  {
+   "family": "Леса",
+   "group": "Псовые",
+   "name": "Волк-альфа Фаррул",
+   "color": "red",
+   "id": "Farric_Wolf_Alpha",
+   "regex": "к-альфа Фар"
+  },
+  {
+   "family": "Леса",
+   "group": "Медвежьи",
+   "name": "Громадина Фаррул",
+   "color": "red",
+   "id": "Farric_Gargantuan",
+   "regex": "ина Фар"
+  },
+  {
+   "family": "Леса",
+   "group": "Медвежьи",
+   "name": "Дикая щетинистая матрона",
+   "color": "red",
+   "id": "Wild_Bristle_Matron",
+   "regex": "рона"
+  },
+  {
+   "family": "Леса",
+   "group": "Кошачьи",
+   "name": "Дикий адский лев-альфа",
+   "color": "red",
+   "id": "Wild_Hellion_Alpha",
+   "regex": "кий адский лев-"
+  },
+  {
+   "family": "Леса",
+   "group": "Необычные",
+   "name": "Дикий шипоспин",
+   "color": "red",
+   "id": "Wild_Brambleback",
+   "regex": "кий шипос"
+  },
+  {
+   "family": "Леса",
+   "group": "Необычные",
+   "name": "Исполин Фаррул",
+   "color": "red",
+   "id": "Farric_Goliath",
+   "regex": "лин Фар"
+  },
+  {
+   "family": "Леса",
+   "group": "Приматы",
+   "name": "Козерог Фаррул",
+   "color": "red",
+   "id": "Farric_Goatman",
+   "regex": "рог Фар"
+  },
+  {
+   "family": "Леса",
+   "group": "Псовые",
+   "name": "Магмовая гончая Фаррул",
+   "color": "red",
+   "id": "Farric_Magma_Hound",
+   "regex": "Магм"
+  },
+  {
+   "family": "Леса",
+   "group": "Медвежьи",
+   "name": "Медведь Фаррул",
+   "color": "red",
+   "id": "Farric_Ursa",
+   "regex": "едь Фар"
+  },
+  {
+   "family": "Леса",
+   "group": "Кошачьи",
+   "name": "Морозный адский лев Фаррул",
+   "color": "red",
+   "id": "Farric_Frost_Hellion_Alpha",
+   "regex": "зный адс"
+  },
+  {
+   "family": "Леса",
+   "group": "Псовые",
+   "name": "Первобытная рекс-матриарх",
+   "color": "red",
+   "id": "Primal_Rhex_Matriarch",
+   "regex": "кс-м"
+  },
+  {
+   "family": "Леса",
+   "group": "Приматы",
+   "name": "Первобытный наростень",
+   "color": "red",
+   "id": "Primal_Cystcaller",
+   "regex": "наро"
+  },
+  {
+   "family": "Леса",
+   "group": "Псовые",
+   "name": "Подземная гончая Фаррул",
+   "color": "red",
+   "id": "Farric_Pit_Hound",
+   "regex": "емная гон"
+  },
+  {
+   "family": "Леса",
+   "group": "Приматы",
+   "name": "Примат Фаррул",
+   "color": "red",
+   "id": "Farric_Ape",
+   "regex": "мат Фар"
+  },
+  {
+   "family": "Леса",
+   "group": "Кошачьи",
+   "name": "Рысь-альфа Фаррул",
+   "color": "red",
+   "id": "Farric_Lynx_Alpha",
+   "regex": "ысь-"
+  },
+  {
+   "family": "Леса",
+   "group": "Необычные",
+   "name": "Телец Фаррул",
+   "color": "red",
+   "id": "Farric_Taurus",
+   "regex": "лец Фар"
+  },
+  {
+   "family": "Леса",
+   "group": "Кошачьи",
+   "name": "Тигр-альфа Фаррул",
+   "color": "red",
+   "id": "Farric_Tiger_Alpha",
+   "regex": "игр-"
+  },
+  {
+   "family": "Леса",
+   "group": "Кошачьи",
+   "name": "Фаррул, Первая Равнин",
+   "color": "red",
+   "id": "Farrul,_First_of_the_Plains",
+   "regex": "вая Рав"
+  },
+  {
+   "family": "Леса",
+   "group": "Необычные",
+   "name": "Чернокрылая Морриган",
+   "color": "red",
+   "id": "Black_Mórrigan",
+   "regex": "окры"
+  },
+  {
+   "family": "Пески",
+   "group": "Пернатые",
+   "name": "Буйный стервятник",
+   "color": "red",
+   "id": "Vivid_Vulture",
+   "regex": "ный сте"
+  },
+  {
+   "family": "Пески",
+   "group": "Пернатые",
+   "name": "Гриф Сакаваля",
+   "color": "red",
+   "id": "Saqawine_Vulture",
+   "regex": "^Гриф"
+  },
+  {
+   "family": "Пески",
+   "group": "Пресмыкающиеся",
+   "name": "Кобра Сакаваля",
+   "color": "red",
+   "id": "Saqawine_Cobra",
+   "regex": "бра Сак"
+  },
+  {
+   "family": "Пески",
+   "group": "Пресмыкающиеся",
+   "name": "Кровавая гадюка Сакаваля",
+   "color": "red",
+   "id": "Saqawine_Blood_Viper",
+   "regex": "вая гад"
+  },
+  {
+   "family": "Пески",
+   "group": "Пернатые",
+   "name": "Рекс Сакаваля",
+   "color": "red",
+   "id": "Saqawine_Rhex",
+   "regex": "^Рекс Сак"
+  },
+  {
+   "family": "Пески",
+   "group": "Пернатые",
+   "name": "Роа Сакаваля",
+   "color": "red",
+   "id": "Saqawine_Rhoa",
+   "regex": "^Роа Сак"
+  },
+  {
+   "family": "Пески",
+   "group": "Пернатые",
+   "name": "Рыгатель Сакаваля",
+   "color": "red",
+   "id": "Saqawine_Retch",
+   "regex": "ель Сак"
+  },
+  {
+   "family": "Пески",
+   "group": "Пернатые",
+   "name": "Сакаваль, Первый Неба",
+   "color": "red",
+   "id": "Saqawal,_First_of_the_Sky",
+   "regex": "Неба"
+  },
+  {
+   "family": "Пески",
+   "group": "Пресмыкающиеся",
+   "name": "Ящер Сакаваля",
+   "color": "red",
+   "id": "Saqawine_Chimeral",
+   "regex": "щер Сак"
+  },
+  {
+   "family": "Пещеры",
+   "group": "Паукообразные",
+   "name": "Буйный арахнион",
+   "color": "red",
+   "id": "Vivid_Abberarach",
+   "regex": "хнио"
+  },
+  {
+   "family": "Пещеры",
+   "group": "Паукообразные",
+   "name": "Вдова Фенумы",
+   "color": "red",
+   "id": "Fenumal_Widow",
+   "regex": "ова Фен"
+  },
+  {
+   "family": "Пещеры",
+   "group": "Паукообразные",
+   "name": "Гибридный арахнид Фенумы",
+   "color": "red",
+   "id": "Fenumal_Hybrid_Arachnid",
+   "regex": "дный арахнид Фен"
+  },
+  {
+   "family": "Пещеры",
+   "group": "Насекомые",
+   "name": "Королева Фенумы",
+   "color": "red",
+   "id": "Fenumal_Queen",
+   "regex": "ева Фен"
+  },
+  {
+   "family": "Пещеры",
+   "group": "Насекомые",
+   "name": "Норовик Фенумы",
+   "color": "red",
+   "id": "Fenumal_Scrabbler",
+   "regex": "вик Фен"
+  },
+  {
+   "family": "Пещеры",
+   "group": "Паукообразные",
+   "name": "Пожиратель Фенумы",
+   "color": "red",
+   "id": "Fenumal_Devourer",
+   "regex": "ратель Фен"
+  },
+  {
+   "family": "Пещеры",
+   "group": "Паукообразные",
+   "name": "Скорпион Фенумы",
+   "color": "red",
+   "id": "Fenumal_Scorpion",
+   "regex": "ион Фен"
+  },
+  {
+   "family": "Пещеры",
+   "group": "Паукообразные",
+   "name": "Фенума, Первая Ночи",
+   "color": "red",
+   "id": "Fenumus,_First_of_the_Night",
+   "regex": "нума"
+  },
+  {
+   "family": "Пещеры",
+   "group": "Паукообразные",
+   "name": "Чумной арахнид Фенумы",
+   "color": "red",
+   "id": "Fenumal_Plagued_Arachnid",
+   "regex": "ной арахнид Фен"
+  },
+  {
+   "family": "Глубины",
+   "group": "Головоногие",
+   "name": "Безучастный смотритель",
+   "color": "yellow",
+   "id": "Soulless_Watcher",
+   "regex": "езуч"
+  },
+  {
+   "family": "Глубины",
+   "group": "Головоногие",
+   "name": "Благословенная Мервейл",
+   "color": "yellow",
+   "id": "Merveil's_Blessed",
+   "regex": "венная Мер"
+  },
+  {
+   "family": "Глубины",
+   "group": "Ракообразные",
+   "name": "Выбеленный ползун",
+   "color": "yellow",
+   "id": "Bleached_Crawler",
+   "regex": "ленный пол"
+  },
+  {
+   "family": "Глубины",
+   "group": "Ракообразные",
+   "name": "Галечник",
+   "color": "yellow",
+   "id": "Gravel_Eater",
+   "regex": "Гале"
+  },
+  {
+   "family": "Глубины",
+   "group": "Ракообразные",
+   "name": "Гранитный плевун",
+   "color": "yellow",
+   "id": "Granite_Eater",
+   "regex": "нитн"
+  },
+  {
+   "family": "Глубины",
+   "group": "Головоногие",
+   "name": "Дочь Мервейл",
+   "color": "yellow",
+   "id": "Merveil's_Daughter",
+   "regex": "очь Мер"
+  },
+  {
+   "family": "Глубины",
+   "group": "Ракообразные",
+   "name": "Завороженный краб",
+   "color": "yellow",
+   "id": "Enraptured_Crab",
+   "regex": "женный кра"
+  },
+  {
+   "family": "Глубины",
+   "group": "Земноводные",
+   "name": "Заражённая пасть",
+   "color": "yellow",
+   "id": "Infested_Maw",
+   "regex": "ённая пас"
+  },
+  {
+   "family": "Глубины",
+   "group": "Ракообразные",
+   "name": "Заражённый краб",
+   "color": "yellow",
+   "id": "Infested_Crab",
+   "regex": "^Заражённый краб$"
+  },
+  {
+   "family": "Глубины",
+   "group": "Ракообразные",
+   "name": "Заражённый ползун",
+   "color": "yellow",
+   "id": "Infested_Crawler",
+   "regex": "ённый пол"
+  },
+  {
+   "family": "Глубины",
+   "group": "Земноводные",
+   "name": "Звериная пасть",
+   "color": "yellow",
+   "id": "Bestial_Maw",
+   "regex": "вери"
+  },
+  {
+   "family": "Глубины",
+   "group": "Земноводные",
+   "name": "Зеркальный квакун",
+   "color": "yellow",
+   "id": "Chrome-touched_Croaker",
+   "regex": "ьный ква"
+  },
+  {
+   "family": "Глубины",
+   "group": "Земноводные",
+   "name": "Зловонная пасть",
+   "color": "yellow",
+   "id": "Fetid_Maw",
+   "regex": "онна"
+  },
+  {
+   "family": "Глубины",
+   "group": "Головоногие",
+   "name": "Избранник Мервейл",
+   "color": "yellow",
+   "id": "Merveil's_Chosen",
+   "regex": "ник Мер"
+  },
+  {
+   "family": "Глубины",
+   "group": "Головоногие",
+   "name": "Избранница Мервейл",
+   "color": "yellow",
+   "id": "Merveil's_Favoured",
+   "regex": "нниц"
+  },
+  {
+   "family": "Глубины",
+   "group": "Ракообразные",
+   "name": "Ископаемый плевун",
+   "color": "yellow",
+   "id": "Fossil_Eater",
+   "regex": "опае"
+  },
+  {
+   "family": "Глубины",
+   "group": "Ракообразные",
+   "name": "Каменный плевун",
+   "color": "yellow",
+   "id": "Rock_Spitter",
+   "regex": "енный пле"
+  },
+  {
+   "family": "Глубины",
+   "group": "Ракообразные",
+   "name": "Королева улья",
+   "color": "yellow",
+   "id": "Mother_of_the_Hive",
+   "regex": "ева уль"
+  },
+  {
+   "family": "Глубины",
+   "group": "Земноводные",
+   "name": "Мерзкая пасть",
+   "color": "yellow",
+   "id": "Filth_Maw",
+   "regex": "рзка"
+  },
+  {
+   "family": "Глубины",
+   "group": "Головоногие",
+   "name": "Мерзкий мститель",
+   "color": "yellow",
+   "id": "Slimy_Nemesis",
+   "regex": "мсти"
+  },
+  {
+   "family": "Глубины",
+   "group": "Головоногие",
+   "name": "Морской слуга",
+   "color": "yellow",
+   "id": "Brine_Vassal",
+   "regex": "кой слу"
+  },
+  {
+   "family": "Глубины",
+   "group": "Ракообразные",
+   "name": "Морской щелкун",
+   "color": "yellow",
+   "id": "Brinecrack",
+   "regex": "щелк"
+  },
+  {
+   "family": "Глубины",
+   "group": "Земноводные",
+   "name": "Мутировавший квакун",
+   "color": "yellow",
+   "id": "Mutated_Croaker",
+   "regex": "ший ква"
+  },
+  {
+   "family": "Глубины",
+   "group": "Ракообразные",
+   "name": "Нечистотник",
+   "color": "yellow",
+   "id": "Sewage_Crawler",
+   "regex": "^Нечистотник$"
+  },
+  {
+   "family": "Глубины",
+   "group": "Ракообразные",
+   "name": "Обсидиановый плевун",
+   "color": "yellow",
+   "id": "Obsidian_Eater",
+   "regex": "Обси"
+  },
+  {
+   "family": "Глубины",
+   "group": "Головоногие",
+   "name": "Поющая сирена",
+   "color": "yellow",
+   "id": "Singing_Siren",
+   "regex": "Поющ"
+  },
+  {
+   "family": "Глубины",
+   "group": "Головоногие",
+   "name": "Проклятый выродок",
+   "color": "yellow",
+   "id": "Cursed_Spawn",
+   "regex": "ятый выр"
+  },
+  {
+   "family": "Глубины",
+   "group": "Ракообразные",
+   "name": "Рак-стрелок",
+   "color": "yellow",
+   "id": "Crustacean_Sniper",
+   "regex": "ак-с"
+  },
+  {
+   "family": "Глубины",
+   "group": "Головоногие",
+   "name": "Рима, Греховодница из глубин",
+   "color": "yellow",
+   "id": "Rima,_Deep_Temptress",
+   "regex": "рехо"
+  },
+  {
+   "family": "Глубины",
+   "group": "Ракообразные",
+   "name": "Свирепый краб",
+   "color": "yellow",
+   "id": "Savage_Crab",
+   "regex": "^Свирепый краб$"
+  },
+  {
+   "family": "Глубины",
+   "group": "Головоногие",
+   "name": "Свита Мервейл",
+   "color": "yellow",
+   "id": "Merveil's_Attendant",
+   "regex": "Свит"
+  },
+  {
+   "family": "Глубины",
+   "group": "Ракообразные",
+   "name": "Серное отродье",
+   "color": "yellow",
+   "id": "Sulphurspawn",
+   "regex": "Серно"
+  },
+  {
+   "family": "Глубины",
+   "group": "Земноводные",
+   "name": "Скачущий квакун",
+   "color": "yellow",
+   "id": "Vaulting_Croaker",
+   "regex": "Скач"
+  },
+  {
+   "family": "Глубины",
+   "group": "Головоногие",
+   "name": "Слуга Мервейл",
+   "color": "yellow",
+   "id": "Merveil's_Retainer",
+   "regex": "уга Мер"
+  },
+  {
+   "family": "Глубины",
+   "group": "Ракообразные",
+   "name": "Сточный ползун",
+   "color": "yellow",
+   "id": "Waste_Lurcher",
+   "regex": "очный пол"
+  },
+  {
+   "family": "Глубины",
+   "group": "Головоногие",
+   "name": "Тёмный моллюск",
+   "color": "yellow",
+   "id": "Swarthy_Mollusc",
+   "regex": "молл"
+  },
+  {
+   "family": "Глубины",
+   "group": "Земноводные",
+   "name": "Химеровый квакун",
+   "color": "yellow",
+   "id": "Chimeric_Croaker",
+   "regex": "меро"
+  },
+  {
+   "family": "Глубины",
+   "group": "Земноводные",
+   "name": "Хромовый квакун",
+   "color": "yellow",
+   "id": "Chrome-infused_Croaker",
+   "regex": "мовый ква"
+  },
+  {
+   "family": "Глубины",
+   "group": "Головоногие",
+   "name": "Ядовитый выродок",
+   "color": "yellow",
+   "id": "Venomous_Spawn",
+   "regex": "итый выр"
+  },
+  {
+   "family": "Леса",
+   "group": "Кошачьи",
+   "name": "Адский лев из развалин",
+   "color": "yellow",
+   "id": "Ruins_Hellion",
+   "regex": "азва"
+  },
+  {
+   "family": "Леса",
+   "group": "Приматы",
+   "name": "Адский примат",
+   "color": "yellow",
+   "id": "Stygian_Ape",
+   "regex": "ский при"
+  },
+  {
+   "family": "Леса",
+   "group": "Кошачьи",
+   "name": "Барханный адский лев",
+   "color": "yellow",
+   "id": "Dune_Hellion",
+   "regex": "Барх"
+  },
+  {
+   "family": "Леса",
+   "group": "Кошачьи",
+   "name": "Благословлённый Древним адский лев",
+   "color": "yellow",
+   "id": "Elder-Blessed_Hellion",
+   "regex": "ним адс"
+  },
+  {
+   "family": "Леса",
+   "group": "Приматы",
+   "name": "Благословлённый Древним козерог",
+   "color": "yellow",
+   "id": "Elder-Blessed_Goatman",
+   "regex": "ним коз"
+  },
+  {
+   "family": "Леса",
+   "group": "Псовые",
+   "name": "Боевой пёс",
+   "color": "yellow",
+   "id": "War_Hound",
+   "regex": "вой пёс"
+  },
+  {
+   "family": "Леса",
+   "group": "Необычные",
+   "name": "Бойцовый бык",
+   "color": "yellow",
+   "id": "Fighting_Bull",
+   "regex": "ойцо"
+  },
+  {
+   "family": "Леса",
+   "group": "Приматы",
+   "name": "Бородатый дьявол",
+   "color": "yellow",
+   "id": "Bearded_Devil",
+   "regex": "тый дья"
+  },
+  {
+   "family": "Леса",
+   "group": "Приматы",
+   "name": "Бородатый призыватель небес",
+   "color": "yellow",
+   "id": "Bearded_Skycaller",
+   "regex": "небе"
+  },
+  {
+   "family": "Леса",
+   "group": "Приматы",
+   "name": "Бородатый шаман",
+   "color": "yellow",
+   "id": "Bearded_Shaman",
+   "regex": "тый шам"
+  },
+  {
+   "family": "Леса",
+   "group": "Приматы",
+   "name": "Буйствующий вожак обезьян",
+   "color": "yellow",
+   "id": "Carnage_Chieftain",
+   "regex": "Буйс"
+  },
+  {
+   "family": "Леса",
+   "group": "Медвежьи",
+   "name": "Верхолаз",
+   "color": "yellow",
+   "id": "Tunnelfiend",
+   "regex": "^Верх"
+  },
+  {
+   "family": "Леса",
+   "group": "Приматы",
+   "name": "Вожак адских обезьян",
+   "color": "yellow",
+   "id": "Stygian_Silverback",
+   "regex": "дских"
+  },
+  {
+   "family": "Леса",
+   "group": "Приматы",
+   "name": "Вожак доисторических обезьян",
+   "color": "yellow",
+   "id": "Aboriginal_Chieftain",
+   "regex": "еских"
+  },
+  {
+   "family": "Леса",
+   "group": "Приматы",
+   "name": "Вожак кровавых обезьян",
+   "color": "yellow",
+   "id": "Blood_Chieftain",
+   "regex": "авых"
+  },
+  {
+   "family": "Леса",
+   "group": "Приматы",
+   "name": "Вожак-переносчик",
+   "color": "yellow",
+   "id": "Host_Chieftain",
+   "regex": "жак-"
+  },
+  {
+   "family": "Леса",
+   "group": "Приматы",
+   "name": "Гигантский крушитель",
+   "color": "yellow",
+   "id": "Colossus_Crusher",
+   "regex": "нтски"
+  },
+  {
+   "family": "Леса",
+   "group": "Псовые",
+   "name": "Гончая очищения",
+   "color": "yellow",
+   "id": "Purge_Hound",
+   "regex": "чая очи"
+  },
+  {
+   "family": "Леса",
+   "group": "Кошачьи",
+   "name": "Горная рысь",
+   "color": "yellow",
+   "id": "Mountain_Lynx",
+   "regex": "Горна"
+  },
+  {
+   "family": "Леса",
+   "group": "Кошачьи",
+   "name": "Горный адский лев",
+   "color": "yellow",
+   "id": "Mountain_Hellion",
+   "regex": "^Горный адский лев$"
+  },
+  {
+   "family": "Леса",
+   "group": "Кошачьи",
+   "name": "Горный адский лев-альфа",
+   "color": "yellow",
+   "id": "Mountain_Hellion_Alpha",
+   "regex": "ный адский лев-"
+  },
+  {
+   "family": "Леса",
+   "group": "Приматы",
+   "name": "Горный дьявол",
+   "color": "yellow",
+   "id": "Alpine_Devil",
+   "regex": "рный дья"
+  },
+  {
+   "family": "Леса",
+   "group": "Приматы",
+   "name": "Горный шаман",
+   "color": "yellow",
+   "id": "Alpine_Shaman",
+   "regex": "рный шам"
+  },
+  {
+   "family": "Леса",
+   "group": "Кошачьи",
+   "name": "Горящая угроза",
+   "color": "yellow",
+   "id": "The_Burning_Menace",
+   "regex": "оряща"
+  },
+  {
+   "family": "Леса",
+   "group": "Псовые",
+   "name": "Демон-пёс",
+   "color": "yellow",
+   "id": "Pitbull_Demon",
+   "regex": "н-пё"
+  },
+  {
+   "family": "Леса",
+   "group": "Необычные",
+   "name": "Дикобразный исполин",
+   "color": "yellow",
+   "id": "Porcupine_Goliath",
+   "regex": "икоб"
+  },
+  {
+   "family": "Леса",
+   "group": "Медвежьи",
+   "name": "Доисторический зверь",
+   "color": "yellow",
+   "id": "Primal_Beast",
+   "regex": "рический зве"
+  },
+  {
+   "family": "Леса",
+   "group": "Приматы",
+   "name": "Дьявол холма",
+   "color": "yellow",
+   "id": "Hill_Devil",
+   "regex": "олма"
+  },
+  {
+   "family": "Леса",
+   "group": "Приматы",
+   "name": "Жуткий примат",
+   "color": "yellow",
+   "id": "Dread_Primate",
+   "regex": "ткий при"
+  },
+  {
+   "family": "Леса",
+   "group": "Медвежьи",
+   "name": "Завороженный зверь",
+   "color": "yellow",
+   "id": "Enraptured_Beast",
+   "regex": "женный зве"
+  },
+  {
+   "family": "Леса",
+   "group": "Медвежьи",
+   "name": "Заражённый верхолаз",
+   "color": "yellow",
+   "id": "Infested_Tunnelfiend",
+   "regex": "нный вер"
+  },
+  {
+   "family": "Леса",
+   "group": "Медвежьи",
+   "name": "Заражённый медведь",
+   "color": "yellow",
+   "id": "Infested_Ursa",
+   "regex": "ённый мед"
+  },
+  {
+   "family": "Леса",
+   "group": "Приматы",
+   "name": "Заражённый примат",
+   "color": "yellow",
+   "id": "Infested_Ape",
+   "regex": "^Заражённый примат$"
+  },
+  {
+   "family": "Леса",
+   "group": "Необычные",
+   "name": "Зеркальный исполин",
+   "color": "yellow",
+   "id": "Chrome-touched_Goliath",
+   "regex": "ьный исп"
+  },
+  {
+   "family": "Леса",
+   "group": "Медвежьи",
+   "name": "Искажённый зверь",
+   "color": "yellow",
+   "id": "Corrupted_Beast",
+   "regex": "кажённый зве"
+  },
+  {
+   "family": "Леса",
+   "group": "Приматы",
+   "name": "Козерог",
+   "color": "yellow",
+   "id": "Goatman",
+   "regex": "^Козерог$"
+  },
+  {
+   "family": "Леса",
+   "group": "Приматы",
+   "name": "Козерог-заклинатель огня",
+   "color": "yellow",
+   "id": "Goatman_Fire-raiser",
+   "regex": "ог-з"
+  },
+  {
+   "family": "Леса",
+   "group": "Приматы",
+   "name": "Козерог-топтун",
+   "color": "yellow",
+   "id": "Goatman_Stomper",
+   "regex": "ог-т"
+  },
+  {
+   "family": "Леса",
+   "group": "Медвежьи",
+   "name": "Косматая образина",
+   "color": "yellow",
+   "id": "Shaggy_Monstrosity",
+   "regex": "Косм"
+  },
+  {
+   "family": "Леса",
+   "group": "Медвежьи",
+   "name": "Костолом",
+   "color": "yellow",
+   "id": "Bone_Cruncher",
+   "regex": "^Костолом$"
+  },
+  {
+   "family": "Леса",
+   "group": "Медвежьи",
+   "name": "Костяк зверя",
+   "color": "yellow",
+   "id": "Skeletal_Beast",
+   "regex": "тяк зве"
+  },
+  {
+   "family": "Леса",
+   "group": "Приматы",
+   "name": "Кровавый примат",
+   "color": "yellow",
+   "id": "Blood_Ape",
+   "regex": "^Кровавый прим"
+  },
+  {
+   "family": "Леса",
+   "group": "Медвежьи",
+   "name": "Крушитель",
+   "color": "yellow",
+   "id": "Armour_Cruncher",
+   "regex": "^Круш"
+  },
+  {
+   "family": "Леса",
+   "group": "Необычные",
+   "name": "Лавинный всадник",
+   "color": "yellow",
+   "id": "Avalanche_Rider",
+   "regex": "авин"
+  },
+  {
+   "family": "Леса",
+   "group": "Медвежьи",
+   "name": "Лесной зверь",
+   "color": "yellow",
+   "id": "Forest_Beast",
+   "regex": "ной зве"
+  },
+  {
+   "family": "Леса",
+   "group": "Медвежьи",
+   "name": "Лесной медведь",
+   "color": "yellow",
+   "id": "Woods_Ursa",
+   "regex": "ной мед"
+  },
+  {
+   "family": "Леса",
+   "group": "Медвежьи",
+   "name": "Лохматый костолом",
+   "color": "yellow",
+   "id": "Hairy_Bonecruncher",
+   "regex": "Лохм"
+  },
+  {
+   "family": "Леса",
+   "group": "Псовые",
+   "name": "Морозный волк",
+   "color": "yellow",
+   "id": "Freezing_Wolf",
+   "regex": "зный вол"
+  },
+  {
+   "family": "Леса",
+   "group": "Приматы",
+   "name": "Мутировавший вожак обезьян",
+   "color": "yellow",
+   "id": "Mutated_Chieftain",
+   "regex": "авший вожак обе"
+  },
+  {
+   "family": "Леса",
+   "group": "Кошачьи",
+   "name": "Огненный адский лев",
+   "color": "yellow",
+   "id": "Flame_Hellion",
+   "regex": "^Огненный адский лев$"
+  },
+  {
+   "family": "Леса",
+   "group": "Псовые",
+   "name": "Огненный пёс",
+   "color": "yellow",
+   "id": "Fury_Hound",
+   "regex": "ный пёс"
+  },
+  {
+   "family": "Леса",
+   "group": "Медвежьи",
+   "name": "Падучий медведь",
+   "color": "yellow",
+   "id": "Plummeting_Ursa",
+   "regex": "Паду"
+  },
+  {
+   "family": "Леса",
+   "group": "Необычные",
+   "name": "Пасущийся телец",
+   "color": "yellow",
+   "id": "Grazing_Taurus",
+   "regex": "Пасу"
+  },
+  {
+   "family": "Леса",
+   "group": "Медвежьи",
+   "name": "Пещерный зверь",
+   "color": "yellow",
+   "id": "Cave_Beast",
+   "regex": "рный зве"
+  },
+  {
+   "family": "Леса",
+   "group": "Кошачьи",
+   "name": "Пленённый адский лев",
+   "color": "yellow",
+   "id": "Shackled_Hellion",
+   "regex": "ленё"
+  },
+  {
+   "family": "Леса",
+   "group": "Кошачьи",
+   "name": "Порабощенный адский лев",
+   "color": "yellow",
+   "id": "Enslaved_Hellion",
+   "regex": "боще"
+  },
+  {
+   "family": "Леса",
+   "group": "Приматы",
+   "name": "Примат убийца",
+   "color": "yellow",
+   "id": "Carnage_Ape",
+   "regex": "мат уби"
+  },
+  {
+   "family": "Леса",
+   "group": "Приматы",
+   "name": "Примитивный примат",
+   "color": "yellow",
+   "id": "Primitive_Ape",
+   "regex": "рими"
+  },
+  {
+   "family": "Леса",
+   "group": "Приматы",
+   "name": "Пусточереп, Послушный переносчик",
+   "color": "yellow",
+   "id": "Hollowskull,_the_Willing_Host",
+   "regex": "точе"
+  },
+  {
+   "family": "Леса",
+   "group": "Псовые",
+   "name": "Северный волк",
+   "color": "yellow",
+   "id": "Arctic_Wolf",
+   "regex": "Севе"
+  },
+  {
+   "family": "Леса",
+   "group": "Псовые",
+   "name": "Снежный волк",
+   "color": "yellow",
+   "id": "Snow_Wolf",
+   "regex": "жный вол"
+  },
+  {
+   "family": "Леса",
+   "group": "Приматы",
+   "name": "Фавн",
+   "color": "yellow",
+   "id": "The_Faun",
+   "regex": "Фавн"
+  },
+  {
+   "family": "Леса",
+   "group": "Приматы",
+   "name": "Холмовой примат",
+   "color": "yellow",
+   "id": "Barrow_Ape",
+   "regex": "олмо"
+  },
+  {
+   "family": "Леса",
+   "group": "Необычные",
+   "name": "Хромовый исполин",
+   "color": "yellow",
+   "id": "Chrome-infused_Goliath",
+   "regex": "вый исп"
+  },
+  {
+   "family": "Леса",
+   "group": "Медвежьи",
+   "name": "Чащобная громадина",
+   "color": "yellow",
+   "id": "Thicket_Hulk",
+   "regex": "Чащо"
+  },
+  {
+   "family": "Леса",
+   "group": "Приматы",
+   "name": "Шаман козерогов",
+   "color": "yellow",
+   "id": "Goatman_Shaman",
+   "regex": "ман коз"
+  },
+  {
+   "family": "Леса",
+   "group": "Псовые",
+   "name": "Яростная гончая",
+   "color": "yellow",
+   "id": "Vicious_Hound",
+   "regex": "стна"
+  },
+  {
+   "family": "Пески",
+   "group": "Пернатые",
+   "name": "Беглый рекс",
+   "color": "yellow",
+   "id": "Escaped_Rhex",
+   "regex": "Бегл"
+  },
+  {
+   "family": "Пески",
+   "group": "Пернатые",
+   "name": "Безмозглый мусорщик",
+   "color": "yellow",
+   "id": "Mindless_Scavenger",
+   "regex": "мусо"
+  },
+  {
+   "family": "Пески",
+   "group": "Пресмыкающиеся",
+   "name": "Благословленная Древним кобра",
+   "color": "yellow",
+   "id": "Elder-Blessed_Cobra",
+   "regex": "овле"
+  },
+  {
+   "family": "Пески",
+   "group": "Пернатые",
+   "name": "Благословлённый Древним роа",
+   "color": "yellow",
+   "id": "Elder-Blessed_Rhoa",
+   "regex": "ним роа"
+  },
+  {
+   "family": "Пески",
+   "group": "Пернатые",
+   "name": "Благословлённый Древним рыгатель",
+   "color": "yellow",
+   "id": "Elder-Blessed_Retch",
+   "regex": "ним рыг"
+  },
+  {
+   "family": "Пески",
+   "group": "Пернатые",
+   "name": "Всеядный гриф",
+   "color": "yellow",
+   "id": "Scavenging_Vulture",
+   "regex": "Всея"
+  },
+  {
+   "family": "Пески",
+   "group": "Пернатые",
+   "name": "Глазохват",
+   "color": "yellow",
+   "id": "Eyepecker",
+   "regex": "лазо"
+  },
+  {
+   "family": "Пески",
+   "group": "Пернатые",
+   "name": "Гниющий гриф",
+   "color": "yellow",
+   "id": "Rotting_Vulture",
+   "regex": "щий гри"
+  },
+  {
+   "family": "Пески",
+   "group": "Пернатые",
+   "name": "Дикий кокатрикс",
+   "color": "yellow",
+   "id": "Feral_Fowl",
+   "regex": "кий кок"
+  },
+  {
+   "family": "Пески",
+   "group": "Пернатые",
+   "name": "Дикий рекс",
+   "color": "yellow",
+   "id": "Wild_Rhex",
+   "regex": "кий рек"
+  },
+  {
+   "family": "Пески",
+   "group": "Пресмыкающиеся",
+   "name": "Дикий ящер",
+   "color": "yellow",
+   "id": "Wild_Chimeral",
+   "regex": "икий яще"
+  },
+  {
+   "family": "Пески",
+   "group": "Пернатые",
+   "name": "Доисторический роа",
+   "color": "yellow",
+   "id": "Primordial_Rhoa",
+   "regex": "кий роа"
+  },
+  {
+   "family": "Пески",
+   "group": "Пернатые",
+   "name": "Заражённый гриф",
+   "color": "yellow",
+   "id": "Infested_Vulture",
+   "regex": "нный гри"
+  },
+  {
+   "family": "Пески",
+   "group": "Пресмыкающиеся",
+   "name": "Заражённый змей",
+   "color": "yellow",
+   "id": "Infested_Serpent",
+   "regex": "ённый зме"
+  },
+  {
+   "family": "Пески",
+   "group": "Пернатые",
+   "name": "Заражённый роа",
+   "color": "yellow",
+   "id": "Infested_Rhoa",
+   "regex": "^Заражённый роа$"
+  },
+  {
+   "family": "Пески",
+   "group": "Пресмыкающиеся",
+   "name": "Зеркальный ящер",
+   "color": "yellow",
+   "id": "Chrome-touched_Chimeral",
+   "regex": "ьный яще"
+  },
+  {
+   "family": "Пески",
+   "group": "Пресмыкающиеся",
+   "name": "Змей-переносчик",
+   "color": "yellow",
+   "id": "Host_Cobra",
+   "regex": "мей-"
+  },
+  {
+   "family": "Пески",
+   "group": "Пресмыкающиеся",
+   "name": "Игольчатая кобра",
+   "color": "yellow",
+   "id": "Bramble_Cobra",
+   "regex": "^Игольчата"
+  },
+  {
+   "family": "Пески",
+   "group": "Пернатые",
+   "name": "Илистый грязеспин",
+   "color": "yellow",
+   "id": "Oozeback_Bloom",
+   "regex": "лист"
+  },
+  {
+   "family": "Пески",
+   "group": "Пернатые",
+   "name": "Искажённый роа",
+   "color": "yellow",
+   "id": "Corrupted_Rhoa",
+   "regex": "кажённый роа"
+  },
+  {
+   "family": "Пески",
+   "group": "Пернатые",
+   "name": "Исчадие-задира",
+   "color": "yellow",
+   "id": "Rooster_Fiend",
+   "regex": "дие-"
+  },
+  {
+   "family": "Пески",
+   "group": "Пресмыкающиеся",
+   "name": "Кислотный ползун",
+   "color": "yellow",
+   "id": "Acid_Slitherer",
+   "regex": "лотный пол"
+  },
+  {
+   "family": "Пески",
+   "group": "Пернатые",
+   "name": "Когтистый лучник",
+   "color": "yellow",
+   "id": "Talon_Archer",
+   "regex": "тый луч"
+  },
+  {
+   "family": "Пески",
+   "group": "Пернатые",
+   "name": "Костяной роа",
+   "color": "yellow",
+   "id": "Bone_Rhoa",
+   "regex": "^Костяной роа$"
+  },
+  {
+   "family": "Пески",
+   "group": "Пресмыкающиеся",
+   "name": "Лесной аспид",
+   "color": "yellow",
+   "id": "Glade_Mamba",
+   "regex": "ной асп"
+  },
+  {
+   "family": "Пески",
+   "group": "Пернатые",
+   "name": "Ненасытный падальщик",
+   "color": "yellow",
+   "id": "Gluttonous_Gull",
+   "regex": "адал"
+  },
+  {
+   "family": "Пески",
+   "group": "Пресмыкающиеся",
+   "name": "Ночной уж",
+   "color": "yellow",
+   "id": "Night_Adder",
+   "regex": "^Ночной уж$"
+  },
+  {
+   "family": "Пески",
+   "group": "Пресмыкающиеся",
+   "name": "Одичавший ящер",
+   "color": "yellow",
+   "id": "Feral_Chimeral",
+   "regex": "дича"
+  },
+  {
+   "family": "Пески",
+   "group": "Пернатые",
+   "name": "Пернатый рыгатель",
+   "color": "yellow",
+   "id": "Avian_Retch",
+   "regex": "тый рыг"
+  },
+  {
+   "family": "Пески",
+   "group": "Пресмыкающиеся",
+   "name": "Пернатый ящер",
+   "color": "yellow",
+   "id": "Plumed_Chimeral",
+   "regex": "тый яще"
+  },
+  {
+   "family": "Пески",
+   "group": "Пресмыкающиеся",
+   "name": "Песчаный змей",
+   "color": "yellow",
+   "id": "Sand_Serpent",
+   "regex": "аный зме"
+  },
+  {
+   "family": "Пески",
+   "group": "Пернатые",
+   "name": "Рекс-детёныш",
+   "color": "yellow",
+   "id": "Adolescent_Rhex",
+   "regex": "кс-д"
+  },
+  {
+   "family": "Пески",
+   "group": "Пернатые",
+   "name": "Роа-самец",
+   "color": "yellow",
+   "id": "Tercel_Rhoa",
+   "regex": "а-са"
+  },
+  {
+   "family": "Пески",
+   "group": "Пернатые",
+   "name": "Самка роа",
+   "color": "yellow",
+   "id": "Rhoa_Mare",
+   "regex": "Самк"
+  },
+  {
+   "family": "Пески",
+   "group": "Пернатые",
+   "name": "Созревший рекс",
+   "color": "yellow",
+   "id": "Maternal_Rhex",
+   "regex": "Созр"
+  },
+  {
+   "family": "Пески",
+   "group": "Пернатые",
+   "name": "Тёмный бегун",
+   "color": "yellow",
+   "id": "Murk_Runner",
+   "regex": "^Тёмный бег"
+  },
+  {
+   "family": "Пески",
+   "group": "Пресмыкающиеся",
+   "name": "Уж-переносчик",
+   "color": "yellow",
+   "id": "Host_Adder",
+   "regex": "Уж-п"
+  },
+  {
+   "family": "Пески",
+   "group": "Пресмыкающиеся",
+   "name": "Хромовый ящер",
+   "color": "yellow",
+   "id": "Chrome-infused_Chimeral",
+   "regex": "вый яще"
+  },
+  {
+   "family": "Пески",
+   "group": "Пресмыкающиеся",
+   "name": "Шипастый змей",
+   "color": "yellow",
+   "id": "Spine_Serpent",
+   "regex": "тый зме"
+  },
+  {
+   "family": "Пещеры",
+   "group": "Паукообразные",
+   "name": "Бала",
+   "color": "yellow",
+   "id": "Balah,_Duke",
+   "regex": "Бала"
+  },
+  {
+   "family": "Пещеры",
+   "group": "Паукообразные",
+   "name": "Бледная вдова",
+   "color": "yellow",
+   "id": "Pewterfang",
+   "regex": "едная вдо"
+  },
+  {
+   "family": "Пещеры",
+   "group": "Паукообразные",
+   "name": "Веретянщик",
+   "color": "yellow",
+   "id": "Spindle_Spider",
+   "regex": "Вере"
+  },
+  {
+   "family": "Пещеры",
+   "group": "Паукообразные",
+   "name": "Гибридный арахнид",
+   "color": "yellow",
+   "id": "Hybrid_Arachnid",
+   "regex": "^Гибридный арахнид$"
+  },
+  {
+   "family": "Пещеры",
+   "group": "Насекомые",
+   "name": "Голодный паразит",
+   "color": "yellow",
+   "id": "Ravenous_Parasite",
+   "regex": "дный пар"
+  },
+  {
+   "family": "Пещеры",
+   "group": "Насекомые",
+   "name": "Грязевой норовик",
+   "color": "yellow",
+   "id": "Dirt_Scrabbler",
+   "regex": "язев"
+  },
+  {
+   "family": "Пещеры",
+   "group": "Паукообразные",
+   "name": "Дочь Аракаали",
+   "color": "yellow",
+   "id": "Arakaali's_Daughter",
+   "regex": "очь Ара"
+  },
+  {
+   "family": "Пещеры",
+   "group": "Паукообразные",
+   "name": "Древний пожиратель",
+   "color": "yellow",
+   "id": "Ancient_Devourer",
+   "regex": "ний пож"
+  },
+  {
+   "family": "Пещеры",
+   "group": "Паукообразные",
+   "name": "Едкий арахнид",
+   "color": "yellow",
+   "id": "Scalding_Arachnid",
+   "regex": "кий ара"
+  },
+  {
+   "family": "Пещеры",
+   "group": "Паукообразные",
+   "name": "Завороженный арахнид",
+   "color": "yellow",
+   "id": "Enraptured_Arachnid",
+   "regex": "женный ара"
+  },
+  {
+   "family": "Пещеры",
+   "group": "Паукообразные",
+   "name": "Заражённый арахнид",
+   "color": "yellow",
+   "id": "Corrupted_Arach",
+   "regex": "ённый ара"
+  },
+  {
+   "family": "Пещеры",
+   "group": "Насекомые",
+   "name": "Заражённый легколап",
+   "color": "yellow",
+   "id": "Infested_Skitterer",
+   "regex": "нный лег"
+  },
+  {
+   "family": "Пещеры",
+   "group": "Паукообразные",
+   "name": "Затянутый паутиной паук",
+   "color": "yellow",
+   "id": "Webbed_Spider",
+   "regex": "Затя"
+  },
+  {
+   "family": "Пещеры",
+   "group": "Паукообразные",
+   "name": "Изуродованный арахнид",
+   "color": "yellow",
+   "id": "Mutant_Arach",
+   "regex": "Изур"
+  },
+  {
+   "family": "Пещеры",
+   "group": "Насекомые",
+   "name": "Квецеркси",
+   "color": "yellow",
+   "id": "Quetzerxi",
+   "regex": "Квец"
+  },
+  {
+   "family": "Пещеры",
+   "group": "Паукообразные",
+   "name": "Лабиринтный паучок",
+   "color": "yellow",
+   "id": "Maze_Hatchling",
+   "regex": "аучо"
+  },
+  {
+   "family": "Пещеры",
+   "group": "Насекомые",
+   "name": "Матка трупоедов",
+   "color": "yellow",
+   "id": "Carrion_Queen",
+   "regex": "Матк"
+  },
+  {
+   "family": "Пещеры",
+   "group": "Насекомые",
+   "name": "Мерзкий жук",
+   "color": "yellow",
+   "id": "Carrion_Swarmer",
+   "regex": "кий жук"
+  },
+  {
+   "family": "Пещеры",
+   "group": "Насекомые",
+   "name": "Мерзкий копатель",
+   "color": "yellow",
+   "id": "Carrion_Burrower",
+   "regex": "кий коп"
+  },
+  {
+   "family": "Пещеры",
+   "group": "Паукообразные",
+   "name": "Могильный охотник",
+   "color": "yellow",
+   "id": "Crypt_Ambusher",
+   "regex": "Моги"
+  },
+  {
+   "family": "Пещеры",
+   "group": "Насекомые",
+   "name": "Мутировавший вожак",
+   "color": "yellow",
+   "id": "Mutated_Broodqueen",
+   "regex": "^Мутировавший вожак$"
+  },
+  {
+   "family": "Пещеры",
+   "group": "Паукообразные",
+   "name": "Отшельник ваал",
+   "color": "yellow",
+   "id": "Vaal_Recluse",
+   "regex": "ьник ваа"
+  },
+  {
+   "family": "Пещеры",
+   "group": "Насекомые",
+   "name": "Паразит",
+   "color": "yellow",
+   "id": "Parasite",
+   "regex": "^Паразит$"
+  },
+  {
+   "family": "Пещеры",
+   "group": "Насекомые",
+   "name": "Паразит-плевун",
+   "color": "yellow",
+   "id": "Spitting_Parasite",
+   "regex": "зит-"
+  },
+  {
+   "family": "Пещеры",
+   "group": "Насекомые",
+   "name": "Песчаный прыгун",
+   "color": "yellow",
+   "id": "Sand_Leaper",
+   "regex": "аный пры"
+  },
+  {
+   "family": "Пещеры",
+   "group": "Паукообразные",
+   "name": "Пещерный легколап",
+   "color": "yellow",
+   "id": "Cave_Skitterer",
+   "regex": "рный легк"
+  },
+  {
+   "family": "Пещеры",
+   "group": "Насекомые",
+   "name": "Пластинчатый паразит",
+   "color": "yellow",
+   "id": "Plated_Parasite",
+   "regex": "тинч"
+  },
+  {
+   "family": "Пещеры",
+   "group": "Паукообразные",
+   "name": "Подземельный ткач",
+   "color": "yellow",
+   "id": "Crypt_Weaver",
+   "regex": "земе"
+  },
+  {
+   "family": "Пещеры",
+   "group": "Паукообразные",
+   "name": "Пожиратель",
+   "color": "yellow",
+   "id": "Devourer",
+   "regex": "^Пожиратель$"
+  },
+  {
+   "family": "Пещеры",
+   "group": "Паукообразные",
+   "name": "Прыгающий паук",
+   "color": "yellow",
+   "id": "Leaping_Spider",
+   "regex": "^Прыга"
+  },
+  {
+   "family": "Пещеры",
+   "group": "Насекомые",
+   "name": "Пыльный норовик",
+   "color": "yellow",
+   "id": "Dust_Scrabbler",
+   "regex": "Пыль"
+  },
+  {
+   "family": "Пещеры",
+   "group": "Паукообразные",
+   "name": "Серный скорпион",
+   "color": "yellow",
+   "id": "Sulphuric_Scorpion",
+   "regex": "Серны"
+  },
+  {
+   "family": "Пещеры",
+   "group": "Паукообразные",
+   "name": "Синтик, Неотвратимый",
+   "color": "yellow",
+   "id": "Cintiq,_the_Inescapable",
+   "regex": "нтик"
+  },
+  {
+   "family": "Пещеры",
+   "group": "Насекомые",
+   "name": "Сточник",
+   "color": "yellow",
+   "id": "Scum_Crawler",
+   "regex": "очни"
+  },
+  {
+   "family": "Пещеры",
+   "group": "Паукообразные",
+   "name": "Таящийся отравитель",
+   "color": "yellow",
+   "id": "Lurking_Venom",
+   "regex": "аящийся отр"
+  },
+  {
+   "family": "Пещеры",
+   "group": "Насекомые",
+   "name": "Ужасный паразит",
+   "color": "yellow",
+   "id": "Vicious_Parasite",
+   "regex": "сный пар"
+  },
+  {
+   "family": "Пещеры",
+   "group": "Паукообразные",
+   "name": "Хищный скорпион",
+   "color": "yellow",
+   "id": "Predatory_Scorpion",
+   "regex": "щный ско"
+  },
+  {
+   "family": "Пещеры",
+   "group": "Паукообразные",
+   "name": "Чернопряд",
+   "color": "yellow",
+   "id": "Ink_Spinner",
+   "regex": "^Черноп"
+  },
+  {
+   "family": "Пещеры",
+   "group": "Паукообразные",
+   "name": "Чёрный скорпион",
+   "color": "yellow",
+   "id": "Black_Scorpion",
+   "regex": "ёрный ско"
+  },
+  {
+   "family": "Пещеры",
+   "group": "Паукообразные",
+   "name": "Чумной арахнид",
+   "color": "yellow",
+   "id": "Plagued_Arachnid",
+   "regex": "^Чумной арахнид$"
+  },
+  {
+   "family": "Пещеры",
+   "group": "Паукообразные",
+   "name": "Ядовитый паук",
+   "color": "yellow",
+   "id": "Virulent_Spider",
+   "regex": "^Ядовитый пау"
+  },
+  {
+   "family": "Пещеры",
+   "group": "Паукообразные",
+   "name": "Ядовитый птицеед",
+   "color": "yellow",
+   "id": "Noxious_Tarantula",
+   "regex": "тый пти"
+  }
+ ],
+ "recipes": [
+  {
+   "any": 3,
+   "beasts": [
+    "Saqawine_Rhoa"
+   ],
+   "category": "Создать редкий предмет",
+   "note": "",
+   "title": "Шлем с 4 связанными гнёздами"
+  },
+  {
+   "any": 3,
+   "beasts": [
+    "Craicic_Shield_Crab"
+   ],
+   "category": "Создать валюту",
+   "note": "",
+   "title": "Стопка из 4 сфер златокузнеца"
+  },
+  {
+   "any": 3,
+   "beasts": [
+    "Craicic_Sand_Spitter"
+   ],
+   "category": "Создать валюту",
+   "note": "",
+   "title": "Сфера соединения"
+  },
+  {
+   "any": 3,
+   "beasts": [
+    "Saqawine_Chimeral"
+   ],
+   "category": "Создать валюту",
+   "note": "",
+   "title": "Случайную валюту в стопке из 10 штук"
+  },
+  {
+   "any": 2,
+   "beasts": [
+    "Craicic_Sand_Spitter",
+    "Craicic_Shield_Crab"
+   ],
+   "category": "Создать валюту",
+   "note": "",
+   "title": "Стопка из 2 сфер сплетения"
+  },
+  {
+   "any": 2,
+   "beasts": [
+    "Farric_Frost_Hellion_Alpha",
+    "Farric_Gargantuan"
+   ],
+   "category": "Создать валюту",
+   "note": "",
+   "title": "Стопка из 3 сфер небытия"
+  },
+  {
+   "any": 3,
+   "beasts": [
+    "Craicic_Savage_Crab"
+   ],
+   "category": "Создать уникальный предмет",
+   "note": "",
+   "title": "Предмет"
+  },
+  {
+   "any": 3,
+   "beasts": [
+    "Farric_Flame_Hellion_Alpha"
+   ],
+   "category": "Создать уникальный предмет",
+   "note": "",
+   "title": "Кольцо"
+  },
+  {
+   "any": 3,
+   "beasts": [
+    "Farric_Chieftain"
+   ],
+   "category": "Создать уникальный предмет",
+   "note": "",
+   "title": "Амулет"
+  },
+  {
+   "any": 3,
+   "beasts": [
+    "Farric_Ape"
+   ],
+   "category": "Создать уникальный предмет",
+   "note": "",
+   "title": "Пояс"
+  },
+  {
+   "any": 3,
+   "beasts": [
+    "Farric_Goatman"
+   ],
+   "category": "Создать уникальный предмет",
+   "note": "",
+   "title": "Флакон"
+  },
+  {
+   "any": 3,
+   "beasts": [
+    "Farric_Gargantuan"
+   ],
+   "category": "Создать уникальный предмет",
+   "note": "",
+   "title": "Шлем"
+  },
+  {
+   "any": 3,
+   "beasts": [
+    "Farric_Ursa"
+   ],
+   "category": "Создать уникальный предмет",
+   "note": "",
+   "title": "Нательный доспех"
+  },
+  {
+   "any": 3,
+   "beasts": [
+    "Saqawine_Retch"
+   ],
+   "category": "Создать уникальный предмет",
+   "note": "",
+   "title": "Сапоги"
+  },
+  {
+   "any": 3,
+   "beasts": [
+    "Fenumal_Widow"
+   ],
+   "category": "Создать уникальный предмет",
+   "note": "",
+   "title": "Перчатки"
+  },
+  {
+   "any": 3,
+   "beasts": [
+    "Craicic_Watcher"
+   ],
+   "category": "Создать уникальный предмет",
+   "note": "",
+   "title": "Коготь или кинжал"
+  },
+  {
+   "any": 3,
+   "beasts": [
+    "Saqawine_Cobra"
+   ],
+   "category": "Создать уникальный предмет",
+   "note": "",
+   "title": "Булава или скипетр"
+  },
+  {
+   "any": 3,
+   "beasts": [
+    "Fenumal_Devourer"
+   ],
+   "category": "Создать уникальный предмет",
+   "note": "",
+   "title": "Щит или колчан"
+  },
+  {
+   "any": 3,
+   "beasts": [
+    "Saqawine_Blood_Viper"
+   ],
+   "category": "Создать уникальный предмет",
+   "note": "",
+   "title": "Меч или топор"
+  },
+  {
+   "any": 3,
+   "beasts": [
+    "Fenumal_Queen"
+   ],
+   "category": "Создать уникальный предмет",
+   "note": "",
+   "title": "Посох"
+  },
+  {
+   "any": 3,
+   "beasts": [
+    "Farric_Goliath"
+   ],
+   "category": "Создать уникальный предмет",
+   "note": "",
+   "title": "Лук"
+  },
+  {
+   "any": 3,
+   "beasts": [
+    "Fenumal_Scrabbler"
+   ],
+   "category": "Создать уникальный предмет",
+   "note": "",
+   "title": "Жезл"
+  },
+  {
+   "any": 3,
+   "beasts": [
+    "Farric_Taurus"
+   ],
+   "category": "Создать уникальный предмет",
+   "note": "",
+   "title": "Карта"
+  },
+  {
+   "any": 3,
+   "beasts": [
+    "Craicic_Squid"
+   ],
+   "category": "Преобразовать предмет",
+   "note": "Сохраняет собственные и добавленные свойства",
+   "title": "Изменить базовый тип талисмана"
+  },
+  {
+   "any": 3,
+   "beasts": [
+    "Wild_Brambleback"
+   ],
+   "category": "Преобразовать предмет",
+   "note": "",
+   "title": "Добавляет 500 млн опыта исключительному камню поддержки"
+  },
+  {
+   "any": 3,
+   "beasts": [
+    "Vivid_Vulture"
+   ],
+   "category": "Преобразовать предмет",
+   "note": "",
+   "title": "Меняет собственное синтезированное свойство на уникальном предмете"
+  },
+  {
+   "any": 3,
+   "beasts": [
+    "Farric_Magma_Hound"
+   ],
+   "category": "Создать предмет",
+   "note": "",
+   "title": "Осквернённый камень с 23% качества"
+  },
+  {
+   "any": 3,
+   "beasts": [
+    "Farric_Pit_Hound"
+   ],
+   "category": "Создать предмет",
+   "note": "",
+   "title": "Осквернённый камень 21 уровня"
+  },
+  {
+   "any": 3,
+   "beasts": [
+    "Saqawine_Vulture"
+   ],
+   "category": "Создать предмет",
+   "note": "",
+   "title": "Редкий предмет с 6-ю соединёнными гнёздами"
+  },
+  {
+   "any": 3,
+   "beasts": [
+    "Vivid_Abberarach"
+   ],
+   "category": "Создать предмет",
+   "note": "",
+   "title": "Карта хранителя Создателя, хранителя Древнего или Завоевателя"
+  },
+  {
+   "any": 3,
+   "beasts": [
+    "Primal_Rhex_Matriarch"
+   ],
+   "category": "Создать предмет",
+   "note": "",
+   "title": "Уникальная карта Синтеза"
+  },
+  {
+   "any": 3,
+   "beasts": [
+    "Primal_Crushclaw"
+   ],
+   "category": "Создать предмет",
+   "note": "",
+   "title": "Ценный скарабей"
+  },
+  {
+   "any": 3,
+   "beasts": [
+    "Primal_Cystcaller"
+   ],
+   "category": "Создать предмет",
+   "note": "",
+   "title": "Карта кошмара"
+  },
+  {
+   "any": 3,
+   "beasts": [
+    "Craicic_Croaker"
+   ],
+   "category": "Создать слепок",
+   "note": "",
+   "title": "волшебного предмета"
+  },
+  {
+   "any": 3,
+   "beasts": [
+    "Fenumal_Plagued_Arachnid"
+   ],
+   "category": "Создать слепок",
+   "note": "",
+   "title": "редкого талисмана"
+  },
+  {
+   "any": 3,
+   "beasts": [
+    "Craicic_Vassal"
+   ],
+   "category": "Осквернить карту",
+   "note": "",
+   "title": "чтобы получить собственное свойство"
+  },
+  {
+   "any": 2,
+   "beasts": [
+    "Craicic_Vassal",
+    "Fenumal_Scorpion"
+   ],
+   "category": "Осквернить карту",
+   "note": "",
+   "title": "Дважды"
+  },
+  {
+   "any": 3,
+   "beasts": [
+    "Farric_Frost_Hellion_Alpha"
+   ],
+   "category": "Расколоть свойство",
+   "note": "Не работает на расколотых предметах и предметах с влиянием",
+   "title": "на редком талисмане с как минимум 4 свойствами"
+  },
+  {
+   "any": 3,
+   "beasts": [
+    "Farric_Lynx_Alpha"
+   ],
+   "category": "Изменить свойства на предмете",
+   "note": "Работает только на редких предметах",
+   "title": "Добавить суффикс, удалить случайный префикс"
+  },
+  {
+   "any": 3,
+   "beasts": [
+    "Farric_Wolf_Alpha"
+   ],
+   "category": "Изменить свойства на предмете",
+   "note": "Работает только на редких предметах",
+   "title": "Добавить префикс, удалить случайный суффикс"
+  },
+  {
+   "any": 2,
+   "beasts": [
+    "Fenumal_Devourer",
+    "Craicic_Maw"
+   ],
+   "category": "Изменить свойства на предмете",
+   "note": "",
+   "title": "Добавляет свойство на предмет Создателя"
+  },
+  {
+   "any": 2,
+   "beasts": [
+    "Saqawine_Blood_Viper",
+    "Craicic_Maw"
+   ],
+   "category": "Изменить свойства на предмете",
+   "note": "",
+   "title": "Добавляет свойство на предмет Древнего"
+  },
+  {
+   "any": 2,
+   "beasts": [
+    "Fenumal_Queen",
+    "Craicic_Maw"
+   ],
+   "category": "Изменить свойства на предмете",
+   "note": "",
+   "title": "Добавляет свойство на предмет Избавительницы"
+  },
+  {
+   "any": 2,
+   "beasts": [
+    "Craicic_Watcher",
+    "Craicic_Maw"
+   ],
+   "category": "Изменить свойства на предмете",
+   "note": "",
+   "title": "Добавляет свойство на предмет Охотника"
+  },
+  {
+   "any": 2,
+   "beasts": [
+    "Farric_Goliath",
+    "Craicic_Maw"
+   ],
+   "category": "Изменить свойства на предмете",
+   "note": "",
+   "title": "Добавляет свойство на предмет Крестоносца"
+  },
+  {
+   "any": 2,
+   "beasts": [
+    "Fenumal_Scrabbler",
+    "Craicic_Maw"
+   ],
+   "category": "Изменить свойства на предмете",
+   "note": "",
+   "title": "Добавляет свойство на предмет Вождя"
+  },
+  {
+   "any": 2,
+   "beasts": [
+    "Craicic_Savage_Crab",
+    "Saqawine_Cobra"
+   ],
+   "category": "Изменить свойства на предмете",
+   "note": "Работает только на редких картах",
+   "title": "Добавляет свойство на редкую карту"
+  },
+  {
+   "any": 3,
+   "beasts": [
+    "Wild_Bristle_Matron"
+   ],
+   "category": "Изменить свойства на предмете",
+   "note": "",
+   "title": "Добавляет ремесленное мета-свойство на неуникальный предмет"
+  },
+  {
+   "any": 3,
+   "beasts": [
+    "Wild_Hellion_Alpha"
+   ],
+   "category": "Изменить свойства на предмете",
+   "note": "Не может менять свойства здоровья, маны и энергетического щита",
+   "title": "Меняет свойство на Глазе хранителя"
+  },
+  {
+   "any": 3,
+   "beasts": [
+    "Fenumal_Scorpion"
+   ],
+   "category": "Превратить этот уникальный предмет",
+   "note": "",
+   "title": "в другой случайный уникальный предмет"
+  },
+  {
+   "any": 3,
+   "beasts": [
+    "Farric_Tiger_Alpha"
+   ],
+   "category": "Открыть портал",
+   "note": "",
+   "title": "в берлогу Фаррул"
+  },
+  {
+   "any": 3,
+   "beasts": [
+    "Saqawine_Rhex"
+   ],
+   "category": "Открыть портал",
+   "note": "",
+   "title": "в гнездо Сакаваля"
+  },
+  {
+   "any": 3,
+   "beasts": [
+    "Fenumal_Hybrid_Arachnid"
+   ],
+   "category": "Открыть портал",
+   "note": "",
+   "title": "в логово Фенумы"
+  },
+  {
+   "any": 3,
+   "beasts": [
+    "Craicic_Spider_Crab"
+   ],
+   "category": "Открыть портал",
+   "note": "",
+   "title": "в грот Краценна"
+  },
+  {
+   "any": 3,
+   "beasts": [
+    "Farrul,_First_of_the_Plains"
+   ],
+   "category": "Добавить умение Духа на предмет",
+   "note": "Дух кошки",
+   "title": "умение Дух кошки"
+  },
+  {
+   "any": 3,
+   "beasts": [
+    "Saqawal,_First_of_the_Sky"
+   ],
+   "category": "Добавить умение Духа на предмет",
+   "note": "Дух птицы",
+   "title": "умение Дух птицы"
+  },
+  {
+   "any": 3,
+   "beasts": [
+    "Fenumus,_First_of_the_Night"
+   ],
+   "category": "Добавить умение Духа на предмет",
+   "note": "Дух паука",
+   "title": "умение Дух паука"
+  },
+  {
+   "any": 3,
+   "beasts": [
+    "Craiceann,_First_of_the_Deep"
+   ],
+   "category": "Добавить умение Духа на предмет",
+   "note": "Дух краба",
+   "title": "умение Дух краба"
+  },
+  {
+   "any": 2,
+   "beasts": [
+    "Farrul,_First_of_the_Plains",
+    "Black_Mórrigan"
+   ],
+   "category": "Добавить умение Духа на предмет",
+   "note": "",
+   "title": "умение Дух кошки 30 уровня"
+  },
+  {
+   "any": 2,
+   "beasts": [
+    "Saqawal,_First_of_the_Sky",
+    "Black_Mórrigan"
+   ],
+   "category": "Добавить умение Духа на предмет",
+   "note": "",
+   "title": "умение Дух птицы 30 уровня"
+  },
+  {
+   "any": 2,
+   "beasts": [
+    "Fenumus,_First_of_the_Night",
+    "Black_Mórrigan"
+   ],
+   "category": "Добавить умение Духа на предмет",
+   "note": "",
+   "title": "умение Дух паука 30 уровня"
+  },
+  {
+   "any": 2,
+   "beasts": [
+    "Craiceann,_First_of_the_Deep",
+    "Black_Mórrigan"
+   ],
+   "category": "Добавить умение Духа на предмет",
+   "note": "",
+   "title": "умение Дух краба 30 уровня"
+  },
+  {
+   "any": 3,
+   "beasts": [
+    "Vivid_Watcher"
+   ],
+   "category": "Пожертвовать исключительным камнем поддержки",
+   "note": "Полученные камни не будут исключительными",
+   "title": "и получить 3 камня поддержки высокого уровня и высокого качества"
+  },
+  {
+   "any": 2,
+   "beasts": [
+    "Craicic_Croaker",
+    "Black_Mórrigan"
+   ],
+   "category": "Применить прядь Хинекоры",
+   "note": "",
+   "title": "в волшебный предмет"
+  },
+  {
+   "any": 2,
+   "beasts": [
+    "Fenumal_Plagued_Arachnid",
+    "Black_Mórrigan"
+   ],
+   "category": "Расколоть два свойства",
+   "note": "Не работает на расколотых предметах и предметах с влиянием",
+   "title": "на редком талисмане с как минимум 6 свойствами"
+  },
+  {
+   "any": 2,
+   "beasts": [
+    "Craicic_Sand_Spitter",
+    "Black_Mórrigan"
+   ],
+   "category": "Изменить предмет",
+   "note": "",
+   "title": "чтобы получить максимально возможное количество связей"
+  },
+  {
+   "any": 2,
+   "beasts": [
+    "Craicic_Shield_Crab",
+    "Black_Mórrigan"
+   ],
+   "category": "Изменить предмет",
+   "note": "",
+   "title": "чтобы получить максимально возможное количество гнезд"
+  },
+  {
+   "any": 3,
+   "beasts": [
+    "Black_Mórrigan"
+   ],
+   "category": "Создать уникальный предмет",
+   "note": "",
+   "title": "Талисман"
+  }
+ ]
+}

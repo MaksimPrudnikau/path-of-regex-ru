@@ -72,6 +72,7 @@ export function ProfileContextProvider(props: ParentProps) {
             setCurrentProfileName(newName);
           });
         },
+        profileNames: () => Object.keys(profiles),
         profiles,
         removeProfile: () => {
           const profileNames = Object.keys(profiles);
