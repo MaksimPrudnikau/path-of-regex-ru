@@ -1,5 +1,6 @@
-import { A } from "@solidjs/router";
 import type { JSX } from "solid-js";
+import { GameEntity } from "./GameEntity";
+import { PageLink } from "./PageLink";
 
 export type Change = string | (() => JSX.Element);
 
@@ -17,19 +18,20 @@ export const releases: Release[] = [
       () => (
         <>
           Добавлена страница{" "}
-          <A class="link link-primary font-semibold" href="/bestiary">
+          <PageLink href="/bestiary" icon="bestiary">
             бестиария
-          </A>
+          </PageLink>
         </>
       ),
       () => (
         <>
-          Строка поиска для зверинца: звери из <b>рецептов</b> или выбранные вручную, поиск по имени и рецепту
+          Строка поиска для зверинца: <GameEntity icon="bestiary" tone="text-error">красные</GameEntity> и{" "}
+          <GameEntity icon="bestiary" tone="text-warning">жёлтые</GameEntity> звери из <b>рецептов</b> или выбранные вручную, поиск по имени и рецепту
         </>
       ),
       () => (
         <>
-          Цены <b>poe.ninja</b> по лигам и подбор зверей ползунком по диапазону цен
+          Цены <b>poe.ninja</b> по лигам в <GameEntity icon="chaos" tone="text-secondary">хаосах</GameEntity> и подбор зверей ползунком по диапазону цен
         </>
       ),
       () => (
@@ -47,7 +49,7 @@ export const releases: Release[] = [
     changes: [
       () => (
         <>
-          Regex всех модов карт сверены с текстами русского клиента, включая карты <b>T17</b>
+          Regex всех модов карт сверены с текстами русского клиента, включая карты <GameEntity icon="maps" tone="text-error">T17</GameEntity>
         </>
       ),
       "Исправлены фильтры по редкости карт, неопознанным и осквернённым картам",
@@ -71,9 +73,9 @@ export const releases: Release[] = [
       () => (
         <>
           Добавлена страница{" "}
-          <A class="link link-primary font-semibold" href="/maps">
+          <PageLink href="/maps" icon="maps">
             карт
-          </A>
+          </PageLink>
         </>
       ),
       () => (
@@ -81,7 +83,14 @@ export const releases: Release[] = [
           Строка поиска по модам карт: <b>включить</b> нужные и <u>исключить</u> опасные моды
         </>
       ),
-      "Фильтры по количеству и редкости предметов, размеру групп монстров, качеству, валюте, картам и скарабеям",
+      () => (
+        <>
+          Фильтры по количеству и редкости предметов, размеру групп монстров, качеству, валюте, картам и{" "}
+          <GameEntity icon="scarabs" tone="text-accent">
+            скарабеям
+          </GameEntity>
+        </>
+      ),
       "Профили с сохранёнными настройками фильтров",
     ],
   },
