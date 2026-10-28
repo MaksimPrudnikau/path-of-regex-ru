@@ -1,10 +1,10 @@
 import { batch, createMemo, createSignal, type ParentProps } from "solid-js";
+import { createProfileActions } from "~/components/profile";
 import { beasts } from "../data";
 import { type PriceSnapshot, pricesOf } from "../price/prices";
 import { buildBestiaryBatches, MAX_REGEX_LENGTH } from "../regex-panel/buildBestiaryRegex";
 import { BestiaryContext, type BestiaryStore, initialBestiaryState } from "./context";
 import { isInPriceRange, matchesFilters, sortByPrice } from "./derive";
-import { createProfileActions } from "./profileActions";
 import { createSavedProfiles } from "./savedState";
 
 export function BestiaryContextProvider(props: ParentProps<{ prices: PriceSnapshot }>) {
@@ -35,7 +35,7 @@ export function BestiaryContextProvider(props: ParentProps<{ prices: PriceSnapsh
   return (
     <BestiaryContext.Provider
       value={{
-        ...createProfileActions(saved),
+        ...createProfileActions(saved, initialBestiaryState),
         applyFilters,
         batches,
         batchIndex: currentBatch,

@@ -1,24 +1,25 @@
-import { batch } from "solid-js";
-import { reconcile, unwrap } from "solid-js/store";
-import type { ProfileControls } from "~/components/profile";
-import { initialBestiaryState } from "./context";
-import type { createSavedProfiles } from "./savedState";
+import { type Accessor, batch } from "solid-js";
+import { reconcile, type SetStoreFunction, unwrap } from "solid-js/store";
+import type { ProfileControls } from "./context";
 
-type SavedProfiles = ReturnType<typeof createSavedProfiles>;
+type SavedProfiles<T extends object> = {
+  currentName: Accessor<string>;
+  profiles: Record<string, T>;
+  setCurrentName: (name: string) => void;
+  setProfiles: SetStoreFunction<Record<string, T>>;
+};
 
-export function createProfileActions({
-  currentName,
-  profiles,
-  setCurrentName,
-  setProfiles,
-}: SavedProfiles): Omit<ProfileControls, "profileNames" | "currentProfileName"> {
+export function createProfileActions<T extends object>(
+  { currentName, profiles, setCurrentName, setProfiles }: SavedProfiles<T>,
+  initialState: () => T,
+): Omit<ProfileControls, "profileNames" | "currentProfileName"> {
   return {
     addProfile: (name, duplicateFrom) => {
       if (!name.trim()) return alert("Введите название профиля");
       if (name in profiles) return alert(`Профиль с именем "${name}" уже существует`);
       const source = duplicateFrom ? profiles[duplicateFrom] : undefined;
       batch(() => {
-        setProfiles(name, source ? structuredClone(unwrap(source)) : initialBestiaryState());
+        setProfiles(name, source ? structuredClone(unwrap(source)) : initialState());
         setCurrentName(name);
       });
     },
