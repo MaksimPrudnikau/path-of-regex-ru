@@ -55,12 +55,16 @@ function checkFlask(scenario: Scenario, searches: string[], flask: Flask) {
 
 function isWanted(flask: Flask, input: WindowInput): boolean {
   if (input.bases.length > 0 && !input.bases.includes(flask.base.id)) return false;
-  const wanted = (affix?: Affix) => affix !== undefined && affix.tier < (input.mods[affix.mod.id] ?? 0);
+  const wanted = (affix?: Affix) => affix !== undefined && isWantedTier(input.mods[affix.mod.id], affix.tier);
   const hasSelected = (kind: string) => data.mods.some((mod) => mod.affix === kind && input.mods[mod.id] !== undefined);
   const prefixOk = wanted(flask.prefix);
   const suffixOk = wanted(flask.suffix);
   if (input.matchBoth) return (!hasSelected("prefix") || prefixOk) && (!hasSelected("suffix") || suffixOk);
   return (!hasSelected("prefix") && !hasSelected("suffix")) || prefixOk || suffixOk;
+}
+
+function isWantedTier(tiers: number[] | undefined, tier: number): boolean {
+  return tiers !== undefined && (tiers.length === 0 || tiers.includes(tier));
 }
 
 function highlights(search: string, text: string, caseInsensitive: boolean): boolean {
@@ -73,12 +77,10 @@ function highlights(search: string, text: string, caseInsensitive: boolean): boo
 }
 
 function scenarios(): Scenario[] {
-  const tiers = data.mods.flatMap((mod) =>
-    mod.tiers.map((_, index) => ({
-      title: `${mod.id} T1-T${index + 1}`,
-      windows: [{ bases: [], matchBoth: true, mods: { [mod.id]: index + 1 } }],
-    })),
-  );
+  const tiers = data.mods.flatMap((mod) => [
+    single(`${mod.id} любой тир`, { bases: [], matchBoth: true, mods: { [mod.id]: [] } }),
+    ...mod.tiers.map((_, index) => single(`${mod.id} T${index + 1}`, { bases: [], matchBoth: true, mods: { [mod.id]: [index] } })),
+  ]);
   const bases = data.bases.map((base) => single(`база ${base.name}`, { bases: [base.id], matchBoth: true, mods: {} }));
   const kinds = Object.keys(data.kinds).map((kind) =>
     single(`все базы ${kind}`, { bases: data.bases.filter((base) => base.kind === kind).map((base) => base.id), matchBoth: true, mods: {} }),
@@ -99,7 +101,7 @@ function randomInput(): WindowInput {
   const mods = Object.fromEntries(
     Array.from({ length: 1 + random(4) }, () => {
       const mod = data.mods[random(data.mods.length)];
-      return [mod.id, 1 + random(mod.tiers.length)];
+      return [mod.id, mod.tiers.flatMap((_, index) => (random(2) === 0 ? [index] : []))];
     }),
   );
   const bases = random(3) === 0 ? [data.bases[random(data.bases.length)].id] : [];

@@ -4,7 +4,7 @@ import type { ProfileControls } from "~/components/profile";
 export type FlaskWindow = {
   id: string;
   bases: string[];
-  mods: Record<string, number>;
+  mods: Record<string, number[]>;
   matchBoth: boolean;
 };
 

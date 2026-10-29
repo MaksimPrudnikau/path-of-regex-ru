@@ -1,7 +1,7 @@
-import { mkdirSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, writeFileSync } from "node:fs";
 import { fetchPage, poedbUrl } from "../bestiary/poedb.mjs";
 import { baseRegex, CORPUS_FILE, itemLines, kindRegex, modRegex, saveFlasks, skeleton, tierRegex } from "./lib.mjs";
-import { baseIcons, baseLevels, EXTRA_PAGES, FLASK_PAGES, itemTexts, otherModTexts, parseBases, parseMods, parseModsView } from "./poedb.mjs";
+import { baseEffects, baseIcons, baseLevels, EXTRA_PAGES, FLASK_PAGES, itemTexts, otherModTexts, parseBases, parseMods, parseModsView } from "./poedb.mjs";
 
 const ICONS_DIR = new URL("../../public/icons/flasks/", import.meta.url);
 
@@ -15,8 +15,9 @@ for (const [kind, slug] of Object.entries(FLASK_PAGES)) {
   if (view === undefined) fail(`на странице ${slug} нет данных ModsView`);
   const levels = baseLevels(html);
   const icons = baseIcons(html);
+  const effects = baseEffects(html);
   for (const base of parseBases(html)) {
-    bases.push({ ...base, kind, level: levels.get(base.id) ?? 1 });
+    bases.push({ ...base, effects: effects.get(base.id) ?? [], kind, level: levels.get(base.id) ?? 1 });
     await saveIcon(base.id, icons.get(base.id));
   }
   for (const mod of parseMods(view)) addMod(mod, kind);
@@ -93,10 +94,12 @@ function mergeSameTiers(list) {
 
 async function saveIcon(id, url) {
   if (url === undefined) fail(`у базы ${id} нет иконки`);
+  const file = new URL(`${id}.webp`, ICONS_DIR);
+  if (existsSync(file)) return;
   const res = await fetch(url, { headers: { "User-Agent": "Mozilla/5.0" } });
   if (!res.ok) fail(`не скачалась иконка ${url}: ${res.status}`);
   mkdirSync(ICONS_DIR, { recursive: true });
-  writeFileSync(new URL(`${id}.webp`, ICONS_DIR), Buffer.from(await res.arrayBuffer()));
+  writeFileSync(file, Buffer.from(await res.arrayBuffer()));
 }
 
 async function fetchPoedb(slug) {

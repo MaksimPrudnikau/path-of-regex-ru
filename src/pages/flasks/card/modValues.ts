@@ -2,9 +2,10 @@ import type { FlaskMod, FlaskTier } from "../data";
 
 type Range = [low: number, high: number];
 
-export function includedValues(mod: FlaskMod, tierCount: number): string {
+export function includedValues(mod: FlaskMod, tiers: number[]): string {
   const index = varyingIndex(mod);
-  const range = spanOf(mod.tiers.slice(0, tierCount).map((tier) => tierRanges(mod, tier)[index]));
+  const chosen = tiers.length === 0 ? mod.tiers : mod.tiers.filter((_, position) => tiers.includes(position));
+  const range = spanOf(chosen.map((tier) => tierRanges(mod, tier)[index]));
   return `${formatRange(range)}${unitOf(mod)}`;
 }
 

@@ -45,14 +45,32 @@ export function baseIcons(html) {
 }
 
 export function baseLevels(html) {
-  const cards = html.split('<div class="col"><div class="d-flex border-top rounded">').slice(1);
   return new Map(
-    cards.flatMap((card) => {
-      const id = /href="([^"/]+)">[^<]+<\/a>/.exec(card)?.[1];
-      const level = /Требуется Уровень <span class="colourDefault">(\d+)/.exec(card)?.[1] ?? "1";
-      return id ? [[id, Number(level)]] : [];
-    }),
+    baseCards(html).map(([id, card]) => [id, Number(/Требуется Уровень <span class="colourDefault">(\d+)/.exec(card)?.[1] ?? "1")]),
   );
+}
+
+export function baseEffects(html) {
+  const pattern = /<div class=["'](property|utilityMod|implicitMod)["']>([\s\S]*?)<\/div>/g;
+  return new Map(
+    baseCards(html).map(([id, card]) => [
+      id,
+      [...withoutValueSpans(card).matchAll(pattern)]
+        .flatMap((m) => m[2].split(/<br\s*\/?>/).map((line) => ({ kind: m[1], text: decode(line) })))
+        .filter((line) => line.kind !== "property" || line.text.startsWith("Восстанавливает"))
+        .map((line) => line.text),
+    ]),
+  );
+}
+
+function baseCards(html) {
+  return html
+    .split('<div class="col"><div class="d-flex border-top rounded">')
+    .slice(1)
+    .flatMap((card) => {
+      const id = /class="whiteitem [^"]*" [^>]*href="([^"/]+)">[^<]+<\/a>/.exec(card)?.[1];
+      return id ? [[id, card]] : [];
+    });
 }
 
 export function itemTexts(html) {

@@ -5,6 +5,7 @@ import { createProfileActions } from "~/components/profile";
 import { flaskData } from "../data";
 import { buildFlaskSearches } from "../regex-panel/buildFlaskSearches";
 import { emptyWindow, type FlaskWindow, FlasksContext, type FlasksStore, initialFlasksState } from "./context";
+import { withTierLists } from "./savedTiers";
 import { duplicated, withSelectedBases } from "./windows";
 
 const STORAGE_KEY = "path-of-regex-flasks-profiles";
@@ -52,7 +53,7 @@ export function FlasksContextProvider(props: ParentProps) {
 
 function withDefaults(saved: Partial<FlasksStore> | undefined): FlasksStore {
   const state = { ...initialFlasksState(), ...saved };
-  return state.windows.length > 0 ? state : initialFlasksState();
+  return state.windows.length > 0 ? { ...state, windows: state.windows.map(withTierLists) } : initialFlasksState();
 }
 
 type Profiles = Record<string, FlasksStore>;

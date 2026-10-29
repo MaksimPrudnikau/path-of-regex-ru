@@ -1,6 +1,6 @@
 import { createMemo, For, useContext } from "solid-js";
 import { FlaskWindowContext } from "../context";
-import type { Affix } from "../data";
+import { type Affix, modById } from "../data";
 import { availableMods } from "./selectedMods";
 
 type Props = {
@@ -25,6 +25,7 @@ export function ModSelect(props: Props) {
         props.onSelect(e.currentTarget.value);
         e.currentTarget.value = props.value;
       }}
+      title={modById.get(props.value)?.text.replaceAll("\n", " / ")}
       value={props.value}
     >
       <option disabled value="">

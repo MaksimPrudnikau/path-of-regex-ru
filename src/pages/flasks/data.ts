@@ -8,6 +8,7 @@ export type FlaskBase = {
   name: string;
   kind: FlaskKind;
   level: number;
+  effects: string[];
   regex: string;
 };
 

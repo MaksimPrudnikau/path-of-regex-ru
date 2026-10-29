@@ -19,9 +19,10 @@ export function windowTerms(input: WindowInput, data: FlaskData): string[][] {
   return [bases, ...affixTerms].filter((alternatives) => alternatives.length > 0);
 }
 
-export function tierAlternatives(mod: FlaskMod, tierCount: number): string[] {
-  const names = [...new Set(mod.tiers.slice(0, tierCount).map((tier) => tier.regex))];
-  const isAnyTier = tierCount >= mod.tiers.length;
+export function tierAlternatives(mod: FlaskMod, tiers: number[]): string[] {
+  const chosen = tiers.length === 0 ? mod.tiers : mod.tiers.filter((_, index) => tiers.includes(index));
+  const names = [...new Set(chosen.map((tier) => tier.regex))];
+  const isAnyTier = chosen.length === mod.tiers.length;
   return isAnyTier && mod.regex !== null && mod.regex.length < names.join("|").length ? [mod.regex] : names;
 }
 

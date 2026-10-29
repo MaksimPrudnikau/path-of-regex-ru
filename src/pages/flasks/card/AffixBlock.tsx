@@ -1,6 +1,6 @@
 import { createMemo, For, Show, useContext } from "solid-js";
 import { FlaskWindowContext } from "../context";
-import { type Affix, modById } from "../data";
+import type { Affix } from "../data";
 import { AffixLine } from "./AffixLine";
 import { ModSelect } from "./ModSelect";
 import { selectedMods } from "./selectedMods";
@@ -10,7 +10,7 @@ type Props = {
 };
 
 export function AffixBlock(props: Props) {
-  const { setTierCount, state } = useContext(FlaskWindowContext);
+  const { setTiers, state } = useContext(FlaskWindowContext);
   const mods = createMemo(() => selectedMods(state(), props.affix));
   const isPrefix = () => props.affix === "prefix";
 
@@ -33,7 +33,7 @@ export function AffixBlock(props: Props) {
       <ModSelect
         affix={props.affix}
         class="w-60 max-w-full border-dashed bg-transparent text-base-content/60"
-        onSelect={(modId) => setTierCount(modId, modById.get(modId)?.tiers.length ?? 1)}
+        onSelect={(modId) => setTiers(modId, [])}
         placeholder={isPrefix() ? "+ Добавить префикс" : "+ Добавить суффикс"}
         value=""
       />

@@ -12,17 +12,17 @@ export function FlaskWindowProvider(props: ParentProps<Props>) {
   return (
     <FlaskWindowContext.Provider
       value={{
-        replaceMod: (oldId, newId, tierCount) => {
-          const entries = Object.entries(props.window.mods).map(([id, count]) => (id === oldId ? [newId, tierCount] : [id, count]));
+        replaceMod: (oldId, newId) => {
+          const entries = Object.entries(props.window.mods).map(([id, tiers]) => (id === oldId ? [newId, []] : [id, tiers]));
           update({ mods: Object.fromEntries(entries) });
         },
         selectBases: (ids, selected) => selectBases(props.window.id, ids, selected),
-        setTierCount: (modId, tierCount) => {
+        setTiers: (modId, tiers) => {
           const { [modId]: _, ...rest } = props.window.mods;
-          update({ mods: tierCount === undefined ? rest : { ...props.window.mods, [modId]: tierCount } });
+          update({ mods: tiers === undefined ? rest : { ...props.window.mods, [modId]: tiers } });
         },
         state: () => props.window,
-        tierCountOf: (modId) => props.window.mods[modId],
+        tiersOf: (modId) => props.window.mods[modId],
         update,
       }}
     >

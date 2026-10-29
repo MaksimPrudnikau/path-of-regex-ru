@@ -1,4 +1,4 @@
-import { createMemo, useContext } from "solid-js";
+import { createMemo, For, useContext } from "solid-js";
 import { FlaskWindowContext } from "../context";
 import type { FlaskBase } from "../data";
 
@@ -11,7 +11,11 @@ export function BaseButton(props: Props) {
   const isSelected = createMemo(() => state().bases.includes(props.base.id));
 
   return (
-    <div class="tooltip tooltip-bottom" data-tip={`${props.base.name}, с ${props.base.level} уровня`}>
+    <div class="tooltip tooltip-bottom">
+      <div class="tooltip-content col items-start gap-0.5 text-left">
+        <b>{props.base.name}</b>
+        <For each={props.base.effects}>{(effect) => <span>{effect}</span>}</For>
+      </div>
       <button
         aria-label={props.base.name}
         aria-pressed={isSelected()}
