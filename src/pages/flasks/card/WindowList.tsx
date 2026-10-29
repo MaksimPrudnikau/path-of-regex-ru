@@ -19,7 +19,7 @@ export function WindowList() {
           </>
         )}
       </Index>
-      <button class="btn btn-outline h-auto min-h-36 w-40 self-stretch border-dashed" onClick={addWindow} type="button">
+      <button class="btn btn-outline h-36 w-40 shrink-0 self-center border-dashed" onClick={addWindow} type="button">
         + Добавить окно
       </button>
     </div>
