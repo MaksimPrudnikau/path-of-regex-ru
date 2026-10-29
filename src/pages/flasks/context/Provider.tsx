@@ -25,13 +25,13 @@ export function FlasksContextProvider(props: ParentProps) {
   const currentSearch = createMemo(() => Math.max(0, Math.min(searchIndex(), searches().length - 1)));
 
   const update = (patch: Partial<FlasksStore>) => setProfiles(currentName(), { ...state(), ...patch });
-  const setWindows = (windows: FlaskWindow[]) => update({ windows: windows.length > 0 ? windows : [emptyWindow()] });
+  const setWindows = (windows: FlaskWindow[]) => update({ windows });
 
   return (
     <FlasksContext.Provider
       value={{
         ...createProfileActions({ currentName, profiles, setCurrentName, setProfiles }, initialFlasksState),
-        addWindow: () => setWindows([...state().windows, emptyWindow()]),
+        addWindow: (baseIds) => setWindows([...state().windows, { ...emptyWindow(), bases: baseIds }]),
         currentProfileName: currentName,
         duplicateWindow: (id) => setWindows(duplicated(state().windows, id)),
         profileNames: () => Object.keys(profiles),
@@ -53,7 +53,7 @@ export function FlasksContextProvider(props: ParentProps) {
 
 function withDefaults(saved: Partial<FlasksStore> | undefined): FlasksStore {
   const state = { ...initialFlasksState(), ...saved };
-  return state.windows.length > 0 ? { ...state, windows: state.windows.map(withTierLists) } : initialFlasksState();
+  return { ...state, windows: state.windows.map(withTierLists) };
 }
 
 type Profiles = Record<string, FlasksStore>;

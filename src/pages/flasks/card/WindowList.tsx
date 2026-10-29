@@ -1,9 +1,10 @@
 import { Index, Show, useContext } from "solid-js";
 import { FlasksContext } from "../context";
 import { FlaskCard } from "./FlaskCard";
+import { NewWindowButton } from "./NewWindowButton";
 
 export function WindowList() {
-  const { addWindow, state } = useContext(FlasksContext);
+  const { state } = useContext(FlasksContext);
 
   return (
     <div class="flex flex-wrap items-stretch justify-center gap-4">
@@ -19,9 +20,7 @@ export function WindowList() {
           </>
         )}
       </Index>
-      <button class="btn btn-outline h-36 w-40 shrink-0 self-center border-dashed" onClick={addWindow} type="button">
-        + Добавить окно
-      </button>
+      <NewWindowButton />
     </div>
   );
 }

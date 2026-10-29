@@ -42,4 +42,6 @@ export const KIND_LABELS: Record<FlaskKind, string> = {
   utility: "Особые",
 };
 
+export const FLASK_KINDS = Object.keys(KIND_LABELS) as FlaskKind[];
+
 export const modById = new Map(flaskData.mods.map((mod) => [mod.id, mod]));

@@ -20,18 +20,16 @@ export type Context = ProfileControls & {
   regex: Accessor<string>;
   updateWindow: (id: string, patch: Partial<FlaskWindow>) => void;
   selectBases: (id: string, baseIds: string[], selected: boolean) => void;
-  addWindow: () => void;
+  addWindow: (baseIds: string[]) => void;
   duplicateWindow: (id: string) => void;
   removeWindow: (id: string) => void;
   reset: () => void;
 };
 
-export const FIRST_WINDOW_ID = "first";
-
 export const FlasksContext = createContext<Context>({} as unknown as Context);
 
 export function initialFlasksState(): FlasksStore {
-  return { windows: [{ ...emptyWindow(), id: FIRST_WINDOW_ID }] };
+  return { windows: [] };
 }
 
 export function emptyWindow(): FlaskWindow {

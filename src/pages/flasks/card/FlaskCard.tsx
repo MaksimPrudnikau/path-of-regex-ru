@@ -1,4 +1,4 @@
-import { Show, useContext } from "solid-js";
+import { useContext } from "solid-js";
 import { type FlaskWindow, FlasksContext } from "../context";
 import { AffixBlock } from "./AffixBlock";
 import { AffixJoin } from "./AffixJoin";
@@ -11,7 +11,7 @@ type Props = {
 };
 
 export function FlaskCard(props: Props) {
-  const { duplicateWindow, removeWindow, state } = useContext(FlasksContext);
+  const { duplicateWindow, removeWindow } = useContext(FlasksContext);
 
   return (
     <FlaskWindowProvider window={props.window}>
@@ -22,11 +22,9 @@ export function FlaskCard(props: Props) {
             <button class="btn btn-ghost btn-sm ml-auto" onClick={() => duplicateWindow(props.window.id)} type="button">
               Копировать
             </button>
-            <Show when={state().windows.length > 1}>
-              <button class="btn btn-ghost btn-sm text-error" onClick={() => removeWindow(props.window.id)} type="button">
-                Удалить
-              </button>
-            </Show>
+            <button class="btn btn-ghost btn-sm text-error" onClick={() => removeWindow(props.window.id)} type="button">
+              Удалить
+            </button>
           </div>
           <BaseIcons />
           <div class="col gap-1">
