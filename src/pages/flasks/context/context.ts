@@ -18,6 +18,7 @@ export type Context = ProfileControls & {
   searchIndex: Accessor<number>;
   setSearchIndex: (index: number) => void;
   regex: Accessor<string>;
+  importRegex: (text: string) => boolean;
   updateWindow: (id: string, patch: Partial<FlaskWindow>) => void;
   selectBases: (id: string, baseIds: string[], selected: boolean) => void;
   addWindow: (baseIds: string[]) => void;

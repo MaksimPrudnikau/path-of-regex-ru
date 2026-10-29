@@ -1,6 +1,8 @@
 import type { FlaskBase, FlaskData, FlaskMod, FlaskTier } from "~/pages/flasks/data";
 import { MAX_REGEX_LENGTH, type WindowInput } from "~/pages/flasks/regex-panel/buildFlaskRegex";
 import { buildFlaskSearches } from "~/pages/flasks/regex-panel/buildFlaskSearches";
+import { parseFlaskRegex } from "~/pages/flasks/regex-panel/parseFlaskRegex";
+import { splitAlternatives } from "~/pages/flasks/regex-panel/splitRegex";
 import { loadCorpus, loadFlasks, SERVICE_LINES } from "./lib.mjs";
 
 type Affix = { mod: FlaskMod; tier: number };
@@ -27,6 +29,7 @@ let expected = 0;
 for (const scenario of scenarios()) {
   const searches = buildFlaskSearches(scenario.windows, data);
   if (searches.some((search) => search.length > MAX_REGEX_LENGTH)) continue;
+  for (const search of searches) checkPaste(scenario, search);
   for (const flask of scenarioFlasks(scenario)) checkFlask(scenario, searches, flask);
 }
 
@@ -34,6 +37,18 @@ console.log(`флаконов: ${flasks.length}, одинаковые назва
 for (const error of errors.slice(0, MAX_REPORTED_ERRORS)) console.log(error);
 console.log(`проверок: ${checks}, ошибок: ${errors.length}`);
 process.exitCode = errors.length > 0 ? 1 : 0;
+
+function checkPaste(scenario: Scenario, search: string) {
+  checks++;
+  const parsed = parseFlaskRegex(search, data);
+  const rebuilt = parsed === undefined ? [] : buildFlaskSearches(parsed, data);
+  if (rebuilt.length === 1 && canonical(rebuilt[0]) === canonical(search)) return;
+  errors.push(`${scenario.title} (вставка): ${search} стала ${rebuilt.join(" ; ") || "пустой"}`);
+}
+
+function canonical(search: string): string {
+  return [...search.matchAll(/"([^"]*)"/g)].map((match) => splitAlternatives(match[1]).sort().join("|")).join(" ");
+}
 
 function checkFlask(scenario: Scenario, searches: string[], flask: Flask) {
   const wanted = scenario.windows.map((window) => isWanted(flask, window));
