@@ -1,7 +1,9 @@
 import { mkdirSync, writeFileSync } from "node:fs";
 import { fetchPage, poedbUrl } from "../bestiary/poedb.mjs";
 import { baseRegex, CORPUS_FILE, itemLines, kindRegex, modRegex, saveFlasks, skeleton, tierRegex } from "./lib.mjs";
-import { baseLevels, EXTRA_PAGES, FLASK_PAGES, itemTexts, otherModTexts, parseBases, parseMods, parseModsView } from "./poedb.mjs";
+import { baseIcons, baseLevels, EXTRA_PAGES, FLASK_PAGES, itemTexts, otherModTexts, parseBases, parseMods, parseModsView } from "./poedb.mjs";
+
+const ICONS_DIR = new URL("../../public/icons/flasks/", import.meta.url);
 
 const bases = [];
 const groups = new Map();
@@ -12,7 +14,11 @@ for (const [kind, slug] of Object.entries(FLASK_PAGES)) {
   const view = parseModsView(html);
   if (view === undefined) fail(`на странице ${slug} нет данных ModsView`);
   const levels = baseLevels(html);
-  for (const base of parseBases(html)) bases.push({ ...base, kind, level: levels.get(base.id) ?? 1 });
+  const icons = baseIcons(html);
+  for (const base of parseBases(html)) {
+    bases.push({ ...base, kind, level: levels.get(base.id) ?? 1 });
+    await saveIcon(base.id, icons.get(base.id));
+  }
   for (const mod of parseMods(view)) addMod(mod, kind);
   texts.push(...itemTexts(html), ...otherModTexts(view));
 }
@@ -83,6 +89,14 @@ function mergeSameTiers(list) {
   const shared = names.filter((name, index) => names.indexOf(name) !== index);
   if (shared.length > 0) console.warn(`[flasks:fetch] одно название аффикса у разных модов, такие тиры по имени не различить: ${[...new Set(shared)].join(", ")}`);
   return merged;
+}
+
+async function saveIcon(id, url) {
+  if (url === undefined) fail(`у базы ${id} нет иконки`);
+  const res = await fetch(url, { headers: { "User-Agent": "Mozilla/5.0" } });
+  if (!res.ok) fail(`не скачалась иконка ${url}: ${res.status}`);
+  mkdirSync(ICONS_DIR, { recursive: true });
+  writeFileSync(new URL(`${id}.webp`, ICONS_DIR), Buffer.from(await res.arrayBuffer()));
 }
 
 async function fetchPoedb(slug) {

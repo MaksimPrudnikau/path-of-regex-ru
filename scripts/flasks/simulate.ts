@@ -1,13 +1,14 @@
-import type { FlasksStore } from "~/pages/flasks/context/context";
 import type { FlaskBase, FlaskData, FlaskMod, FlaskTier } from "~/pages/flasks/data";
-import { buildFlaskRegex, MAX_REGEX_LENGTH } from "~/pages/flasks/regex-panel/buildFlaskRegex";
+import { MAX_REGEX_LENGTH, type WindowInput } from "~/pages/flasks/regex-panel/buildFlaskRegex";
+import { buildFlaskSearches } from "~/pages/flasks/regex-panel/buildFlaskSearches";
 import { loadCorpus, loadFlasks, SERVICE_LINES } from "./lib.mjs";
 
 type Affix = { mod: FlaskMod; tier: number };
 type Flask = { base: FlaskBase; prefix?: Affix; suffix?: Affix; lines: string[] };
-type Scenario = { title: string; input: Pick<FlasksStore, "bases" | "mods" | "matchBoth"> };
+type Scenario = { title: string; windows: WindowInput[] };
 
 const RANDOM_SCENARIOS = 300;
+const RANDOM_WINDOW_SCENARIOS = 200;
 const RANDOM_FLASKS_PER_SCENARIO = 1500;
 const MAX_REPORTED_ERRORS = 20;
 const KIND_CLASSES = { life: "Флаконы жизни", mana: "Флаконы маны", utility: "Особые флаконы" };
@@ -24,9 +25,9 @@ let checks = 0;
 let expected = 0;
 
 for (const scenario of scenarios()) {
-  const search = buildFlaskRegex(scenario.input, data);
-  if (search.length > MAX_REGEX_LENGTH) continue;
-  for (const flask of scenarioFlasks(scenario)) checkFlask(scenario, search, flask);
+  const searches = buildFlaskSearches(scenario.windows, data);
+  if (searches.some((search) => search.length > MAX_REGEX_LENGTH)) continue;
+  for (const flask of scenarioFlasks(scenario)) checkFlask(scenario, searches, flask);
 }
 
 console.log(`флаконов: ${flasks.length}, одинаковые названия тиров: ${[...sharedNames].join(", ") || "нет"} (ожидаемых срабатываний: ${expected})`);
@@ -34,24 +35,25 @@ for (const error of errors.slice(0, MAX_REPORTED_ERRORS)) console.log(error);
 console.log(`проверок: ${checks}, ошибок: ${errors.length}`);
 process.exitCode = errors.length > 0 ? 1 : 0;
 
-function checkFlask(scenario: Scenario, search: string, flask: Flask) {
-  const shouldMatch = isWanted(flask, scenario.input);
+function checkFlask(scenario: Scenario, searches: string[], flask: Flask) {
+  const wanted = scenario.windows.map((window) => isWanted(flask, window));
+  const shouldMatch = wanted.some(Boolean);
   for (const joiner of ["\n", " "]) {
     const text = flask.lines.join(joiner);
     for (const caseInsensitive of [false, true]) {
       checks++;
-      if (highlights(search, text, caseInsensitive) === shouldMatch) continue;
+      if (searches.some((search) => highlights(search, text, caseInsensitive)) === shouldMatch) continue;
       if (hasSharedName(flask)) {
         expected++;
         continue;
       }
       const mode = `${caseInsensitive ? "без регистра" : "с регистром"}, строки через ${JSON.stringify(joiner)}`;
-      errors.push(`${scenario.title} (${mode}): ${shouldMatch ? "не подсвечен" : "лишняя подсветка"} «${flask.lines[2]}», строка ${search}`);
+      errors.push(`${scenario.title} (${mode}): ${shouldMatch ? "не подсвечен" : "лишняя подсветка"} «${flask.lines[2]}», строки ${searches.join(" ; ")}`);
     }
   }
 }
 
-function isWanted(flask: Flask, input: Scenario["input"]): boolean {
+function isWanted(flask: Flask, input: WindowInput): boolean {
   if (input.bases.length > 0 && !input.bases.includes(flask.base.id)) return false;
   const wanted = (affix?: Affix) => affix !== undefined && affix.tier < (input.mods[affix.mod.id] ?? 0);
   const hasSelected = (kind: string) => data.mods.some((mod) => mod.affix === kind && input.mods[mod.id] !== undefined);
@@ -73,20 +75,27 @@ function highlights(search: string, text: string, caseInsensitive: boolean): boo
 function scenarios(): Scenario[] {
   const tiers = data.mods.flatMap((mod) =>
     mod.tiers.map((_, index) => ({
-      input: { bases: [], matchBoth: true, mods: { [mod.id]: index + 1 } },
-      title: `${mod.id} T1–T${index + 1}`,
+      title: `${mod.id} T1-T${index + 1}`,
+      windows: [{ bases: [], matchBoth: true, mods: { [mod.id]: index + 1 } }],
     })),
   );
-  const bases = data.bases.map((base) => ({ input: { bases: [base.id], matchBoth: true, mods: {} }, title: `база ${base.name}` }));
-  const kinds = Object.keys(data.kinds).map((kind) => ({
-    input: { bases: data.bases.filter((base) => base.kind === kind).map((base) => base.id), matchBoth: true, mods: {} },
-    title: `все базы ${kind}`,
+  const bases = data.bases.map((base) => single(`база ${base.name}`, { bases: [base.id], matchBoth: true, mods: {} }));
+  const kinds = Object.keys(data.kinds).map((kind) =>
+    single(`все базы ${kind}`, { bases: data.bases.filter((base) => base.kind === kind).map((base) => base.id), matchBoth: true, mods: {} }),
+  );
+  const randomSingle = Array.from({ length: RANDOM_SCENARIOS }, (_, index) => single(`случайный выбор #${index + 1}`, randomInput()));
+  const windows = Array.from({ length: RANDOM_WINDOW_SCENARIOS }, (_, index) => ({
+    title: `несколько окон #${index + 1}`,
+    windows: Array.from({ length: 2 + random(2) }, randomInput),
   }));
-  const random = Array.from({ length: RANDOM_SCENARIOS }, (_, index) => ({ input: randomInput(), title: `случайный выбор #${index + 1}` }));
-  return [...tiers, ...bases, ...kinds, ...random];
+  return [...tiers, ...bases, ...kinds, ...randomSingle, ...windows];
 }
 
-function randomInput(): Scenario["input"] {
+function single(title: string, window: WindowInput): Scenario {
+  return { title, windows: [window] };
+}
+
+function randomInput(): WindowInput {
   const mods = Object.fromEntries(
     Array.from({ length: 1 + random(4) }, () => {
       const mod = data.mods[random(data.mods.length)];
@@ -100,8 +109,11 @@ function randomInput(): Scenario["input"] {
 function scenarioFlasks(scenario: Scenario): Flask[] {
   const related = flasks.filter(
     (flask) =>
-      scenario.input.bases.includes(flask.base.id) ||
-      [flask.prefix, flask.suffix].some((affix) => affix !== undefined && scenario.input.mods[affix.mod.id] !== undefined),
+      scenario.windows.some(
+        (window) =>
+          window.bases.includes(flask.base.id) ||
+          [flask.prefix, flask.suffix].some((affix) => affix !== undefined && window.mods[affix.mod.id] !== undefined),
+      ),
   );
   const sample = Array.from({ length: RANDOM_FLASKS_PER_SCENARIO }, () => flasks[random(flasks.length)]);
   return [...related, ...sample];

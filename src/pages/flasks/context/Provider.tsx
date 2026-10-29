@@ -3,8 +3,9 @@ import { createMemo, createSignal, type ParentProps, type Signal } from "solid-j
 import { createStore, type SetStoreFunction } from "solid-js/store";
 import { createProfileActions } from "~/components/profile";
 import { flaskData } from "../data";
-import { buildFlaskRegex } from "../regex-panel/buildFlaskRegex";
-import { FlasksContext, type FlasksStore, initialFlasksState } from "./context";
+import { buildFlaskSearches } from "../regex-panel/buildFlaskSearches";
+import { emptyWindow, type FlaskWindow, FlasksContext, type FlasksStore, initialFlasksState } from "./context";
+import { duplicated, withSelectedBases } from "./windows";
 
 const STORAGE_KEY = "path-of-regex-flasks-profiles";
 
@@ -16,38 +17,42 @@ export function FlasksContextProvider(props: ParentProps) {
   const [currentName, setCurrentName] = makePersisted<string, Signal<string>>(createSignal("default"), {
     name: `${STORAGE_KEY}:current`,
   });
+  const [searchIndex, setSearchIndex] = createSignal(0);
 
-  const state = createMemo(() => ({ ...initialFlasksState(), ...profiles[currentName()] }));
-  const regex = createMemo(() => buildFlaskRegex(state(), flaskData));
+  const state = createMemo(() => withDefaults(profiles[currentName()]));
+  const searches = createMemo(() => buildFlaskSearches(state().windows, flaskData));
+  const currentSearch = createMemo(() => Math.max(0, Math.min(searchIndex(), searches().length - 1)));
 
   const update = (patch: Partial<FlasksStore>) => setProfiles(currentName(), { ...state(), ...patch });
-  const selectBases = (ids: string[], selected: boolean) => {
-    const rest = state().bases.filter((id) => !ids.includes(id));
-    update({ bases: selected ? [...rest, ...ids] : rest });
-  };
-  const setTierCount = (modId: string, tierCount: number | undefined) => {
-    const { [modId]: _, ...rest } = state().mods;
-    update({ mods: tierCount === undefined ? rest : { ...rest, [modId]: tierCount } });
-  };
+  const setWindows = (windows: FlaskWindow[]) => update({ windows: windows.length > 0 ? windows : [emptyWindow()] });
 
   return (
     <FlasksContext.Provider
       value={{
         ...createProfileActions({ currentName, profiles, setCurrentName, setProfiles }, initialFlasksState),
+        addWindow: () => setWindows([...state().windows, emptyWindow()]),
         currentProfileName: currentName,
+        duplicateWindow: (id) => setWindows(duplicated(state().windows, id)),
         profileNames: () => Object.keys(profiles),
-        regex,
-        reset: () => update({ bases: [], mods: {} }),
-        selectBases,
-        setTierCount,
+        regex: () => searches()[currentSearch()] ?? "",
+        removeWindow: (id) => setWindows(state().windows.filter((window) => window.id !== id)),
+        reset: () => update(initialFlasksState()),
+        searches,
+        searchIndex: currentSearch,
+        selectBases: (id, baseIds, selected) => setWindows(withSelectedBases(state().windows, id, baseIds, selected)),
+        setSearchIndex,
         state,
-        tierCountOf: (modId) => state().mods[modId],
-        update,
+        updateWindow: (id, patch) => setWindows(state().windows.map((window) => (window.id === id ? { ...window, ...patch } : window))),
       }}
     >
       {props.children}
     </FlasksContext.Provider>
   );
+}
+
+function withDefaults(saved: Partial<FlasksStore> | undefined): FlasksStore {
+  const state = { ...initialFlasksState(), ...saved };
+  return state.windows.length > 0 ? state : initialFlasksState();
 }
 
 type Profiles = Record<string, FlasksStore>;

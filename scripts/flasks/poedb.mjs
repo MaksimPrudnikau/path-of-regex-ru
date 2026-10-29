@@ -40,6 +40,10 @@ export function parseBases(html) {
   return bases.filter((base) => !base.id.startsWith("Royale_"));
 }
 
+export function baseIcons(html) {
+  return new Map([...html.matchAll(/href="([^"/]+)"><img loading="lazy" src="([^"]+\.webp)"/g)].map((m) => [m[1], m[2]]));
+}
+
 export function baseLevels(html) {
   const cards = html.split('<div class="col"><div class="d-flex border-top rounded">').slice(1);
   return new Map(
