@@ -1,7 +1,7 @@
 import { createMemo, createSignal, useContext } from "solid-js";
 import { BestiaryContext } from "../context";
-import { ChaosField } from "./ChaosField";
 import { PriceCheckpoints } from "./PriceCheckpoints";
+import { PriceField } from "./PriceField";
 import { indexFrom, indexTo, priceSteps } from "./priceSteps";
 
 export function PriceRange() {
@@ -36,12 +36,12 @@ export function PriceRange() {
   return (
     <div class="col w-full max-w-md gap-2">
       <div class="flex items-center justify-between">
-        <ChaosField
+        <PriceField
           label="Цена от"
           onChange={(minChaos) => applyFilters({ minChaos })}
           value={state().minChaos ?? steps()[0]}
         />
-        <ChaosField
+        <PriceField
           label="Цена до"
           onChange={(maxChaos) => applyFilters({ maxChaos })}
           value={state().maxChaos ?? steps()[last()]}

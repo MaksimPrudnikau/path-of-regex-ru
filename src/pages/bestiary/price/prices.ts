@@ -2,6 +2,7 @@ import snapshot from "@/data/bestiary-prices.json";
 
 export type League = {
   name: string;
+  divineChaos: number | null;
   prices: Partial<Record<string, number>>;
 };
 
@@ -16,6 +17,11 @@ export const savedSnapshot: PriceSnapshot = { ...snapshot, isLive: false };
 export function pricesOf(snapshotData: PriceSnapshot, league: string): League["prices"] {
   const leagues = snapshotData.leagues;
   return (leagues.find((item) => item.name === league) ?? leagues[0])?.prices ?? {};
+}
+
+export function divineChaosOf(snapshotData: PriceSnapshot, league: string): number | null {
+  const leagues = snapshotData.leagues;
+  return (leagues.find((item) => item.name === league) ?? leagues[0])?.divineChaos ?? null;
 }
 
 export function formatChaos(price: number): string {

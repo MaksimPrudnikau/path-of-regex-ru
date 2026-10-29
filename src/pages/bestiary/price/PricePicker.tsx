@@ -1,6 +1,7 @@
 import { createMemo, useContext } from "solid-js";
 import { BestiaryContext } from "../context";
 import { FilterSelect } from "../filters/FilterSelect";
+import { CurrencySwitcher } from "./CurrencySwitcher";
 import { PriceRange } from "./PriceRange";
 
 export function PricePicker() {
@@ -22,6 +23,7 @@ export function PricePicker() {
         options={leagueNames()}
         value={state().league || leagueNames()[0]}
       />
+      <CurrencySwitcher />
       <PriceRange />
       <span class="text-xs text-base-content/60" classList={{ "text-warning": !priceSnapshot().isLive }}>
         {priceSnapshot().isLive ? "Цены poe.ninja на" : "poe.ninja недоступен, цены из снимка на"} {updatedAt()} МСК

@@ -24,7 +24,32 @@ export const releases: Release[] = [
           можно <b>вставить готовую строку поиска</b>, и карточки подберутся сами
         </>
       ),
-      "Кнопка копирования и вид скопированной строки теперь одинаковы на страницах карт, бестиария и флаконов",
+      () => (
+        <>
+          В{" "}
+          <PageLink href="/bestiary" icon="bestiary">
+            бестиарии
+          </PageLink>{" "}
+          цены можно показывать в <GameEntity icon="chaos" tone="text-secondary">хаосах</GameEntity> или{" "}
+          <GameEntity icon="divine" tone="text-warning">диванах</GameEntity>
+        </>
+      ),
+      () => (
+        <>
+          Кнопка копирования и вид скопированной строки теперь одинаковы на страницах{" "}
+          <PageLink href="/maps" icon="maps">
+            карт
+          </PageLink>
+          ,{" "}
+          <PageLink href="/bestiary" icon="bestiary">
+            бестиария
+          </PageLink>{" "}
+          и{" "}
+          <PageLink href="/flasks" icon="flasks">
+            флаконов
+          </PageLink>
+        </>
+      ),
     ],
   },
   {
@@ -41,7 +66,19 @@ export const releases: Release[] = [
       ),
       () => (
         <>
-          Строка поиска по <b>базам</b> и <b>свойствам</b> флаконов жизни, маны и особых флаконов для торговцев и тайника
+          Строка поиска по <b>базам</b> и <b>свойствам</b> флаконов{" "}
+          <GameEntity icon="flasks/Eternal_Life_Flask.webp" tone="text-error">
+            жизни
+          </GameEntity>
+          ,{" "}
+          <GameEntity icon="flasks/Eternal_Mana_Flask.webp" tone="text-info">
+            маны
+          </GameEntity>{" "}
+          и{" "}
+          <GameEntity icon="flasks/Quicksilver_Flask.webp" tone="text-accent">
+            особых
+          </GameEntity>{" "}
+          флаконов для торговцев и тайника
         </>
       ),
       () => (
@@ -49,7 +86,18 @@ export const releases: Release[] = [
           Для каждого свойства можно задать <b>минимальный тир</b>, а переключатель решает, нужны ли и префикс, и суффикс сразу
         </>
       ),
-      "Профили, как на страницах карт и бестиария",
+      () => (
+        <>
+          Профили, как на страницах{" "}
+          <PageLink href="/maps" icon="maps">
+            карт
+          </PageLink>{" "}
+          и{" "}
+          <PageLink href="/bestiary" icon="bestiary">
+            бестиария
+          </PageLink>
+        </>
+      ),
     ],
   },
   {
@@ -77,18 +125,18 @@ export const releases: Release[] = [
       ),
       () => (
         <>
-          Строка поиска для зверинца: <GameEntity icon="bestiary" tone="text-error">красные</GameEntity> и{" "}
+          Строка поиска для <GameEntity icon="bestiary" tone="text-info">зверинца</GameEntity>: <GameEntity icon="bestiary" tone="text-error">красные</GameEntity> и{" "}
           <GameEntity icon="bestiary" tone="text-warning">жёлтые</GameEntity> звери из <b>рецептов</b> или выбранные вручную, поиск по имени и рецепту
         </>
       ),
       () => (
         <>
-          Цены <b>poe.ninja</b> по лигам в <GameEntity icon="chaos" tone="text-secondary">хаосах</GameEntity> и подбор зверей ползунком по диапазону цен
+          Цены <b>poe.ninja</b> по лигам в <GameEntity icon="chaos" tone="text-secondary">хаосах</GameEntity> и подбор <GameEntity icon="bestiary" tone="text-info">зверей</GameEntity> ползунком по диапазону цен
         </>
       ),
       () => (
         <>
-          Режим <u>исключения</u>: подсветить всех зверей, кроме ценных, чтобы не отдать их в жертву
+          Режим <u>исключения</u>: подсветить всех <GameEntity icon="bestiary" tone="text-info">зверей</GameEntity>, кроме ценных, чтобы не отдать их в жертву
         </>
       ),
       () => (
@@ -98,10 +146,17 @@ export const releases: Release[] = [
       ),
       () => (
         <>
-          <b>Профили</b>: выбор зверей, фильтры и лига сохраняются отдельно, как на странице карт
+          <b>Профили</b>: выбор <GameEntity icon="bestiary" tone="text-info">зверей</GameEntity>, фильтры и лига сохраняются отдельно, как на странице{" "}
+          <PageLink href="/maps" icon="maps">
+            карт
+          </PageLink>
         </>
       ),
-      "Длинная строка поиска делится на части, в первой самые дорогие звери",
+      () => (
+        <>
+          Длинная строка поиска делится на части, в первой самые дорогие <GameEntity icon="bestiary" tone="text-info">звери</GameEntity>
+        </>
+      ),
       "Версия сайта в шапке и страница «Что нового»",
     ],
   },
@@ -111,10 +166,14 @@ export const releases: Release[] = [
     changes: [
       () => (
         <>
-          Regex всех модов карт сверены с текстами русского клиента, включая карты <GameEntity icon="maps" tone="text-error">T17</GameEntity>
+          Regex всех модов <GameEntity icon="maps" tone="text-error">карт</GameEntity> сверены с текстами русского клиента, включая карты <GameEntity icon="maps" tone="text-error">T17</GameEntity>
         </>
       ),
-      "Исправлены фильтры по редкости карт, неопознанным и осквернённым картам",
+      () => (
+        <>
+          Исправлены фильтры по редкости <GameEntity icon="maps" tone="text-error">карт</GameEntity>, неопознанным и осквернённым картам
+        </>
+      ),
     ],
   },
   {
@@ -142,12 +201,20 @@ export const releases: Release[] = [
       ),
       () => (
         <>
-          Строка поиска по модам карт: <b>включить</b> нужные и <u>исключить</u> опасные моды
+          Строка поиска по модам <GameEntity icon="maps" tone="text-error">карт</GameEntity>: <b>включить</b> нужные и <u>исключить</u> опасные моды
         </>
       ),
       () => (
         <>
-          Фильтры по количеству и редкости предметов, размеру групп монстров, качеству, валюте, картам и{" "}
+          Фильтры по количеству и редкости предметов, размеру групп монстров, качеству,{" "}
+          <GameEntity icon="chaos" tone="text-secondary">
+            валюте
+          </GameEntity>
+          ,{" "}
+          <GameEntity icon="maps" tone="text-error">
+            картам
+          </GameEntity>{" "}
+          и{" "}
           <GameEntity icon="scarabs" tone="text-accent">
             скарабеям
           </GameEntity>
