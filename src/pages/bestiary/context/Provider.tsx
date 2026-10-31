@@ -1,10 +1,11 @@
 import { batch, createMemo, createSignal, type ParentProps } from "solid-js";
+import { createProfileActions } from "~/components/profile";
 import { beasts } from "../data";
-import { type PriceSnapshot, pricesOf } from "../price/prices";
+import type { Currency } from "../price/currency";
+import { divineChaosOf, type PriceSnapshot, pricesOf } from "../price/prices";
 import { buildBestiaryBatches, MAX_REGEX_LENGTH } from "../regex-panel/buildBestiaryRegex";
 import { BestiaryContext, type BestiaryStore, initialBestiaryState } from "./context";
 import { isInPriceRange, matchesFilters, sortByPrice } from "./derive";
-import { createProfileActions } from "./profileActions";
 import { createSavedProfiles } from "./savedState";
 
 export function BestiaryContextProvider(props: ParentProps<{ prices: PriceSnapshot }>) {
@@ -15,6 +16,9 @@ export function BestiaryContextProvider(props: ParentProps<{ prices: PriceSnapsh
   const state = createMemo(() => saved.profiles[saved.currentName()] ?? initialBestiaryState());
   const selectedIds = createMemo(() => new Set(state().selected));
   const prices = createMemo(() => pricesOf(props.prices, state().league));
+  const divineChaos = createMemo(() => divineChaosOf(props.prices, state().league));
+  const currency = createMemo<Currency>(() => (state().currency === "divine" && divineChaos() !== null ? "divine" : "chaos"));
+  const chaosPerUnit = createMemo(() => (currency() === "divine" ? (divineChaos() ?? 1) : 1));
   const sortedBeasts = createMemo(() => sortByPrice(beasts, prices()));
   const visibleBeasts = createMemo(() => sortedBeasts().filter((beast) => matchesFilters(beast, state())));
   const batches = createMemo(() => buildBestiaryBatches(state(), sortedBeasts(), MAX_REGEX_LENGTH));
@@ -35,11 +39,14 @@ export function BestiaryContextProvider(props: ParentProps<{ prices: PriceSnapsh
   return (
     <BestiaryContext.Provider
       value={{
-        ...createProfileActions(saved),
+        ...createProfileActions(saved, initialBestiaryState),
         applyFilters,
         batches,
         batchIndex: currentBatch,
+        chaosPerUnit,
+        currency,
         currentProfileName: saved.currentName,
+        isDivineAvailable: () => divineChaos() !== null,
         isSelected: (id) => selectedIds().has(id),
         priceOf: (id) => prices()[id],
         priceSnapshot: () => props.prices,

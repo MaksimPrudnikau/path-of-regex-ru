@@ -50,7 +50,7 @@ export function bestiaryModNames(html) {
     .map((m) => decode(m[1]));
 }
 
-function decode(text) {
+export function decode(text) {
   return text
     .replace(/<[^>]+>/g, "")
     .replace(/&nbsp;/g, " ")

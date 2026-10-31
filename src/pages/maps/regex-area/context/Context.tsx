@@ -1,5 +1,4 @@
-import { createEffect, createMemo, createSignal, type ParentProps, useContext, } from "solid-js";
-import { createStore } from "solid-js/store";
+import { createMemo, createSignal, type ParentProps, useContext } from "solid-js";
 import { MapsProfileContext } from "~/pages/maps/context";
 import { buildRegex } from "./buildRegex";
 import { RegexAreaContext } from "./regexAreaContext";
@@ -7,19 +6,9 @@ import { RegexAreaContext } from "./regexAreaContext";
 export function RegexAreaContextProvider(props: ParentProps) {
   const { currentProfile } = useContext(MapsProfileContext);
   const [errorMessage, setErrorMessage] = createSignal<string>();
-
-  const [store, updateStore] = createStore({
-    autoCopy: false,
-    copied: false,
-  });
-
   const [prevRegex, setPrevRegex] = createSignal<string>("");
 
   const regex = createMemo((): string => {
-    if (!store.autoCopy) {
-      updateStore("copied", false);
-    }
-
     try {
       const newRegex = buildRegex(currentProfile());
       setPrevRegex(newRegex);
@@ -34,25 +23,8 @@ export function RegexAreaContextProvider(props: ParentProps) {
     }
   });
 
-  createEffect(async () => {
-    if (!store.autoCopy) {
-      return;
-    }
-
-    await navigator.clipboard.writeText(regex());
-    updateStore("copied", true);
-  });
-
   return (
-    <RegexAreaContext.Provider
-      value={{
-        autoCopy: () => store.autoCopy,
-        copied: () => store.copied,
-        errorMessage,
-        regex,
-        updateStore,
-      }}
-    >
+    <RegexAreaContext.Provider value={{ errorMessage, regex }}>
       {props.children}
     </RegexAreaContext.Provider>
   );

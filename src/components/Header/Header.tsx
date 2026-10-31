@@ -31,7 +31,7 @@ export function Header() {
         <Tab disabled icon={"heists"}>
           Кража
         </Tab>
-        <Tab disabled icon={"flasks"}>
+        <Tab icon={"flasks"}>
           Флаконы
         </Tab>
         <Tab icon={"bestiary"}>

@@ -1,4 +1,4 @@
-import { fetchBeastPrices, fetchLeagues } from "./ninja";
+import { fetchBeastPrices, fetchDivineChaos, fetchLeagues } from "./ninja";
 import type { League, PriceSnapshot } from "./prices";
 
 export async function loadPrices(knownIds: Set<string>): Promise<PriceSnapshot & { unknownIds: string[] }> {
@@ -7,11 +7,12 @@ export async function loadPrices(knownIds: Set<string>): Promise<PriceSnapshot &
   const leagues = await Promise.all(
     (await fetchLeagues()).map(async (name): Promise<League> => {
       const prices: League["prices"] = {};
-      for (const { chaos, id } of await fetchBeastPrices(name)) {
+      const [divineChaos, beastPrices] = await Promise.all([fetchDivineChaos(name), fetchBeastPrices(name)]);
+      for (const { chaos, id } of beastPrices) {
         if (knownIds.has(id)) prices[id] = chaos;
         else unknownIds.add(id);
       }
-      return { name, prices };
+      return { divineChaos, name, prices };
     }),
   );
 

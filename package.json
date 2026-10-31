@@ -29,7 +29,10 @@
     "bestiary:fetch": "tsx scripts/bestiary/fetch-poedb.mjs",
     "bestiary:prices": "tsx scripts/bestiary/prices.ts",
     "bestiary:check": "node scripts/bestiary/check.mjs",
-    "bestiary:simulate": "tsx scripts/bestiary/simulate.ts"
+    "bestiary:simulate": "tsx scripts/bestiary/simulate.ts",
+    "flasks:fetch": "node scripts/flasks/fetch-poedb.mjs",
+    "flasks:check": "node scripts/flasks/check.mjs",
+    "flasks:simulate": "tsx scripts/flasks/simulate.ts"
   },
   "type": "module",
   "engines": {

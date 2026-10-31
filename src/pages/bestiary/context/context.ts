@@ -1,12 +1,14 @@
 import { type Accessor, createContext } from "solid-js";
 import type { ProfileControls } from "~/components/profile";
 import type { Beast, BeastColor } from "../data";
+import type { Currency } from "../price/currency";
 import type { PriceSnapshot } from "../price/prices";
 
 export type BestiaryStore = {
   selected: string[];
   exclude: boolean;
   league: string;
+  currency: Currency;
   colors: BeastColor[];
   group: string;
   family: string;
@@ -25,6 +27,9 @@ export type Context = ProfileControls & {
   setBatchIndex: (index: number) => void;
   visibleBeasts: Accessor<Beast[]>;
   priceOf: (id: string) => number | undefined;
+  currency: Accessor<Currency>;
+  chaosPerUnit: Accessor<number>;
+  isDivineAvailable: Accessor<boolean>;
   search: Accessor<string>;
   setSearch: (value: string) => void;
   isSelected: (id: string) => boolean;
@@ -38,6 +43,7 @@ export const BestiaryContext = createContext<Context>({} as unknown as Context);
 export function initialBestiaryState(): BestiaryStore {
   return {
     colors: ["red", "yellow"],
+    currency: "chaos",
     exclude: false,
     family: "",
     group: "",

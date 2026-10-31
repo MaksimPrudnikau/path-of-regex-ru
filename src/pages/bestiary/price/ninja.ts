@@ -17,6 +17,12 @@ export async function fetchBeastPrices(league: string): Promise<NinjaPrice[]> {
   return lines.map((line) => ({ chaos: line.chaosValue, id: idOf(line.name) }));
 }
 
+export async function fetchDivineChaos(league: string): Promise<number | null> {
+  const url = `${NINJA}/economy/stash/current/currency/overview?league=${encodeURIComponent(league)}&type=Currency`;
+  const { lines }: { lines: { currencyTypeName: string; chaosEquivalent: number }[] } = await getJson(url);
+  return lines.find((line) => line.currencyTypeName === "Divine Orb")?.chaosEquivalent ?? null;
+}
+
 function idOf(englishName: string): string {
   return englishName.replaceAll(" ", "_");
 }
