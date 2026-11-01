@@ -67,7 +67,7 @@ export function FragmentsContextProvider(props: ParentProps<{ prices: PriceSnaps
         setBatchIndex,
         setTab: (tab) =>
           batch(() => {
-            update({ maxChaos: null, minChaos: null, tab });
+            applyRange({ tab });
             setBatchIndex(0);
           }),
         state,
