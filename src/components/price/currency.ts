@@ -1,4 +1,4 @@
-import { formatChaos } from "./prices";
+import { formatChaos } from "~/lib/prices";
 
 export type Currency = "chaos" | "divine";
 

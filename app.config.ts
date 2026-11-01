@@ -9,7 +9,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const MAP_MODS_DB = resolve(__dirname, "data/maps.sqlite");
-const BESTIARY_PRICES_TTL_SECONDS = 30 * 60;
+const PRICES_TTL_SECONDS = 30 * 60;
 
 // Моды карт читаются из SQLite один раз при сборке и попадают в бандл как обычный модуль —
 // сайту не нужен ни сервер, ни внешняя БД.
@@ -39,10 +39,11 @@ export default defineConfig({
   server: {
     prerender: {
       crawlLinks: true,
-      ignore: ["/bestiary"],
+      ignore: ["/bestiary", "/fragments"],
     },
     routeRules: {
-      "/bestiary": { isr: BESTIARY_PRICES_TTL_SECONDS },
+      "/bestiary": { isr: PRICES_TTL_SECONDS },
+      "/fragments": { isr: PRICES_TTL_SECONDS },
     },
   },
   vite: {

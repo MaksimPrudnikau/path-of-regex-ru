@@ -2,7 +2,7 @@ import { For, useContext } from "solid-js";
 import { BestiaryContext } from "../context";
 import { type BeastColor, families, groups } from "../data";
 import { BEAST_TONES } from "../beastTone";
-import { FilterSelect } from "./FilterSelect";
+import { FilterSelect } from "~/components/FilterSelect";
 
 export function BeastFilters() {
   const { applyFilters, state } = useContext(BestiaryContext);

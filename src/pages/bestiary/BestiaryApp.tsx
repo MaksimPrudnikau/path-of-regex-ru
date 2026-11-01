@@ -1,6 +1,6 @@
 import { BestiaryPage } from "./BestiaryPage";
 import { BestiaryContextProvider } from "./context";
-import type { PriceSnapshot } from "./price/prices";
+import type { PriceSnapshot } from "~/lib/prices";
 
 export function BestiaryApp(props: { prices: PriceSnapshot }) {
   return (

@@ -1,9 +1,9 @@
 import { For, useContext } from "solid-js";
-import { BestiaryContext } from "../context";
+import { PriceControlsContext } from "./context";
 import { CURRENCIES, type Currency } from "./currency";
 
 export function CurrencySwitcher() {
-  const { currency, isDivineAvailable, update } = useContext(BestiaryContext);
+  const { currency, isDivineAvailable, setCurrency } = useContext(PriceControlsContext);
 
   return (
     <div aria-label="Валюта цен" class="join" role="group">
@@ -14,7 +14,7 @@ export function CurrencySwitcher() {
             class="btn btn-sm join-item gap-1.5 font-normal"
             classList={{ "btn-primary": currency() === option }}
             disabled={option === "divine" && !isDivineAvailable()}
-            onClick={() => update({ currency: option })}
+            onClick={() => setCurrency(option)}
             title={option === "divine" && !isDivineAvailable() ? "Для этой лиги на poe.ninja нет курса дивана" : undefined}
             type="button"
           >

@@ -1,5 +1,5 @@
 import { fetchBeastPrices, fetchDivineChaos, fetchLeagues } from "./ninja";
-import type { League, PriceSnapshot } from "./prices";
+import type { League, PriceSnapshot } from "~/lib/prices";
 
 export async function loadPrices(knownIds: Set<string>): Promise<PriceSnapshot & { unknownIds: string[] }> {
   const unknownIds = new Set<string>();

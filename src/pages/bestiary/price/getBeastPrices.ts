@@ -1,7 +1,8 @@
 import { query } from "@solidjs/router";
 import { beasts } from "../data";
 import { loadPrices } from "./loadPrices";
-import { type PriceSnapshot, savedSnapshot } from "./prices";
+import type { PriceSnapshot } from "~/lib/prices";
+import { savedSnapshot } from "./prices";
 
 const CACHE_TTL_MS = 30 * 60 * 1000;
 

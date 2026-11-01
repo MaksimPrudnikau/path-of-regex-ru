@@ -1,4 +1,4 @@
-import { PricePicker } from "../price/PricePicker";
+import { PricePicker } from "~/components/price";
 import { BeastFilters } from "./BeastFilters";
 
 export function SelectionPanel() {

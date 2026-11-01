@@ -37,6 +37,9 @@ export function Header() {
         <Tab icon={"bestiary"}>
           Бестиарий
         </Tab>
+        <Tab icon={"fragments"}>
+          Фрагменты
+        </Tab>
         <Tab disabled icon={"scarabs"}>
           Скарабеи
         </Tab>
