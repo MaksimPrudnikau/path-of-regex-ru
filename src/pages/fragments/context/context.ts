@@ -24,6 +24,9 @@ export type Context = ProfileControls & {
   state: Accessor<FragmentsStore>;
   setTab: (tab: TabId) => void;
   tabItems: Accessor<FragmentItem[]>;
+  visibleItems: Accessor<FragmentItem[]>;
+  search: Accessor<string>;
+  setSearch: (value: string) => void;
   tabItemCount: (tab: TabId) => number;
   priceOf: (id: string) => number | undefined;
   isSelected: (list: ListName, id: string) => boolean;

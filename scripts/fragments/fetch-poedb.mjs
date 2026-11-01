@@ -1,8 +1,9 @@
+import { mkdirSync } from "node:fs";
 import { fetchOverview } from "../../src/pages/fragments/price/ninja.ts";
 import { NINJA_TYPES, TABS } from "../../src/pages/fragments/tabs.ts";
 import { fetchLeagues } from "../../src/pages/bestiary/price/ninja.ts";
-import { fetchPage, poedbUrl } from "../bestiary/poedb.mjs";
-import { assignRegexes, saveFragments } from "./lib.mjs";
+import { decode, fetchPage, poedbUrl } from "../bestiary/poedb.mjs";
+import { assignRegexes, saveFragments, saveTexts } from "./lib.mjs";
 
 const found = new Map();
 for (const league of await fetchLeagues()) {
@@ -15,23 +16,40 @@ for (const league of await fetchLeagues()) {
 }
 
 const items = [];
+const texts = {};
 const missing = [];
 for (const entry of found.values()) {
   const html = await fetchPage(poedbUrl(entry.englishName.replaceAll(" ", "_")));
   const name = typeof html === "string" ? /<title>([^<]+?) - PoEDB/.exec(html)?.[1] : undefined;
   if (name === undefined) missing.push(entry.englishName);
-  else items.push({ icon: entry.icon, id: entry.id, name: decodeEntities(name), tab: entry.tab });
+  else {
+    items.push({ icon: entry.icon, id: entry.id, name: decodeEntities(name), tab: entry.tab });
+    texts[entry.id] = popupLines(html);
+  }
 }
 if (missing.length > 0) {
   console.error(`[fragments:fetch] на poedb.tw нет русского названия для: ${missing.join(", ")}. Проверь адреса страниц и повтори`);
   process.exit(1);
 }
 
-assignRegexes(items);
+assignRegexes(items, texts);
 items.sort((a, b) => a.tab.localeCompare(b.tab) || a.name.localeCompare(b.name, "ru"));
+mkdirSync(new URL("./data/", import.meta.url), { recursive: true });
+saveTexts(texts);
 saveFragments({ items });
 console.log(`предметов: ${items.length}`);
 
 function decodeEntities(text) {
   return text.replaceAll("&#39;", "'").replaceAll("&#039;", "'").replaceAll("&quot;", '"').replaceAll("&amp;", "&").trim();
+}
+
+function popupLines(html) {
+  const start = html.indexOf('class="newItemPopup');
+  const popup = html.slice(start, html.indexOf('class="itemboximage"', start));
+  const lines = popup
+    .replace(/<\/div>|<br\s*\/?>/g, "\n")
+    .split("\n")
+    .map(decode)
+    .filter((line) => /[а-яё]/i.test(line));
+  return lines.slice(1);
 }

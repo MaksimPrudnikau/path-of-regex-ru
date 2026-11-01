@@ -7,12 +7,13 @@ import { items } from "../data";
 import { buildFragmentBatches, MAX_REGEX_LENGTH } from "../regex-panel/buildFragmentRegex";
 import type { TabId } from "../tabs";
 import { FragmentsContext, type FragmentsStore, initialFragmentsState, type ListName } from "./context";
-import { isInPriceRange, sortByPrice } from "./derive";
+import { isInPriceRange, matchesSearch, sortByPrice } from "./derive";
 import { createSavedProfiles } from "./savedState";
 
 export function FragmentsContextProvider(props: ParentProps<{ prices: PriceSnapshot }>) {
   const saved = createSavedProfiles();
   const [batchIndex, setBatchIndex] = createSignal(0);
+  const [search, setSearch] = createSignal("");
 
   const state = createMemo(() => saved.profiles[saved.currentName()] ?? initialFragmentsState());
   const prices = createMemo(() => pricesOf(props.prices, state().league));
@@ -20,6 +21,7 @@ export function FragmentsContextProvider(props: ParentProps<{ prices: PriceSnaps
   const currency = createMemo<Currency>(() => (state().currency === "divine" && divineChaos() !== null ? "divine" : "chaos"));
   const chaosPerUnit = createMemo(() => (currency() === "divine" ? (divineChaos() ?? 1) : 1));
   const tabItems = createMemo(() => sortByPrice(items.filter((item) => item.tab === state().tab), prices()));
+  const visibleItems = createMemo(() => tabItems().filter((item) => matchesSearch(item, search())));
   const selection = createMemo(() => state().selections[state().tab]);
   const steps = createMemo(() => priceSteps(tabItems().map((item) => prices()[item.id])));
   const batches = createMemo(() => buildFragmentBatches(selection(), tabItems(), MAX_REGEX_LENGTH));
@@ -64,7 +66,9 @@ export function FragmentsContextProvider(props: ParentProps<{ prices: PriceSnaps
             updateSelection({ exclude: [], include: [] });
             setBatchIndex(0);
           }),
+        search,
         setBatchIndex,
+        setSearch,
         setTab: (tab) =>
           batch(() => {
             applyRange({ tab });
@@ -74,6 +78,7 @@ export function FragmentsContextProvider(props: ParentProps<{ prices: PriceSnaps
         tabItemCount: (tab) => items.filter((item) => item.tab === tab).length,
         tabItems,
         toggleItem,
+        visibleItems,
       }}
     >
       <PriceControlsContext.Provider

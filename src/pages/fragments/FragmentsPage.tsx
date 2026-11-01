@@ -1,5 +1,6 @@
 import { ItemColumn } from "./columns/ItemColumn";
 import { ProfileHeader } from "./ProfileHeader";
+import { SearchInput } from "./SearchInput";
 import { RegexPanel } from "./regex-panel/RegexPanel";
 import { SelectionPanel } from "./SelectionPanel";
 import { TabStrip } from "./TabStrip";
@@ -11,6 +12,7 @@ export function FragmentsPage() {
       <RegexPanel />
       <TabStrip />
       <SelectionPanel />
+      <SearchInput />
       <div class="grid gap-8 lg:grid-cols-2">
         <ItemColumn list="include" />
         <ItemColumn list="exclude" />

@@ -37,6 +37,7 @@ export const releases: Release[] = [
           <GameEntity icon="divine" tone="text-warning">диванах</GameEntity>
         </>
       ),
+      "Есть поиск по названию, а строка поиска больше не подсвечивает лишние предметы с похожим описанием",
     ],
   },
   {

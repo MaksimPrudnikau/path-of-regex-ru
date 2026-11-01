@@ -7,7 +7,7 @@ type Props = {
 };
 
 export function ItemColumn(props: Props) {
-  const { tabItems } = useContext(FragmentsContext);
+  const { visibleItems } = useContext(FragmentsContext);
 
   return (
     <section class="col gap-4">
@@ -27,7 +27,9 @@ export function ItemColumn(props: Props) {
         <p class="text-sm text-base-content/60">Отсортированы по цене, самые дорогие сверху</p>
       </div>
       <div class="col gap-2">
-        <For each={tabItems()}>{(item) => <ItemButton item={item} list={props.list} />}</For>
+        <For each={visibleItems()} fallback={<p class="text-base-content/60">Предметы не найдены</p>}>
+          {(item) => <ItemButton item={item} list={props.list} />}
+        </For>
       </div>
     </section>
   );

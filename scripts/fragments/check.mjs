@@ -1,15 +1,15 @@
-import { itemNames, loadFragments, regexProblems, saveFragments, shortestUniqueRegex } from "./lib.mjs";
+import { loadFragments, loadTexts, regexProblems, saveFragments, uniqueRegexFor } from "./lib.mjs";
 
 const apply = process.argv.includes("--apply");
 const fragments = loadFragments();
-const names = itemNames(fragments.items);
+const texts = loadTexts();
 
 let errors = 0;
 let updated = 0;
 
 for (const item of fragments.items) {
-  const problems = regexProblems(item, names);
-  const suggested = shortestUniqueRegex(item.name, names);
+  const problems = regexProblems(item, fragments.items, texts);
+  const suggested = uniqueRegexFor(item, fragments.items, texts);
   const isShorter = suggested.length < item.regex.length;
 
   if (problems.length === 0 && !isShorter) continue;

@@ -1,9 +1,10 @@
 import { buildFragmentBatches, MAX_REGEX_LENGTH } from "~/pages/fragments/regex-panel/buildFragmentRegex";
-import { loadFragments } from "./lib.mjs";
+import { fullText, loadFragments, loadTexts } from "./lib.mjs";
 
 type Item = { id: string; name: string; regex: string; tab: string };
 
 const items: Item[] = loadFragments().items;
+const texts = loadTexts();
 const tabs = [...new Set(items.map((item) => item.tab))];
 const ROUNDS = 200;
 let errors = 0;
@@ -18,7 +19,7 @@ for (const tab of tabs) {
     const highlighted = new Set<string>();
     for (const batch of batches) {
       if (batch.length > MAX_REGEX_LENGTH) fail(tab, `строка длиннее ${MAX_REGEX_LENGTH}: ${batch.length}`);
-      for (const item of tabItems.filter((candidate) => matches(batch, candidate.name))) highlighted.add(item.id);
+      for (const item of tabItems.filter((candidate) => matches(batch, fullText(candidate, texts)))) highlighted.add(item.id);
     }
     const expected = expectedIds(tabItems, include, exclude);
     const wrong = [...new Set([...highlighted].filter((id) => !expected.includes(id)).concat(expected.filter((id) => !highlighted.has(id))))];
@@ -36,7 +37,7 @@ function expectedIds(tabItems: Item[], include: string[], exclude: string[]): st
 }
 
 function matches(search: string, name: string): boolean {
-  return [...search.matchAll(/"(!?)([^"]*)"/g)].every(([, negate, body]) => new RegExp(body, "i").test(name) !== (negate === "!"));
+  return [...search.matchAll(/"(!?)([^"]*)"/g)].every(([, negate, body]) => new RegExp(body, "im").test(name) !== (negate === "!"));
 }
 
 function fail(tab: string, message: string) {

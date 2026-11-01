@@ -12,14 +12,14 @@
    "id": "allflame-ember-of-resplendence",
    "name": "Уголь Всепламени великолепия",
    "tab": "allflame",
-   "regex": "лико"
+   "regex": "лепи"
   },
   {
    "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvTmVjcm9wb2xpcy9BbGxmbGFtZVdpbGR3b29kIiwic2NhbGUiOjF9XQ/5c1042cde7/AllflameWildwood.png",
    "id": "allflame-ember-of-the-wildwood",
    "name": "Уголь Всепламени Диколесья",
    "tab": "allflame",
-   "regex": "Дико"
+   "regex": "ени Дик"
   },
   {
    "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvTmVjcm9wb2xpcy9BbGxmbGFtZVRvYWQiLCJzY2FsZSI6MX1d/ffddb1a1e2/AllflameToad.png",
@@ -54,7 +54,7 @@
    "id": "allflame-ember-of-propagation",
    "name": "Уголь Всепламени размножения",
    "tab": "allflame",
-   "regex": "разм"
+   "regex": "азмн"
   },
   {
    "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQ2xlYW5zaW5nRmlyZU9yYlJhbmszIiwic2NhbGUiOjF9XQ/0486f1ac82/CleansingFireOrbRank3.png",
@@ -117,49 +117,49 @@
    "id": "divine-vessel",
    "name": "Божественный сосуд",
    "tab": "general",
-   "regex": "нный"
+   "regex": "венный"
   },
   {
    "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQXRsYXMvTWF2ZW5LZXkiLCJzY2FsZSI6MX1d/40683e487b/MavenKey.png",
    "id": "the-mavens-writ",
    "name": "Веление Мейвен",
    "tab": "general",
-   "regex": "Веле"
+   "regex": "^Веле"
   },
   {
    "icon": "https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9WYWFsRnJhZ21lbnQiLCJzY2FsZSI6MX1d/1f8bc8f5ad/VaalFragment.png",
    "id": "timeless-vaal-emblem",
    "name": "Вневременной знак ваал",
    "tab": "general",
-   "regex": "нак ваа"
+   "regex": "^Вневременной знак ваа"
   },
   {
    "icon": "https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9FdGVybmFsRW1waXJlRnJhZ21lbnQiLCJzY2FsZSI6MX1d/974fcca603/EternalEmpireFragment.png",
    "id": "timeless-eternal-emblem",
    "name": "Вневременной знак Вечных",
    "tab": "general",
-   "regex": "ечны"
+   "regex": "нак Веч"
   },
   {
    "icon": "https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9LYXJ1aUZyYWdtZW50Iiwic2NhbGUiOjF9XQ/c616b0ee65/KaruiFragment.png",
    "id": "timeless-karui-emblem",
    "name": "Вневременной знак каруи",
    "tab": "general",
-   "regex": "нак кар"
+   "regex": "^Вневременной знак кар"
   },
   {
    "icon": "https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9NYXJha2V0aEZyYWdtZW50Iiwic2NhbGUiOjF9XQ/a81c4968ab/MarakethFragment.png",
    "id": "timeless-maraketh-emblem",
    "name": "Вневременной знак маракетов",
    "tab": "general",
-   "regex": "нак мар"
+   "regex": "^Вневременной знак мар"
   },
   {
    "icon": "https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9UZW1wbGFyRnJhZ21lbnQiLCJzY2FsZSI6MX1d/e7ede9f816/TemplarFragment.png",
    "id": "timeless-templar-emblem",
    "name": "Вневременной знак храмовников",
    "tab": "general",
-   "regex": "нак хра"
+   "regex": "^Вневременной знак хра"
   },
   {
    "icon": "https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9WYWFsU2hhcmQiLCJzY2FsZSI6MX1d/6b356215ac/VaalShard.png",
@@ -222,7 +222,7 @@
    "id": "an-audience-with-the-king",
    "name": "Встреча с Хозяином",
    "tab": "general",
-   "regex": "Встр"
+   "regex": "озяи"
   },
   {
    "icon": "https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9IdW50ZXJGcmFnbWVudCIsInNjYWxlIjoxfV0/3ad268c533/HunterFragment.png",
@@ -243,7 +243,7 @@
    "id": "veritanias-crest",
    "name": "Герб Веритании",
    "tab": "general",
-   "regex": "ерит"
+   "regex": "ерита"
   },
   {
    "icon": "https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9XYXJsb3JkRnJhZ21lbnQiLCJzY2FsZSI6MX1d/3d735a8303/WarlordFragment.png",
@@ -264,7 +264,7 @@
    "id": "zoraths-eye-of-authority",
    "name": "Глаз Зората власти",
    "tab": "general",
-   "regex": "влас"
+   "regex": "ата вла"
   },
   {
    "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvUXVlc3RJdGVtcy9Cb3NzRW50cmFuY2VLZXlNdXJkZXJvdXMiLCJzY2FsZSI6MX1d/8c71224880/BossEntranceKeyMurderous.png",
@@ -313,7 +313,7 @@
    "id": "mid",
    "name": "Жертва в полночь",
    "tab": "general",
-   "regex": "полн"
+   "regex": "олно"
   },
   {
    "icon": "https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9WYWFsMDQiLCJzY2FsZSI6MX1d/3be8311430/Vaal04.png",
@@ -390,28 +390,28 @@
    "id": "offer",
    "name": "Подношение богине",
    "tab": "general",
-   "regex": "Подн"
+   "regex": "днош"
   },
   {
    "icon": "https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9VYmVyQm9zc0tleUVhdGVyT2ZXb3JsZHMiLCJzY2FsZSI6MX1d/6022aa0897/UberBossKeyEaterOfWorlds.png",
    "id": "devouring-fragment",
    "name": "Пожирающий фрагмент",
    "tab": "general",
-   "regex": "Пожи"
+   "regex": "ираю"
   },
   {
    "icon": "https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9MYWJ5cmludGhIYXJ2ZXN0SW5mdXNlZDIiLCJzY2FsZSI6MX1d/31d582aac1/LabyrinthHarvestInfused2.png",
    "id": "offer-dedication",
    "name": "Посвящение богине",
    "tab": "general",
-   "regex": "Посв"
+   "regex": "ящени"
   },
   {
    "icon": "https://web.poecdn.comundefined",
    "id": "message-in-a-bottle",
    "name": "Послание в бутылке",
    "tab": "general",
-   "regex": "Посл"
+   "regex": "слан"
   },
   {
    "icon": "https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9VYmVyQm9zc0tleVNpcnVzIiwic2NhbGUiOjF9XQ/094681ee85/UberBossKeySirus.png",
@@ -446,14 +446,14 @@
    "id": "ritual-vessel",
    "name": "Ритуальный сосуд",
    "tab": "general",
-   "regex": "ьный сос"
+   "regex": "^Ритуальный сос"
   },
   {
    "icon": "https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9Pc2hhYmlNYXAiLCJzY2FsZSI6MX1d/ae20ec4d5f/OshabiMap.png",
    "id": "sacred-blossom",
    "name": "Священное соцветие",
    "tab": "general",
-   "regex": "щенн"
+   "regex": "соцв"
   },
   {
    "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQXRsYXMvTWF2ZW5LZXlGcmFnbWVudCIsInNjYWxlIjoxfV0/014d46c630/MavenKeyFragment.png",
@@ -474,7 +474,7 @@
    "id": "synthesising-fragment",
    "name": "Синтезирующий фрагмент",
    "tab": "general",
-   "regex": "Синт"
+   "regex": "тези"
   },
   {
    "icon": "https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9VYmVyVmFhbDAyIiwic2NhbGUiOjF9XQ/9f6c126c9e/UberVaal02.png",
@@ -530,7 +530,7 @@
    "id": "fragment-of-purification",
    "name": "Фрагмент искупления",
    "tab": "general",
-   "regex": "иску"
+   "regex": "скуп"
   },
   {
    "icon": "https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9BdGxhc01hcHMvRnJhZ21lbnRNaW5vdGF1ciIsInNjYWxlIjoxfV0/e976236f7a/FragmentMinotaur.png",
@@ -544,21 +544,21 @@
    "id": "lonely-fragment",
    "name": "Фрагмент одиночества",
    "tab": "general",
-   "regex": "ент оди"
+   "regex": "гмент оди"
   },
   {
    "icon": "https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9BdGxhc01hcEd1YXJkaWFuRmlyZSIsInNjYWxlIjoxfV0/7497ffd64d/AtlasMapGuardianFire.png",
    "id": "fragment-of-enslavement",
    "name": "Фрагмент порабощения",
    "tab": "general",
-   "regex": "пора"
+   "regex": "ораб"
   },
   {
    "icon": "https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9VYmVyQm9zc0tleUluY2FybmF0aW9uT2ZEcmVhZCIsInNjYWxlIjoxfV0/76b7ac3faa/UberBossKeyIncarnationOfDread.png",
    "id": "reverent-fragment",
    "name": "Фрагмент почитания",
    "tab": "general",
-   "regex": "ент поч"
+   "regex": "гмент поч"
   },
   {
    "icon": "https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9VYmVyRWxkZXIwMiIsInNjYWxlIjoxfV0/085f7abd0b/UberElder02.png",
@@ -572,14 +572,14 @@
    "id": "reality-fragment",
    "name": "Фрагмент реальности",
    "tab": "general",
-   "regex": "реал"
+   "regex": "ент реа"
   },
   {
    "icon": "https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9VYmVyQm9zc0tleUluY2FybmF0aW9uT2ZGZWFyIiwic2NhbGUiOjF9XQ/cae043624e/UberBossKeyIncarnationOfFear.png",
    "id": "traumatic-fragment",
    "name": "Фрагмент травмы",
    "tab": "general",
-   "regex": "ент тра"
+   "regex": "гмент тра"
   },
   {
    "icon": "https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9BdGxhc01hcEd1YXJkaWFuSG9seSIsInNjYWxlIjoxfV0/b9ef66f983/AtlasMapGuardianHoly.png",
@@ -593,7 +593,7 @@
    "id": "fragment-of-terror",
    "name": "Фрагмент ужаса",
    "tab": "general",
-   "regex": "жаса"
+   "regex": "ент ужа"
   },
   {
    "icon": "https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9BdGxhc01hcHMvRnJhZ21lbnRQaG9lbml4Iiwic2NhbGUiOjF9XQ/3091d971ad/FragmentPhoenix.png",
@@ -607,7 +607,7 @@
    "id": "fragment-of-shape",
    "name": "Фрагмент формы",
    "tab": "general",
-   "regex": "форм"
+   "regex": "ормы"
   },
   {
    "icon": "https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9BdGxhc01hcHMvRnJhZ21lbnRDaGltZXJhIiwic2NhbGUiOjF9XQ/191b838e55/FragmentChimera.png",
@@ -621,7 +621,7 @@
    "id": "influencing-scarab-of-the-elder",
    "name": "Влиятельный скарабей Древнего",
    "tab": "scarab",
-   "regex": "евне"
+   "regex": "бей Дре"
   },
   {
    "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2NhcmFicy9UaWVyNFNjYXJhYlNoYXBlciIsInNjYWxlIjoxfV0/320c05daeb/Tier4ScarabShaper.png",
@@ -642,7 +642,7 @@
    "id": "influencing-scarab-of-the-shaper",
    "name": "Влиятельный скарабей Создателя",
    "tab": "scarab",
-   "regex": "Созд"
+   "regex": "бей Соз"
   },
   {
    "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2NhcmFicy9MZXNzZXJTY2FyYWJTZXR0bGVycyIsInNjYWxlIjoxfV0/591426ae68/LesserScarabSettlers.png",
@@ -663,14 +663,14 @@
    "id": "kalguuran-scarab-of-guarded-riches",
    "name": "Калгууранский скарабей охраняемых богатств",
    "tab": "scarab",
-   "regex": "раня"
+   "regex": "гатс"
   },
   {
    "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2NhcmFicy9HcmVhdGVyU2NhcmFiU2V0dGxlcnMiLCJzY2FsZSI6MX1d/24f57aa157/GreaterScarabSettlers.png",
    "id": "kalguuran-scarab-of-refinement",
    "name": "Калгууранский скарабей переплавки",
    "tab": "scarab",
-   "regex": "ереп"
+   "regex": "плав"
   },
   {
    "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2NhcmFicy9MZXNzZXJTY2FyYWJSaXR1YWwiLCJzY2FsZSI6MX1d/08f82dab28/LesserScarabRitual.png",
@@ -733,21 +733,21 @@
    "id": "horned-scarab-of-bloodlines",
    "name": "Рогатый скарабей Родословных",
    "tab": "scarab",
-   "regex": "Родо"
+   "regex": "одос"
   },
   {
    "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2NhcmFicy9TdXBlclNjYXJhYjMiLCJzY2FsZSI6MX1d/64d9f06e78/SuperScarab3.png",
    "id": "horned-scarab-of-preservation",
    "name": "Рогатый скарабей сохранения",
    "tab": "scarab",
-   "regex": "сохр"
+   "regex": "ране"
   },
   {
    "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2NhcmFicy9TdXBlclNjYXJhYjUiLCJzY2FsZSI6MX1d/cbdd57fa7e/SuperScarab5.png",
    "id": "horned-scarab-of-tradition",
    "name": "Рогатый скарабей традиций",
    "tab": "scarab",
-   "regex": "трад"
+   "regex": "адиц"
   },
   {
    "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2NhcmFicy9MZXNzZXJTY2FyYWJBbmFyY2h5Iiwic2NhbGUiOjF9XQ/73d1ee9b23/LesserScarabAnarchy.png",
@@ -761,7 +761,14 @@
    "id": "anarchy-scarab-of-the-exceptional",
    "name": "Скарабей Анархии исключительности",
    "tab": "scarab",
-   "regex": "искл"
+   "regex": "ельнос"
+  },
+  {
+   "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2NhcmFicy9Ob3JtYWxTY2FyYWJBbmFyY2h5Iiwic2NhbGUiOjF9XQ/d391e90e68/NormalScarabAnarchy.png",
+   "id": "anarchy-scarab-of-gigantification",
+   "name": "Скарабей Анархии исполинства",
+   "tab": "scarab",
+   "regex": "поли"
   },
   {
    "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2NhcmFicy9HcmVhdGVyU2NhcmFiQW5hcmNoeSIsInNjYWxlIjoxfV0/4697e57871/GreaterScarabAnarchy.png",
@@ -789,7 +796,7 @@
    "id": "abyss-scarab-of-crystals",
    "name": "Скарабей Бездны кристаллов",
    "tab": "scarab",
-   "regex": "крис"
+   "regex": "алло"
   },
   {
    "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2NhcmFicy9Ob3JtYWxTY2FyYWJBYnlzcyIsInNjYWxlIjoxfV0/e28a53e1a0/NormalScarabAbyss.png",
@@ -810,7 +817,7 @@
    "id": "abyss-scarab-of-the-consort",
    "name": "Скарабей Бездны спутницы",
    "tab": "scarab",
-   "regex": "спут"
+   "regex": "путн"
   },
   {
    "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2NhcmFicy9MZXNzZXJTY2FyYWJCZWFzdHMiLCJzY2FsZSI6MX1d/a13711c8ed/LesserScarabBeasts.png",
@@ -824,7 +831,7 @@
    "id": "bestiary-scarab-of-the-herd",
    "name": "Скарабей Бестиария стаи",
    "tab": "scarab",
-   "regex": "стаи"
+   "regex": "рия ста"
   },
   {
    "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2NhcmFicy9HcmVhdGVyU2NhcmFiQmVhc3RzIiwic2NhbGUiOjF9XQ/09caa391c6/GreaterScarabBeasts.png",
@@ -838,7 +845,7 @@
    "id": "scarab-of-divinity",
    "name": "Скарабей божественности",
    "tab": "scarab",
-   "regex": "венно"
+   "regex": "веннос"
   },
   {
    "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2NhcmFicy9MZXNzZXJTY2FyYWJJbmN1cnNpb24iLCJzY2FsZSI6MX1d/4afd758a13/LesserScarabIncursion.png",
@@ -866,7 +873,7 @@
    "id": "incursion-scarab-of-champions",
    "name": "Скарабей Вмешательства чемпионов",
    "tab": "scarab",
-   "regex": "чемп"
+   "regex": "тва чем"
   },
   {
    "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2NhcmFicy9MZXNzZXJTY2FyYWJEb21pbmF0aW9uIiwic2NhbGUiOjF9XQ/76cedf832c/LesserScarabDomination.png",
@@ -880,7 +887,7 @@
    "id": "domination-scarab-of-apparitions",
    "name": "Скарабей Господства призраков",
    "tab": "scarab",
-   "regex": "приз"
+   "regex": "рако"
   },
   {
    "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2NhcmFicy9UaWVyNFNjYXJhYkRvbWluYXRpb24iLCJzY2FsZSI6MX1d/0d55e72414/Tier4ScarabDomination.png",
@@ -915,7 +922,7 @@
    "id": "delirium-scarab-of-mania",
    "name": "Скарабей Делириума мании",
    "tab": "scarab",
-   "regex": "мани"
+   "regex": "мании"
   },
   {
    "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2NhcmFicy9BbHRHcmVhdGVyU2NhcmFiRGVsaXJpdW0iLCJzY2FsZSI6MX1d/5690762715/AltGreaterScarabDelirium.png",
@@ -929,7 +936,7 @@
    "id": "delirium-scarab-of-paranoia",
    "name": "Скарабей Делириума паранойи",
    "tab": "scarab",
-   "regex": "пара"
+   "regex": "нойи"
   },
   {
    "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2NhcmFicy9MZXNzZXJTY2FyYWJIYXJ2ZXN0Iiwic2NhbGUiOjF9XQ/976dcf6526/LesserScarabHarvest.png",
@@ -964,7 +971,7 @@
    "id": "ambush-scarab-of-potency",
    "name": "Скарабей Засады могущества",
    "tab": "scarab",
-   "regex": "могу"
+   "regex": "щества"
   },
   {
    "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2NhcmFicy9Ob3JtYWxTY2FyYWJTdHJvbmdib3hlcyIsInNjYWxlIjoxfV0/2654dacfee/NormalScarabStrongboxes.png",
@@ -985,14 +992,7 @@
    "id": "ambush-scarab-of-containment",
    "name": "Скарабей Засады содержания",
    "tab": "scarab",
-   "regex": "соде"
-  },
-  {
-   "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2NhcmFicy9HcmVhdGVyU2NhcmFiTWlzYyIsInNjYWxlIjoxfV0/7a40f7ea9f/GreaterScarabMisc.png",
-   "id": "scarab-of-hunted-traitors",
-   "name": "Скарабей затравленных предателей",
-   "tab": "scarab",
-   "regex": "затр"
+   "regex": "ржани"
   },
   {
    "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2NhcmFicy9MZXNzZXJTY2FyYWJCZXlvbmQiLCJzY2FsZSI6MX1d/28f0c03cf7/LesserScarabBeyond.png",
@@ -1006,7 +1006,7 @@
    "id": "beyond-scarab-of-resurgence",
    "name": "Скарабей Иномирья возрождения",
    "tab": "scarab",
-   "regex": "возр"
+   "regex": "рья воз"
   },
   {
    "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2NhcmFicy9UaWVyNFNjYXJhYkJleW9uZCIsInNjYWxlIjoxfV0/a1d0b3e27b/Tier4ScarabBeyond.png",
@@ -1020,7 +1020,7 @@
    "id": "beyond-scarab-of-haemophilia",
    "name": "Скарабей Иномирья кровопотери",
    "tab": "scarab",
-   "regex": "рово"
+   "regex": "овоп"
   },
   {
    "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2NhcmFicy9BbHROb3JtYWxTY2FyYWJNYXBzIiwic2NhbGUiOjF9XQ/41c689bbef/AltNormalScarabMaps.png",
@@ -1034,7 +1034,7 @@
    "id": "cartography-scarab-of-corruption",
    "name": "Скарабей картографии осквернения",
    "tab": "scarab",
-   "regex": "оскв"
+   "regex": "рнения"
   },
   {
    "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2NhcmFicy9Ob3JtYWxTY2FyYWJNYXBzIiwic2NhbGUiOjF9XQ/b41df1ff07/NormalScarabMaps.png",
@@ -1069,7 +1069,7 @@
    "id": "legion-scarab-of-eternal-conflict",
    "name": "Скарабей Легиона вечной войны",
    "tab": "scarab",
-   "regex": "войн"
+   "regex": "она веч"
   },
   {
    "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2NhcmFicy9Ob3JtYWxTY2FyYWJMZWdpb24iLCJzY2FsZSI6MX1d/986b842d3f/NormalScarabLegion.png",
@@ -1097,14 +1097,14 @@
    "id": "torment-scarab-of-possession",
    "name": "Скарабей Мучения одержимости",
    "tab": "scarab",
-   "regex": "ержи"
+   "regex": "жимос"
   },
   {
    "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2NhcmFicy9Ob3JtYWxTY2FyYWJUb3JtZW50Iiwic2NhbGUiOjF9XQ/4c94a84fd8/NormalScarabTorment.png",
    "id": "torment-scarab-of-peculiarity",
    "name": "Скарабей Мучения своеобразия",
    "tab": "scarab",
-   "regex": "свое"
+   "regex": "воео"
   },
   {
    "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2NhcmFicy9HcmVhdGVyU2NhcmFiTWlzYzEiLCJzY2FsZSI6MX1d/303001a475/GreaterScarabMisc1.png",
@@ -1118,7 +1118,7 @@
    "id": "scarab-of-the-dextral",
    "name": "Скарабей правши",
    "tab": "scarab",
-   "regex": "прав"
+   "regex": "равш"
   },
   {
    "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2NhcmFicy9MZXNzZXJTY2FyYWJCZXRyYXlhbCIsInNjYWxlIjoxfV0/d53970be47/LesserScarabBetrayal.png",
@@ -1132,7 +1132,7 @@
    "id": "betrayal-scarab-of-the-allflame",
    "name": "Скарабей Предательства Всепламени",
    "tab": "scarab",
-   "regex": "тва Все"
+   "regex": "тва Всеп"
   },
   {
    "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2NhcmFicy9UaWVyNFNjYXJhYkJldHJheWFsIiwic2NhbGUiOjF9XQ/4290457e94/Tier4ScarabBetrayal.png",
@@ -1160,7 +1160,7 @@
    "id": "divination-scarab-of-pilfering",
    "name": "Скарабей предсказания расхищения",
    "tab": "scarab",
-   "regex": "расх"
+   "regex": "асхи"
   },
   {
    "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2NhcmFicy9MZXNzZXJTY2FyYWJEaXZpbmF0aW9uIiwic2NhbGUiOjF9XQ/20ff060a8d/LesserScarabDivination.png",
@@ -1181,14 +1181,14 @@
    "id": "breach-scarab-of-lordship",
    "name": "Скарабей Разлома нестабильности",
    "tab": "scarab",
-   "regex": "нест"
+   "regex": "ома нес"
   },
   {
    "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2NhcmFicy9UaWVyNFNjYXJhYkJyZWFjaCIsInNjYWxlIjoxfV0/2e4da41035/Tier4ScarabBreach.png",
    "id": "breach-scarab-of-snares",
    "name": "Скарабей Разлома разъярённого роя",
    "tab": "scarab",
-   "regex": "разъ"
+   "regex": "ъярё"
   },
   {
    "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2NhcmFicy9BbHRUaWVyNFNjYXJhYkJyZWFjaCIsInNjYWxlIjoxfV0/d6fe5cdce6/AltTier4ScarabBreach.png",
@@ -1202,14 +1202,14 @@
    "id": "breach-scarab",
    "name": "Скарабей Разлома улья",
    "tab": "scarab",
-   "regex": "улья"
+   "regex": "ома уль"
   },
   {
    "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2NhcmFicy9UaWVyNFNjYXJhYk1pc2MyIiwic2NhbGUiOjF9XQ/d19b59b6b8/Tier4ScarabMisc2.png",
    "id": "scarab-of-radiant-storms",
    "name": "Скарабей сияющих бурь",
    "tab": "scarab",
-   "regex": "сияю"
+   "regex": "бурь"
   },
   {
    "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2NhcmFicy9MZXNzZXJTY2FyYWJCbGlnaHQiLCJzY2FsZSI6MX1d/401222e4f4/LesserScarabBlight.png",
@@ -1230,7 +1230,7 @@
    "id": "blight-scarab-of-the-blightheart",
    "name": "Скарабей Скверны сердцевины",
    "tab": "scarab",
-   "regex": "серд"
+   "regex": "дцев"
   },
   {
    "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2NhcmFicy9UaWVyNFNjYXJhYkJsaWdodCIsInNjYWxlIjoxfV0/7ecd3dcebc/Tier4ScarabBlight.png",
@@ -1272,14 +1272,14 @@
    "id": "essence-scarab-of-calcification",
    "name": "Скарабей Сущности окостенения",
    "tab": "scarab",
-   "regex": "окос"
+   "regex": "тене"
   },
   {
    "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2NhcmFicy9HcmVhdGVyU2NhcmFiRXNzZW5jZSIsInNjYWxlIjoxfV0/28e74041a5/GreaterScarabEssence.png",
    "id": "essence-scarab-of-stability",
    "name": "Скарабей Сущности стабильности",
    "tab": "scarab",
-   "regex": "сти ста"
+   "regex": "ости ста"
   },
   {
    "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2NhcmFicy9MZXNzZXJTY2FyYWJVbHRpbWF0dW0iLCJzY2FsZSI6MX1d/b1b423625d/LesserScarabUltimatum.png",
@@ -1293,7 +1293,7 @@
    "id": "ultimatum-scarab-of-catalysing",
    "name": "Скарабей Ультиматума катализа",
    "tab": "scarab",
-   "regex": "атал"
+   "regex": "ума кат"
   },
   {
    "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2NhcmFicy9BbHRUaWVyNFNjYXJhYlVsdGltYXR1bSIsInNjYWxlIjoxfV0/080e60e969/AltTier4ScarabUltimatum.png",
@@ -1356,7 +1356,7 @@
    "id": "expedition-scarab-of-runefinding",
    "name": "Скарабей Экспедиции поиска рун",
    "tab": "scarab",
-   "regex": "поис"
+   "regex": "ции пои"
   },
   {
    "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2NhcmFicy9MZXNzZXJTY2FyYWJTdWxwaGl0ZSIsInNjYWxlIjoxfV0/9bdde2cec0/LesserScarabSulphite.png",
@@ -1384,7 +1384,7 @@
    "id": "trarthan-scarab-of-infamy",
    "name": "Тератский скарабей бесчестия",
    "tab": "scarab",
-   "regex": "бесч"
+   "regex": "есче"
   },
   {
    "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2NhcmFicy9HcmVhdGVyU2NhcmFiTWVyY2VuYXJpZXMiLCJzY2FsZSI6MX1d/552723764a/GreaterScarabMercenaries.png",
@@ -1412,7 +1412,7 @@
    "id": "titanic-scarab-of-legend",
    "name": "Титанический скарабей легенды",
    "tab": "scarab",
-   "regex": "леге"
+   "regex": "енды"
   },
   {
    "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2NhcmFicy9Ob3JtYWxTY2FyYWJVbmlxdWUiLCJzY2FsZSI6MX1d/e2945f5878/NormalScarabUnique.png",
