@@ -2,14 +2,17 @@ import { Show, useContext } from "solid-js";
 import { FragmentsContext } from "./context";
 
 export function SearchInput() {
-  const { search, setSearch } = useContext(FragmentsContext);
+  const { importRegex, search, setSearch } = useContext(FragmentsContext);
 
   return (
     <label class="input w-full">
       <span class="label">Поиск</span>
       <input
         onInput={(e) => setSearch(e.currentTarget.value)}
-        placeholder="Название предмета: «риск», «Зората», «жертва»…"
+        onPaste={(e) => {
+          if (importRegex(e.clipboardData?.getData("text") ?? "")) e.preventDefault();
+        }}
+        placeholder="Название предмета («риск», «Зората») или вставьте готовую строку поиска"
         type="text"
         value={search()}
       />

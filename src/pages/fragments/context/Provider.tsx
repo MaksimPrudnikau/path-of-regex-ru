@@ -5,6 +5,7 @@ import { createProfileActions } from "~/components/profile";
 import { divineChaosOf, type PriceSnapshot, pricesOf } from "~/lib/prices";
 import { items } from "../data";
 import { buildFragmentBatches, MAX_REGEX_LENGTH } from "../regex-panel/buildFragmentRegex";
+import { parseFragmentRegex } from "../regex-panel/parseFragmentRegex";
 import type { TabId } from "../tabs";
 import { FragmentsContext, type FragmentsStore, initialFragmentsState, type ListName } from "./context";
 import { isInPriceRange, matchesSearch, sortByPrice } from "./derive";
@@ -56,6 +57,17 @@ export function FragmentsContextProvider(props: ParentProps<{ prices: PriceSnaps
         batchIndex: currentBatch,
         batches,
         currentProfileName: saved.currentName,
+        importRegex: (text) => {
+          const parsed = parseFragmentRegex(text);
+          if (parsed === undefined) return false;
+          batch(() => {
+            update({ maxChaos: null, minChaos: null, tab: parsed.tab });
+            updateSelection({ exclude: parsed.exclude, include: parsed.include });
+            setBatchIndex(0);
+            setSearch("");
+          });
+          return true;
+        },
         isSelected: (list, id) => selection()[list].includes(id),
         priceOf: (id) => prices()[id],
         profileNames: () => Object.keys(saved.profiles),

@@ -12,6 +12,21 @@ export type Release = {
 
 export const releases: Release[] = [
   {
+    version: "1.3.1",
+    date: "2026-11-02",
+    changes: [
+      () => (
+        <>
+          На странице{" "}
+          <PageLink href="/fragments" icon="fragments">
+            фрагментов
+          </PageLink>{" "}
+          в поиск можно <b>вставить готовую строку поиска</b>, и все её предметы сразу выберутся
+        </>
+      ),
+    ],
+  },
+  {
     version: "1.3.0",
     date: "2026-11-01",
     changes: [
