@@ -12,7 +12,7 @@ export function CurrencySwitcher() {
           <button
             aria-pressed={currency() === option}
             class="btn btn-sm join-item gap-1.5 font-normal"
-            classList={{ "btn-primary": currency() === option }}
+            classList={{ "btn-primary": currency() === option, "btn-ghost border-base-content/20": currency() !== option }}
             disabled={option === "divine" && !isDivineAvailable()}
             onClick={() => setCurrency(option)}
             title={option === "divine" && !isDivineAvailable() ? "Для этой лиги на poe.ninja нет курса дивана" : undefined}

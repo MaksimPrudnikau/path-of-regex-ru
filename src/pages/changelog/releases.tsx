@@ -24,6 +24,12 @@ export const releases: Release[] = [
           в поиск можно <b>вставить готовую строку поиска</b>, и все её предметы сразу выберутся
         </>
       ),
+      () => (
+        <>
+          Цены в <GameEntity icon="chaos" tone="text-secondary">хаосах</GameEntity> и{" "}
+          <GameEntity icon="divine" tone="text-warning">диванах</GameEntity> округляются до сотых
+        </>
+      ),
     ],
   },
   {

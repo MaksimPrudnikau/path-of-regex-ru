@@ -12,7 +12,7 @@ export function formatPrice(chaos: number, currency: Currency, chaosPerUnit: num
 }
 
 export function toUnit(chaos: number, chaosPerUnit: number): number {
-  return chaosPerUnit === 1 ? chaos : Number((chaos / chaosPerUnit).toPrecision(3));
+  return Number((chaos / chaosPerUnit).toFixed(2));
 }
 
 function formatDivine(price: number): string {
