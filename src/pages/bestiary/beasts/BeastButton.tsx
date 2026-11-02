@@ -2,7 +2,7 @@ import { createMemo, Show, useContext } from "solid-js";
 import { BestiaryContext } from "../context";
 import { type Beast, recipeLabel, recipesOf } from "../data";
 import { BEAST_TONES } from "../beastTone";
-import { CURRENCIES, formatPrice } from "../price/currency";
+import { CURRENCIES, formatPrice } from "~/components/price/currency";
 
 type Props = {
   beast: Beast;

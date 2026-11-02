@@ -1,10 +1,10 @@
 import { For, useContext } from "solid-js";
-import { BestiaryContext } from "../context";
+import { PriceControlsContext } from "./context";
 import type { Currency } from "./currency";
 import { indexFrom } from "./priceSteps";
 
 export function PriceCheckpoints(props: { steps: number[] }) {
-  const { chaosPerUnit, currency } = useContext(BestiaryContext);
+  const { chaosPerUnit, currency } = useContext(PriceControlsContext);
 
   return (
     <For each={checkpoints(props.steps, CHECKPOINT_PRICES[currency()], chaosPerUnit())}>

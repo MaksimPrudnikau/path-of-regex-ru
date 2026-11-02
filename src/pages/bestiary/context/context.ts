@@ -1,8 +1,7 @@
 import { type Accessor, createContext } from "solid-js";
 import type { ProfileControls } from "~/components/profile";
 import type { Beast, BeastColor } from "../data";
-import type { Currency } from "../price/currency";
-import type { PriceSnapshot } from "../price/prices";
+import type { Currency } from "~/components/price/currency";
 
 export type BestiaryStore = {
   selected: string[];
@@ -18,7 +17,6 @@ export type BestiaryStore = {
 
 export type Context = ProfileControls & {
   state: Accessor<BestiaryStore>;
-  priceSnapshot: Accessor<PriceSnapshot>;
   update: (patch: Partial<BestiaryStore>) => void;
   applyFilters: (patch: Partial<BestiaryStore>) => void;
   regex: Accessor<string>;
@@ -29,7 +27,6 @@ export type Context = ProfileControls & {
   priceOf: (id: string) => number | undefined;
   currency: Accessor<Currency>;
   chaosPerUnit: Accessor<number>;
-  isDivineAvailable: Accessor<boolean>;
   search: Accessor<string>;
   setSearch: (value: string) => void;
   isSelected: (id: string) => boolean;

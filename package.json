@@ -32,7 +32,11 @@
     "bestiary:simulate": "tsx scripts/bestiary/simulate.ts",
     "flasks:fetch": "node scripts/flasks/fetch-poedb.mjs",
     "flasks:check": "node scripts/flasks/check.mjs",
-    "flasks:simulate": "tsx scripts/flasks/simulate.ts"
+    "flasks:simulate": "tsx scripts/flasks/simulate.ts",
+    "fragments:fetch": "tsx scripts/fragments/fetch-poedb.mjs",
+    "fragments:prices": "tsx scripts/fragments/prices.ts",
+    "fragments:check": "node scripts/fragments/check.mjs",
+    "fragments:simulate": "tsx scripts/fragments/simulate.ts"
   },
   "type": "module",
   "engines": {

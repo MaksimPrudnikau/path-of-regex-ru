@@ -12,6 +12,43 @@ export type Release = {
 
 export const releases: Release[] = [
   {
+    version: "1.3.1",
+    date: "2026-11-02",
+    changes: [
+      () => (
+        <>
+          На странице{" "}
+          <PageLink href="/fragments" icon="fragments">
+            фрагментов
+          </PageLink>{" "}
+          в поиск можно <b>вставить готовую строку поиска</b>, и все её предметы сразу выберутся
+        </>
+      ),
+    ],
+  },
+  {
+    version: "1.3.0",
+    date: "2026-11-01",
+    changes: [
+      () => (
+        <>
+          Добавлена страница{" "}
+          <PageLink href="/fragments" icon="fragments">
+            фрагментов
+          </PageLink>
+          : строка поиска для вкладки тайника с четырьмя разделами
+        </>
+      ),
+      () => (
+        <>
+          Слайдер цен сразу выбирает все предметы из диапазона, цены показываются в{" "}
+          <GameEntity icon="chaos" tone="text-secondary">хаосах</GameEntity> или{" "}
+          <GameEntity icon="divine" tone="text-warning">диванах</GameEntity>
+        </>
+      ),
+    ],
+  },
+  {
     version: "1.2.1",
     date: "2026-10-29",
     changes: [

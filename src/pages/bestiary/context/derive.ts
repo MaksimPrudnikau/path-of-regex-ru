@@ -1,5 +1,5 @@
 import type { Beast } from "../data";
-import type { League } from "../price/prices";
+import type { League } from "~/lib/prices";
 import type { BestiaryStore } from "./context";
 
 export function sortByPrice(list: Beast[], prices: League["prices"]): Beast[] {

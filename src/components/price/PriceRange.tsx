@@ -1,26 +1,25 @@
 import { createMemo, createSignal, useContext } from "solid-js";
-import { BestiaryContext } from "../context";
+import { PriceControlsContext } from "./context";
 import { PriceCheckpoints } from "./PriceCheckpoints";
 import { PriceField } from "./PriceField";
-import { indexFrom, indexTo, priceSteps } from "./priceSteps";
+import { indexFrom, indexTo } from "./priceSteps";
 
 export function PriceRange() {
-  const { applyFilters, priceOf, state, visibleBeasts } = useContext(BestiaryContext);
-  const steps = createMemo(() => priceSteps(visibleBeasts().map((beast) => priceOf(beast.id))));
+  const { maxChaos, minChaos, setRange, steps } = useContext(PriceControlsContext);
   const last = createMemo(() => Math.max(steps().length - 1, 0));
-  const fromIndex = createMemo(() => indexFrom(steps(), state().minChaos));
-  const toIndex = createMemo(() => indexTo(steps(), state().maxChaos));
+  const fromIndex = createMemo(() => indexFrom(steps(), minChaos()));
+  const toIndex = createMemo(() => indexTo(steps(), maxChaos()));
   const share = (index: number) => (last() === 0 ? 0 : index / last());
   const [isFromOnTop, setIsFromOnTop] = createSignal(false);
 
   const moveFrom = (input: HTMLInputElement) => {
     const index = Math.min(Number(input.value), toIndex());
-    applyFilters({ minChaos: index === 0 ? null : steps()[index] });
+    setRange({ minChaos: index === 0 ? null : steps()[index] });
     input.value = String(fromIndex());
   };
   const moveTo = (input: HTMLInputElement) => {
     const index = Math.max(Number(input.value), fromIndex());
-    applyFilters({ maxChaos: index === last() ? null : steps()[index] });
+    setRange({ maxChaos: index === last() ? null : steps()[index] });
     input.value = String(toIndex());
   };
 
@@ -38,13 +37,13 @@ export function PriceRange() {
       <div class="flex items-center justify-between">
         <PriceField
           label="Цена от"
-          onChange={(minChaos) => applyFilters({ minChaos })}
-          value={state().minChaos ?? steps()[0]}
+          onChange={(minChaos) => setRange({ minChaos })}
+          value={minChaos() ?? steps()[0]}
         />
         <PriceField
           label="Цена до"
-          onChange={(maxChaos) => applyFilters({ maxChaos })}
-          value={state().maxChaos ?? steps()[last()]}
+          onChange={(maxChaos) => setRange({ maxChaos })}
+          value={maxChaos() ?? steps()[last()]}
         />
       </div>
       <div class="relative mb-6 grid [--thumb:calc(var(--size-selector,.25rem)*5)]" onPointerMove={pickNearestThumb}>

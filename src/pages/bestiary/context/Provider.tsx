@@ -1,8 +1,10 @@
 import { batch, createMemo, createSignal, type ParentProps } from "solid-js";
 import { createProfileActions } from "~/components/profile";
+import { PriceControlsContext } from "~/components/price";
+import { priceSteps } from "~/components/price/priceSteps";
 import { beasts } from "../data";
-import type { Currency } from "../price/currency";
-import { divineChaosOf, type PriceSnapshot, pricesOf } from "../price/prices";
+import type { Currency } from "~/components/price/currency";
+import { divineChaosOf, type PriceSnapshot, pricesOf } from "~/lib/prices";
 import { buildBestiaryBatches, MAX_REGEX_LENGTH } from "../regex-panel/buildBestiaryRegex";
 import { BestiaryContext, type BestiaryStore, initialBestiaryState } from "./context";
 import { isInPriceRange, matchesFilters, sortByPrice } from "./derive";
@@ -23,6 +25,8 @@ export function BestiaryContextProvider(props: ParentProps<{ prices: PriceSnapsh
   const visibleBeasts = createMemo(() => sortedBeasts().filter((beast) => matchesFilters(beast, state())));
   const batches = createMemo(() => buildBestiaryBatches(state(), sortedBeasts(), MAX_REGEX_LENGTH));
   const currentBatch = createMemo(() => Math.max(0, Math.min(batchIndex(), batches().length - 1)));
+
+  const steps = createMemo(() => priceSteps(visibleBeasts().map((beast) => prices()[beast.id])));
 
   const update = (patch: Partial<BestiaryStore>) => saved.setProfiles(saved.currentName(), patch);
   const applyFilters = (patch: Partial<BestiaryStore>) =>
@@ -46,10 +50,8 @@ export function BestiaryContextProvider(props: ParentProps<{ prices: PriceSnapsh
         chaosPerUnit,
         currency,
         currentProfileName: saved.currentName,
-        isDivineAvailable: () => divineChaos() !== null,
         isSelected: (id) => selectedIds().has(id),
         priceOf: (id) => prices()[id],
-        priceSnapshot: () => props.prices,
         profileNames: () => Object.keys(saved.profiles),
         regex: () => batches()[currentBatch()] ?? "",
         reset: () =>
@@ -68,7 +70,23 @@ export function BestiaryContextProvider(props: ParentProps<{ prices: PriceSnapsh
         visibleBeasts,
       }}
     >
-      {props.children}
+      <PriceControlsContext.Provider
+        value={{
+          chaosPerUnit,
+          currency,
+          isDivineAvailable: () => divineChaos() !== null,
+          league: () => state().league,
+          maxChaos: () => state().maxChaos,
+          minChaos: () => state().minChaos,
+          setCurrency: (next) => update({ currency: next }),
+          setLeague: (league) => applyFilters({ league }),
+          setRange: applyFilters,
+          snapshot: () => props.prices,
+          steps,
+        }}
+      >
+        {props.children}
+      </PriceControlsContext.Provider>
     </BestiaryContext.Provider>
   );
 }

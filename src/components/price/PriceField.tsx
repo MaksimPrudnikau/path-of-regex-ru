@@ -1,5 +1,5 @@
 import { createMemo, useContext } from "solid-js";
-import { BestiaryContext } from "../context";
+import { PriceControlsContext } from "./context";
 import { CURRENCIES, toUnit } from "./currency";
 
 type Props = {
@@ -9,7 +9,7 @@ type Props = {
 };
 
 export function PriceField(props: Props) {
-  const { chaosPerUnit, currency } = useContext(BestiaryContext);
+  const { chaosPerUnit, currency } = useContext(PriceControlsContext);
   const unit = createMemo(() => CURRENCIES[currency()]);
 
   return (
